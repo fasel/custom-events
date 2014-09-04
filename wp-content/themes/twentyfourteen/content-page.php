@@ -14,7 +14,7 @@
 			// Page thumbnail and title.
 			twentyfourteen_post_thumbnail();
 			the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' );
-                }
+		}
 	?>
 
 	<div class="entry-content">
