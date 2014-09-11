@@ -45,7 +45,7 @@ if( !empty($_REQUEST['success']) ){
 		<div class="inside event-form-name">
 			<input type="text" name="event_name" id="event-name" value="<?php echo esc_attr($EM_Event->event_name,ENT_QUOTES); ?>" /><?php echo $required; ?>
 			<br />
-			<?php esc_html_e('The event name. Example: Birthday party', 'dbem'); ?>
+			Titel der Veranstaltung. Beispiel: Scherbendemo in der Glaserei
 			<?php em_locate_template('forms/event/group.php',true); ?>
 		</div>
 					
