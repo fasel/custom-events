@@ -164,8 +164,9 @@ class EM_Events extends EM_Object {
 		global $EM_Event;
 		$EM_Event_old = $EM_Event; //When looping, we can replace EM_Event global with the current event in the loop
 		//get page number if passed on by request (still needs pagination enabled to have effect)
-		if( !empty($args['pagination']) && !array_key_exists('page',$args) && !empty($_REQUEST['pno']) && is_numeric($_REQUEST['pno']) ){
-			$page = $args['page'] = $_REQUEST['pno'];
+		$page_queryvar = !empty($args['page_queryvar']) ? $args['page_queryvar'] : 'pno';
+		if( !empty($args['pagination']) && !array_key_exists('page',$args) && !empty($_REQUEST[$page_queryvar]) && is_numeric($_REQUEST[$page_queryvar]) ){
+			$page = $args['page'] = $_REQUEST[$page_queryvar];
 		}
 		//Can be either an array for the get search or an array of EM_Event objects
 		if( is_object(current($args)) && get_class((current($args))) == 'EM_Event' ){
@@ -290,17 +291,6 @@ class EM_Events extends EM_Object {
 					}
 					foreach ($events_dates as $event_day_ts => $events){
 						echo str_replace('#s', date_i18n($format,$event_day_ts). get_option('dbem_dates_separator') .date_i18n($format,$event_day_ts+(60*60*24*6)), $args['header_format']);
-						echo self::output($events, $atts);
-					}
-					break;
-				case 'singledaily':
-					$format = (!empty($args['date_format'])) ? $args['date_format']:get_option('date_format');
-					$events_dates = array();
-					foreach($EM_Events as $EM_Event){
-						$events_dates[strtotime($EM_Event->start_date)][] = $EM_Event;
-					}
-					foreach ($events_dates as $event_day_ts => $events){
-						echo '<tr><td><h2>'.date_i18n($format,$event_day_ts).'</h2></td></tr>';
 						echo self::output($events, $atts);
 					}
 					break;
