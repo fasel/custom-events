@@ -186,7 +186,7 @@ class SimpleLogger
 					$initiator_html .= sprintf(
 						$tmpl_initiator_html,
 						esc_html( $user->user_login ), // 1
-						esc_html( $user->user_email ), // 2
+						//esc_html( $user->user_email ), // 2
 						esc_html( $user_display_name ), // 3
 						$user_role, // 4
 						_x("You", "header output when initiator is the currently logged in user", "simple-history") // 5
@@ -205,7 +205,7 @@ class SimpleLogger
 							__('Deleted user (had id %1$s, email %2$s, login %3$s)', "simple-history") .
 							'</strong>',
 						esc_html( $context["_user_id"] ),
-						esc_html( $context["_user_email"] ),
+						//esc_html( $context["_user_email"] ),
 						esc_html( $context["_user_login"] )
 					);
 

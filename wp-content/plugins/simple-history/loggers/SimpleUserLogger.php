@@ -25,9 +25,9 @@ class SimpleUserLogger extends SimpleLogger
 				'user_logged_in' => __('Logged in', "simple-history"),
 				'user_unknown_logged_in' => __("Unknown user logged in", "simple-history"),
 				'user_logged_out' => __("Logged out", "simple-history"),
-				'user_updated_profile' => __("Edited the profile for user {edited_user_login} ({edited_user_email})", "simple-history"),
-				'user_created' => __("Created user {created_user_login} ({created_user_email}) with role {created_user_role}", "simple-history"),
-				'user_deleted' => __("Deleted user {deleted_user_login} ({deleted_user_email})", "simple-history"),
+				'user_updated_profile' => __("Edited the profile for user {edited_user_login} ()", "simple-history"),
+				'user_created' => __("Created user {created_user_login} () with role {created_user_role}", "simple-history"),
+				'user_deleted' => __("Deleted user {deleted_user_login} ()", "simple-history"),
 
 				/*
 				Text used in admin:
@@ -250,7 +250,7 @@ class SimpleUserLogger extends SimpleLogger
 
 					// Edited user still exist, so link to their profile
 					$context["edit_profile_link"] = get_edit_user_link($wp_user->ID);
-					$msg = __('Edited the profile for user <a href="{edit_profile_link}">{edited_user_login} ({edited_user_email})</a>', "simple-history");
+					$msg = __('Edited the profile for user <a href="{edit_profile_link}">{edited_user_login} ()</a>', "simple-history");
 					$output = $this->interpolate( $msg, $context );
 
 				} else {
@@ -281,7 +281,7 @@ class SimpleUserLogger extends SimpleLogger
 
 			$context = array(
 				"user_id" => $user->ID,
-				"user_email" => "",
+				"user_email" => null,
 				"user_login" => $user->user_login
 			);
 
@@ -290,7 +290,7 @@ class SimpleUserLogger extends SimpleLogger
 			$context["_initiator"] = SimpleLoggerLogInitiators::WP_USER;
 			$context["_user_id"] = $user->ID;
 			$context["_user_login"] = $user->user_login;
-			$context["_user_email"] = "";
+			$context["_user_email"] = null;
 			$context["server_http_user_agent"] = "";
 
 			$this->infoMessage("user_logged_in", $context);
