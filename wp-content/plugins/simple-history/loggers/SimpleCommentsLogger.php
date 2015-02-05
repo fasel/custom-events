@@ -371,7 +371,9 @@ class SimpleCommentsLogger extends SimpleLogger
 		$context = array(
 			"comment_ID" => $comment_ID_original,
 			"comment_author" => $comment_data->comment_author,
+//			"comment_author_email" => $comment_data->comment_author_email,
 			"comment_author_url" => $comment_data->comment_author_url,
+//			"comment_author_IP" => $comment_data->comment_author_IP,
 			"comment_content" => $comment_data->comment_content,
 			"comment_approved" => $comment_data->comment_approved,
 			"comment_agent" => $comment_data->comment_agent,
@@ -512,16 +514,6 @@ class SimpleCommentsLogger extends SimpleLogger
 			}
 
 		}
-
-		// @TODO: group comments by comment_type comment | trackback | pingback
-		// OR: different messages for different comment types?
-		/*
-		if ( isset( $comment_data["comment_type"] ) ) {
-
-			$comment_type = $comment_data["comment_type"];
-
-		}
-		*/
 
 		$this->infoMessage(
 			$message,
