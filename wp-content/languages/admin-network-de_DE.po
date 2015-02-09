@@ -33,7 +33,7 @@ msgstr "Bestätige deine Aktion"
 
 #: wp-admin/network/users.php:25
 msgid "Transfer or delete content before deleting users."
-msgstr "Übertrage oder lösche Inhalte bevor Benutzer gelöscht werden."
+msgstr "Übertrage oder lösche Inhalte bevor Benutzer_innen gelöscht werden."
 
 #: wp-admin/network/settings.php:139
 msgid "This email address will receive notifications. Registration and support emails will also come from this address."
@@ -41,11 +41,11 @@ msgstr "Diese E-Mail-Adresse bekommt die Benachrichtigungen. Registrierung- und 
 
 #: wp-admin/network/users.php:233
 msgid "Hover over any user on the list to make the edit links appear. The Edit link on the left will take you to their Edit User profile page; the Edit link on the right by any site name goes to an Edit Site screen for that site."
-msgstr "Fahre mit der Maus über die Benutzer in der Liste, um die Bearbeiten-Links anzeigen zu lassen. Der Bearbeiten-Link auf der linken Seite bringt dich zur &#8222;Benutzerprofil bearbeiten&#8220;-Seite. Der Bearbeiten-Link auf der rechten Seite jedes Webseiten-Namens führt zu einer Bearbeiten-Seite für diese Webseite."
+msgstr "Fahre mit der Maus über die Benutzer_innen in der Liste, um die Bearbeiten-Links anzeigen zu lassen. Der Bearbeiten-Link auf der linken Seite bringt dich zur &#8222;Benutzer_innenprofil bearbeiten&#8220;-Seite. Der Bearbeiten-Link auf der rechten Seite jedes Webseiten-Namens führt zu einer Bearbeiten-Seite für diese Webseite."
 
 #: wp-admin/network/index.php:39
 msgid "To add a new user, <strong>click Create a New User</strong>."
-msgstr "Um einen neuen Benutzer hinzuzufügen, <strong>klicke auf Benutzer neu hinzufügen</strong>."
+msgstr "Um eine_n neue_n Benutzer_in hinzuzufügen, <strong>klicke auf Benutzer_in neu hinzufügen</strong>."
 
 #: wp-admin/network/index.php:40
 msgid "To add a new site, <strong>click Create a New Site</strong>."
@@ -61,7 +61,7 @@ msgstr "Die Datenbankaktualisierung kann eine Weile dauern, bitte gedulde dich."
 
 #: wp-admin/network/index.php:42
 msgid "To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partial username, such as user&#42;."
-msgstr "Um nach einem Benutzer zu suchen, <strong>gib eine E-Mail-Adresse oder Benutzernamen ein</strong>. Benutze einen Platzhalter, um nach Teilen eines Nutzernamens zu suchen, z.B. Benutzer&#42;."
+msgstr "Um nach einer_m Benutzer_in zu suchen, <strong>gib eine E-Mail-Adresse oder Benutzer_innennamen ein</strong>. Benutze einen Platzhalter, um nach Teilen eines Nutzer_innennamens zu suchen, z.B. Benutzer_in&#42;."
 
 #: wp-admin/network/settings.php:117
 msgid "Options saved."
@@ -69,7 +69,7 @@ msgstr "Optionen gespeichert."
 
 #: wp-admin/network/index.php:27
 msgid "Add and manage sites or users"
-msgstr "Neue Seiten oder Benutzer hinzufügen oder bearbeiten"
+msgstr "Neue Seiten oder Benutzer_in hinzufügen oder bearbeiten"
 
 #: wp-admin/network/index.php:26
 msgid "From here you can:"
@@ -89,7 +89,7 @@ msgstr "Schnellzugriff"
 
 #: wp-admin/network/index.php:41
 msgid "To search for a user or site, use the search boxes."
-msgstr "Um nach einem Benutzer oder einer Seite zu suchen, benutze die Suchfelder."
+msgstr "Um nach einer_m Benutzer_in oder einer Seite zu suchen, benutze die Suchfelder."
 
 #: wp-admin/network/index.php:25
 msgid "Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network."
@@ -101,7 +101,7 @@ msgstr "Installiere und aktiviere Themen oder Plugins"
 
 #: wp-admin/network/index.php:38
 msgid "The Right Now widget on this screen provides current user and site counts on your network."
-msgstr "Das \"Auf einen Blick\"-Widget in dieser Ansicht zeigt die aktuellen Benutzerzugriffszahlen sowie Seitenzahlen Deines Netzwerks."
+msgstr "Das \"Auf einen Blick\"-Widget in dieser Ansicht zeigt die aktuellen Benutzer_innenzugriffszahlen sowie Seitenzahlen Deines Netzwerks."
 
 #: wp-admin/network/menu.php:59 wp-admin/network/upgrade.php:18
 #: wp-admin/network/upgrade.php:42 wp-admin/network/upgrade.php:107
@@ -142,11 +142,11 @@ msgstr "Füge die bezeichneten Zeilen Code zur wp-config.php (kurz vor <code>/*.
 
 #: wp-admin/network.php:238 wp-admin/network.php:483 wp-admin/network.php:520
 msgid "Subdirectory networks may not be fully compatible with custom wp-content directories."
-msgstr "Netzwerkinstallationen in Unterverzeichnissen sind nicht vollkommen kompatibel mit benutzerdefinierten wp-content Verzeichnissen."
+msgstr "Netzwerkinstallationen in Unterverzeichnissen sind nicht vollkommen kompatibel mit benutzer_innendefinierten wp-content Verzeichnissen."
 
 #: wp-admin/network/site-users.php:278 wp-admin/network/user-new.php:102
 msgid "Add User"
-msgstr "Benutzer hinzufügen"
+msgstr "Benutzer_in hinzufügen"
 
 #: wp-admin/network/themes.php:261
 msgctxt "network"
@@ -211,7 +211,7 @@ msgstr "Themes"
 
 #: wp-admin/network/site-users.php:230
 msgid "Enter the username and email."
-msgstr "Bitte Benutzernamen und E-Mail-Adresse eingeben"
+msgstr "Bitte Benutzer_innennamen und E-Mail-Adresse eingeben"
 
 #: wp-admin/network/users.php:66
 msgid "Site: %s"
@@ -219,19 +219,19 @@ msgstr "Seite: %s"
 
 #: wp-admin/network/site-users.php:218
 msgid "Select a user to change role."
-msgstr "Bitte einen Benutzer auswählen, um die Rolle ändern zu können."
+msgstr "Bitte eine_n Benutzer_in auswählen, um die Rolle ändern zu können."
 
 #: wp-admin/network/site-users.php:224
 msgid "Select a user to remove."
-msgstr "Bitte einen Benutzer auswählen, um diesen löschen zu können."
+msgstr "Bitte eine_n Benutzer_in auswählen, um diesen löschen zu können."
 
 #: wp-admin/network/site-users.php:227
 msgid "User created."
-msgstr "Der Benutzer wurde angelegt."
+msgstr "Der_die Benutzer_in wurde angelegt."
 
 #: wp-admin/network/user-new.php:51
 msgid "Cannot add user."
-msgstr "Der Benutzer konnte nicht hinzugefügt werden."
+msgstr "Der_die Benutzer_in konnte nicht hinzugefügt werden."
 
 #: wp-admin/network/settings.php:64
 msgid "<a href=\"http://codex.wordpress.org/Network_Admin_Settings_Screen\" target=\"_blank\">Documentation on Network Settings</a>"
@@ -239,15 +239,15 @@ msgstr "<a href=\"http://codex.wordpress.org/Network_Admin_Settings_Screen\" tar
 
 #: wp-admin/network/site-users.php:209
 msgid "User is already a member of this site."
-msgstr "Benutzer ist schon ein Mitglied dieser Seite."
+msgstr "Benutzer_in ist schon ein Mitglied dieser Seite."
 
 #: wp-admin/network/users.php:38
 msgid "Warning! User %s cannot be deleted."
-msgstr "Warnung! Benutzer %s kann nicht gelöscht werden."
+msgstr "Warnung! Benutzer_in %s kann nicht gelöscht werden."
 
 #: wp-admin/network/site-users.php:212
 msgid "Enter the username of an existing user."
-msgstr "Gib den Benutzernamen eines bestehenden Benutzers ein."
+msgstr "Gib den Benutzer_innennamen einer_s bestehenden Benutzer_in ein."
 
 #: wp-admin/network/themes.php:265
 msgid "You cannot delete a theme while it is active on the main site."
@@ -293,7 +293,7 @@ msgstr "Neu hinzufügen"
 
 #: wp-admin/network/user-new.php:29 wp-admin/network/users.php:242
 msgid "<a href=\"http://codex.wordpress.org/Network_Admin_Users_Screen\" target=\"_blank\">Documentation on Network Users</a>"
-msgstr "<a href=\"http://codex.wordpress.org/Network_Admin_Users_Screen\" target=\"_blank\">Dokumentation für Netzwerk Benutzer (en)</a>"
+msgstr "<a href=\"http://codex.wordpress.org/Network_Admin_Users_Screen\" target=\"_blank\">Dokumentation für Netzwerk Benutzer_innen (en)</a>"
 
 #: wp-admin/network/sites.php:40
 msgid "Clicking on bold headings can re-sort this table."
@@ -305,7 +305,7 @@ msgstr "Löschen ist eine permanente Aktion nach der Bestätigungsmeldung."
 
 #: wp-admin/network/user-new.php:23
 msgid "Add User will set up a new user account on the network and send that person an email with username and password."
-msgstr "Die Funktion \"Benutzer hinzufügen\" erstellt ein neues Benutzerkonto im Netzwerk und sendet der Person eine E-Mail mit Benutzername und Passwort."
+msgstr "Die Funktion \"Benutzer_in hinzufügen\" erstellt ein neues Benutzer_innenkonto im Netzwerk und sendet der Person eine E-Mail mit Benutzer_innenname und Passwort."
 
 #: wp-admin/network/menu.php:53
 msgid "Updates"
@@ -338,7 +338,7 @@ msgstr "Du hast nicht die erforderlichen Rechte, um Themes für diese Seite zu l
 
 #: wp-admin/network/user-new.php:17
 msgid "You do not have sufficient permissions to add users to this network."
-msgstr "Du hast nicht die erforderlichen Rechte, um Benutzer in diesem Netzwerk zu löschen. "
+msgstr "Du hast nicht die erforderlichen Rechte, um Benutzer_innen in diesem Netzwerk zu löschen. "
 
 #: wp-admin/network/themes.php:17
 msgid "You do not have sufficient permissions to manage network themes."
@@ -360,7 +360,7 @@ msgstr "<strong>Themes</strong> -  Dieser Bereich zeigt die Themes auf, die noch
 #: wp-admin/network/site-info.php:24 wp-admin/network/site-settings.php:24
 #: wp-admin/network/site-themes.php:24 wp-admin/network/site-users.php:27
 msgid "<strong>Info</strong> - The domain and path are rarely edited as this can cause the site to not work properly. The Registered date and Last Updated date are displayed. Network admins can mark a site as archived, spam, deleted and mature, to remove from public listings or disable."
-msgstr "<strong>Info</strong> - Die Domain und der Pfad werden nur selten geändert, da dies dazu führen kann, dass die Webseite nicht richtig funktioniert. Das eingetragene Datum der Registrierung und das Datum der letzten Änderung werden angezeigt. Netzwerk-Administratoren können die Seite als Spam markieren, sie archivieren, löschen, erweitern und aus der öffentlichen Auflistung entfernen oder deaktivieren."
+msgstr "<strong>Info</strong> - Die Domain und der Pfad werden nur selten geändert, da dies dazu führen kann, dass die Webseite nicht richtig funktioniert. Das eingetragene Datum der Registrierung und das Datum der letzten Änderung werden angezeigt. Netzwerk-Administrator_innen können die Seite als Spam markieren, sie archivieren, löschen, erweitern und aus der öffentlichen Auflistung entfernen oder deaktivieren."
 
 #: wp-admin/network/site-info.php:27 wp-admin/network/site-settings.php:27
 #: wp-admin/network/site-themes.php:27 wp-admin/network/site-users.php:30
@@ -370,7 +370,7 @@ msgstr "<strong>Einstellungen</strong> -  Dieser Bereich zeigt eine Liste aller 
 #: wp-admin/network/site-info.php:25 wp-admin/network/site-settings.php:25
 #: wp-admin/network/site-themes.php:25 wp-admin/network/site-users.php:28
 msgid "<strong>Users</strong> - This displays the users associated with this site. You can also change their role, reset their password, or remove them from the site. Removing the user from the site does not remove the user from the network."
-msgstr "<strong>Users</strong> - Dieser Bereich zeigt welche Benutzer mit dieser Seite verknüpft sind. Du kannst auch deren Rolle ändern, deren Passwort zurücksetzen oder einen Benutzer von der Seite entfernen. Das Löschen eines Benutzers von einer Seite löscht den Benutzer nicht aus dem gesamten Netzwerk."
+msgstr "<strong>Users</strong> - Dieser Bereich zeigt welche Benutzer_innen mit dieser Seite verknüpft sind. Du kannst auch deren Rolle ändern, deren Passwort zurücksetzen oder eine_n Benutzer_in von der Seite entfernen. Das Löschen einer_s Benutzer_in von einer Seite löscht die_den Benutzer_in nicht aus dem gesamten Netzwerk."
 
 #: wp-admin/network/site-info.php:23 wp-admin/network/site-settings.php:23
 #: wp-admin/network/site-themes.php:23 wp-admin/network/site-users.php:26
@@ -387,15 +387,15 @@ msgstr "Neu hinzufügen bringt dich in den Neu Hinzufügen Bereich. Da kannst du
 
 #: wp-admin/network/themes.php:228
 msgid "Themes can be enabled on a site by site basis by the network admin on the Edit Site screen (which has a Themes tab); get there via the Edit action link on the All Sites screen. Only network admins are able to install or edit themes."
-msgstr "Themes können durch den Netzwerk Administrator Seite für Seite zur Verfügung gestellt werden im Bereich Seiten bearbeiten (dort ist ein Tab \"Themes\"); du gelangst durch klicken auf den Link \"bearbeiten\" zum Bereich Alle Seiten. Nur Netzwerk Administratoren sind in der Lage Themes zu installieren oder zu bearbeiten."
+msgstr "Themes können durch die_den Netzwerk Administrator_in Seite für Seite zur Verfügung gestellt werden im Bereich Seiten bearbeiten (dort ist ein Tab \"Themes\"); du gelangst durch klicken auf den Link \"bearbeiten\" zum Bereich Alle Seiten. Nur Netzwerk Administrator_innen sind in der Lage Themes zu installieren oder zu bearbeiten."
 
 #: wp-admin/network/site-new.php:23
 msgid "This screen is for Super Admins to add new sites to the network. This is not affected by the registration settings."
-msgstr "Dieser Bereich ist für die Super Administratoren um neue Seiten zum Netzwerk hinzuzufügen. Dies wird nicht durch die Registrierungs-Einstellungen beeinflusst."
+msgstr "Dieser Bereich ist für die Super Administrator_innen um neue Seiten zum Netzwerk hinzuzufügen. Dies wird nicht durch die Registrierungs-Einstellungen beeinflusst."
 
 #: wp-admin/network/settings.php:59
 msgid "Super admins can no longer be added on the Options screen. You must now go to the list of existing users on Network Admin > Users and click on Username or the Edit action link below that name. This goes to an Edit User page where you can check a box to grant super admin privileges."
-msgstr "Super Administratoren können nicht mehr über den Optionen Bereich hinzugefügt werden. Du musst jetzt zu der Liste der existierenden Benutzer gehen über Netzwerk Administration > Benutzer und klicke auf den Benutzernamen, dem du Administratorrechte geben möchtest über den Bearbeiten-Link unter dem Namen. Du kommst dadurch auf die Benutzerseite und kannst ihm per Checkbox Super Administrator Rechte vergeben."
+msgstr "Super Administrator_innen können nicht mehr über den Optionen Bereich hinzugefügt werden. Du musst jetzt zu der Liste der existierenden Benutzer_innen gehen über Netzwerk Administration > Benutzer_in und klicke auf den Benutzer_innennamen, dem du Administrator_innenrechte geben möchtest über den Bearbeiten-Link unter dem Namen. Du kommst dadurch auf die Benutzer_innenseite und kannst ihr_ihm per Checkbox Super Administrator_innen Rechte vergeben."
 
 #: wp-admin/network/sites.php:118
 msgid "You are not allowed to delete the site."
@@ -412,7 +412,7 @@ msgstr "Ungültige Seiten-ID."
 
 #: wp-admin/network/users.php:41
 msgid "Warning! User cannot be deleted. The user %s is a network administrator."
-msgstr "Achtung! Der Benutzer %s kann nicht gelöscht werden, da er ein Netzwerk-Administrator ist."
+msgstr "Achtung! Der_die Benutzer_in %s kann nicht gelöscht werden, da sie_er ein_e Netzwerk-Administrator_in ist."
 
 #: wp-admin/network/site-info.php:85
 msgid "Site info updated."
@@ -448,7 +448,7 @@ msgstr[1] "%s Themes wurden aktiviert."
 
 #: wp-admin/network/settings.php:180
 msgid "Allow site administrators to add new users to their site via the \"Users &rarr; Add New\" page."
-msgstr "Erlaube Seiten-Administratoren das Hinzufügen von neuen Benutzern zu ihrer Seite über „Benutzer &rarr; Hinzufügen“."
+msgstr "Erlaube Seiten-Administrator_innen das Hinzufügen von neuen Benutzer_innen zu ihrer Seite über „Benutzer_in &rarr; Hinzufügen“."
 
 #: wp-admin/network.php:279
 msgid "Sub-domain Install"
@@ -692,7 +692,7 @@ msgstr "Du hast nicht die erforderlichen Rechte, um diese Seite zu bearbeiten."
 
 #: wp-admin/network/users.php:144
 msgid "Warning! User cannot be modified. The user %s is a network administrator."
-msgstr "Warnung! Der Benutzer kann nicht verändert werden. Der Benutzer %s ist ein Netzwerk-Admnistrator."
+msgstr "Warnung! Der_die Benutzer_in kann nicht verändert werden. Der_die Benutzer_in %s ist ein_e Netzwerk-Admnistrator_in."
 
 #: wp-admin/network/sites.php:33
 msgid "Hovering over each site reveals seven options (three for the primary site):"
@@ -700,13 +700,13 @@ msgstr "Wenn du mit der Maus über einen Eintrag in der Liste fährst, werden zu
 
 #: wp-admin/network/site-new.php:24
 msgid "If the admin email for the new site does not exist in the database, a new user will also be created."
-msgstr "Es wird ein neuer Benutzer angelegt, sofern nicht schon ein Benutzer mit der angegebenen Administrator E-Mail-Adresse vorhanden ist."
+msgstr "Es wird ein_e neue_r Benutzer_in angelegt, sofern nicht schon ein_e Benutzer_in mit der angegebenen Administrator_innen E-Mail-Adresse vorhanden ist."
 
 #: wp-admin/network/sites.php:36
 msgid "Deactivate, Archive, and Spam which lead to confirmation screens. These actions can be reversed later."
 msgstr ""
 "Die Möglichkeit, eine Seite zu deaktivieren, zu archivieren, oder als SPAM zu markieren. \n"
-"Deaktivieren entspricht dabei der Löschung deiner Seite durch seinen Besitzer. Archivieren bietet die Möglichkeit, eine Seite vorrübergehend nicht erreichbar zu machen und anschließend wieder zu aktivieren."
+"Deaktivieren entspricht dabei der Löschung deiner Seite durch seine_n Besitzer_in. Archivieren bietet die Möglichkeit, eine Seite vorrübergehend nicht erreichbar zu machen und anschließend wieder zu aktivieren."
 
 #: wp-admin/network/sites.php:39
 msgid "The site ID is used internally, and is not shown on the front end of the site or to users/viewers."
@@ -714,11 +714,11 @@ msgstr "Die Seiten-ID wird nur intern genutzt und wird nicht öffentlich angezei
 
 #: wp-admin/network/settings.php:53
 msgid "Operational settings has fields for the network&#8217;s name and admin email."
-msgstr "Die Netwerk-Optionen beinhalten unter anderem die Einstellungen für den Namen des Netzwerks, die Administrator E-Mail-Adresse und ob Schlagwörter seitenübergreifend verwendet werden sollen (standardmäßig ist diese Funktion deaktiviert)."
+msgstr "Die Netwerk-Optionen beinhalten unter anderem die Einstellungen für den Namen des Netzwerks, die Administrator_innen E-Mail-Adresse und ob Schlagwörter seitenübergreifend verwendet werden sollen (standardmäßig ist diese Funktion deaktiviert)."
 
 #: wp-admin/network/users.php:234
 msgid "You can also go to the user&#8217;s profile page by clicking on the individual username."
-msgstr "Du kannst auch einen Benutzer beziehungsweise sein Profil ändern, indem du direkt auf einen Benutzernamen klickst."
+msgstr "Du kannst auch eine_n Benutzer_in beziehungsweise ihr_sein Profil ändern, indem du direkt auf einen Benutzer_innennamen klickst."
 
 #: wp-admin/network/settings.php:56
 msgid "Upload settings control the size of the uploaded files and the amount of available upload space for each site. You can change the default value for specific sites when you edit a particular site. Allowed file types are also listed (space separated only)."
@@ -729,7 +729,7 @@ msgstr ""
 
 #: wp-admin/network/users.php:236
 msgid "The bulk action will permanently delete selected users, or mark/unmark those selected as spam. Spam users will have posts removed and will be unable to sign up again with the same email addresses."
-msgstr "Über die Auswahlbox \"Aktion wählen\" kannst du mehrere zuvor markierte Benutzer löschen oder als SPAM kennzeichnen. Als SPAM gekennzeichnete Benutzer verlieren alle ihre Beiträge und können sich nicht erneut mit ihrer E-Mail-Adresse registrieren."
+msgstr "Über die Auswahlbox \"Aktion wählen\" kannst du mehrere zuvor markierte Benutzer_innen löschen oder als SPAM kennzeichnen. Als SPAM gekennzeichnete Benutzer_innen verlieren alle ihre Beiträge und können sich nicht erneut mit ihrer E-Mail-Adresse registrieren."
 
 #: wp-admin/network/sites.php:38
 msgid "Visit to go to the frontend site live."
@@ -749,11 +749,11 @@ msgstr "Hier kannst du festlegen, welche Themes zur Benutzung durch die Seiten i
 
 #: wp-admin/network/users.php:232
 msgid "This table shows all users across the network and the sites to which they are assigned."
-msgstr "Diese Übersicht zeigt alle Benutzer dieses Netzwerks und welchen Seiten sie angehören."
+msgstr "Diese Übersicht zeigt alle Benutzer_innen dieses Netzwerks und welchen Seiten sie angehören."
 
 #: wp-admin/network/users.php:237
 msgid "You can make an existing user an additional super admin by going to the Edit User profile page and checking the box to grant that privilege."
-msgstr "Willst du weitere seitenübergreifende Administratoren festlegen, so musst du das über die Option \"Benutzer\" > (Benutzer) \"Bearbeiten\" tun. Der Link \"Bearbeiten\" erscheint beim Überfahren eines Benutzernamens. Du kannst auch direkt auf einen Benutzernamen klicken. Im Profil des angewählten Benutzers kannst du dann die Option \"Mache diesen Nutzer zum seitenübergreifenden Administrator für das gesamte Netzwerk.\" aktivieren."
+msgstr "Willst du weitere seitenübergreifende Administrator_innen festlegen, so musst du das über die Option \"Benutzer_in\" > (Benutzer_in) \"Bearbeiten\" tun. Der Link \"Bearbeiten\" erscheint beim Überfahren eines Benutzer_innennamens. Du kannst auch direkt auf einen Benutzer_innennamen klicken. Im Profil der_s angewählten Benutzer_in kannst du dann die Option \"Mache diese_n Nutzer_in zur_m seitenübergreifenden Administrator_in für das gesamte Netzwerk.\" aktivieren."
 
 #: wp-admin/network/sites.php:32
 msgid "This is the main table of all sites on this network. Switch between list and excerpt views by using the icons above the right side of the table."
@@ -761,15 +761,15 @@ msgstr "Hier siehst du alle Seiten deines Netzwerks."
 
 #: wp-admin/network/user-new.php:24
 msgid "Users who are signed up to the network without a site are added as subscribers to the main or primary dashboard site, giving them profile pages to manage their accounts. These users will only see Dashboard and My Sites in the main navigation until a site is created for them."
-msgstr "Benutzer, die im Netzwerk registriert sind, aber keinen eigene Seite haben, werden automatisch auf der Dashboard-Seite (siehe linker Menüpunkt \"Seiten-Netzwerk\" &gt; \"Einstellungen\") hinzugefügt und haben so die Möglichkeit, ihr Profil zu bearbeiten und zu sehen, in welchen Seiten sie noch als Abonennten geführt sind."
+msgstr "Benutzer_innen, die im Netzwerk registriert sind, aber keinen eigene Seite haben, werden automatisch auf der Dashboard-Seite (siehe linker Menüpunkt \"Seiten-Netzwerk\" &gt; \"Einstellungen\") hinzugefügt und haben so die Möglichkeit, ihr Profil zu bearbeiten und zu sehen, in welchen Seiten sie noch als Abonennt_innen geführt sind."
 
 #: wp-admin/network/upgrade.php:27
 msgid "If this process fails for any reason, users logging in to their sites will force the same update."
-msgstr "Falls der Vorgang aus irgendeinem Grund abbricht, so wird er automatisch ausgeführt, sobald ein Benutzer sich auf seiner Seite anmeldet."
+msgstr "Falls der Vorgang aus irgendeinem Grund abbricht, so wird er automatisch ausgeführt, sobald ein_e Benutzer_in sich auf ihrer_seiner Seite anmeldet."
 
 #: wp-admin/network/themes.php:227
 msgid "If the network admin disables a theme that is in use, it can still remain selected on that site. If another theme is chosen, the disabled theme will not appear in the site&#8217;s Appearance > Themes screen."
-msgstr "Wenn du ein Theme deaktivierst, obwohl es in Benutzung ist, kann es sein, dass es weiterhin auf jener Seite aktiv bleibt. Wird dann ein anderes Theme vom Benutzer aktiviert, so verschwindet erst dann das Theme aus der Liste der verfügbaren Themes der jeweiligen Seite."
+msgstr "Wenn du ein Theme deaktivierst, obwohl es in Benutzung ist, kann es sein, dass es weiterhin auf jener Seite aktiv bleibt. Wird dann ein anderes Theme von der_m Benutzer_in aktiviert, so verschwindet erst dann das Theme aus der Liste der verfügbaren Themes der jeweiligen Seite."
 
 #: wp-admin/network/settings.php:52
 msgid "This screen sets and changes options for the network as a whole. The first site is the main site in the network and network options are pulled from that original site&#8217;s options."
@@ -778,12 +778,12 @@ msgstr "Hier werden die Einstellungen für das gesamte Netzwerk verwaltet. Die z
 #: wp-admin/network/settings.php:54
 msgid "Registration settings can disable/enable public signups. If you let others sign up for a site, install spam plugins. Spaces, not commas, should separate names banned as sites for this network."
 msgstr ""
-"In den Registrierungseinstellungen kannst du festlegen, ob sich neue Benutzer selber registrieren und eine Seite anlegen dürfen. Falls dies erlaubt ist, solltest du ein Plugin installieren, welches SPAM-Anmeldungen verhindert. \n"
+"In den Registrierungseinstellungen kannst du festlegen, ob sich neue Benutzer_innen selber registrieren und eine Seite anlegen dürfen. Falls dies erlaubt ist, solltest du ein Plugin installieren, welches SPAM-Anmeldungen verhindert. \n"
 "Bei den verbotenen Seitenadressen musst du die einzelnen Begriffe jeweils mit einem Leerzeichen trennen."
 
 #: wp-admin/network/settings.php:58
 msgid "Menu setting enables/disables the plugin menus from appearing for non super admins, so that only super admins, not site admins, have access to activate plugins."
-msgstr "Bei \"Menüeinstellungen\" kannst du festlegen, ob auch normale Seiten-Administratoren die Möglichkeit haben sollen, Plugins zu verwalten und damit zu aktivieren oder zu deaktivieren. Im Normallfall wirst du aber ganz gut damit fahren, dass du die Administrations-Menüs für Plugins nicht aktivierst."
+msgstr "Bei \"Menüeinstellungen\" kannst du festlegen, ob auch normale Seiten-Administrator_innen die Möglichkeit haben sollen, Plugins zu verwalten und damit zu aktivieren oder zu deaktivieren. Im Normallfall wirst du aber ganz gut damit fahren, dass du die Administrations-Menüs für Plugins nicht aktivierst."
 
 #: wp-admin/network/settings.php:55
 msgid "New site settings are defaults applied when a new site is created in the network. These include welcome email for when a new site or user account is registered, and what&#8127;s put in the first post, page, comment, comment author, and comment URL."
@@ -813,7 +813,7 @@ msgstr "Falls du für bestimmte E-Mail-Domains (z.B. <em>example.com</em>) die R
 
 #: wp-admin/network/settings.php:160
 msgid "If registration is disabled, please set <code>NOBLOGREDIRECT</code> in <code>wp-config.php</code> to a URL you will redirect visitors to if they visit a non-existent site."
-msgstr "Wenn Neuregistrierungen deaktiviert sind, füge bitte in die Datei <code>wp-config.php</code> die Zeile <code>define( 'NOBLOGREDIRECT', 'http://example.com' );</code> ein und passe die URL an, zu der die Besucher weitergeleitet werden sollen, wenn sie eine nichtexistierende Seite aufrufen."
+msgstr "Wenn Neuregistrierungen deaktiviert sind, füge bitte in die Datei <code>wp-config.php</code> die Zeile <code>define( 'NOBLOGREDIRECT', 'http://example.com' );</code> ein und passe die URL an, zu der die Besucher_innen weitergeleitet werden sollen, wenn sie eine nichtexistierende Seite aufrufen."
 
 #: wp-admin/network/site-new.php:37
 msgid "Can&#8217;t create an empty site."
@@ -821,7 +821,7 @@ msgstr "Eine leere Seite kann nicht erstellt werden."
 
 #: wp-admin/network/users.php:260
 msgid "Users removed from spam."
-msgstr "Benutzer wurde aus Spam entfernt."
+msgstr "Benutzer_in wurde aus Spam entfernt."
 
 #: wp-admin/network/sites.php:224
 msgid "Site marked as spam."
@@ -841,11 +841,11 @@ msgstr "Die Seite wird nicht mehr als SPAM eingestuft."
 
 #: wp-admin/network/users.php:257
 msgid "Users marked as spam."
-msgstr "Benutzer als SPAM markiert."
+msgstr "Benutzer_in als SPAM markiert."
 
 #: wp-admin/network/users.php:263
 msgid "Users deleted."
-msgstr "Benutzer wurden gelöscht."
+msgstr "Benutzer_in wurden gelöscht."
 
 #: wp-admin/network/site-info.php:142
 msgid "Update <code>siteurl</code> and <code>home</code> as well."
@@ -881,7 +881,7 @@ msgstr "Ungültige Email-Adresse"
 
 #: wp-admin/network/site-new.php:80
 msgid "There was an error creating the user."
-msgstr "Beim erstellen des Benutzers ist ein Fehler aufgetreten."
+msgstr "Beim erstellen der_s Benutzer_in ist ein Fehler aufgetreten."
 
 #: wp-admin/network/sites.php:64 wp-admin/network/sites.php:131
 msgid "You are not allowed to change the current site."
@@ -902,7 +902,7 @@ msgstr "Jede Seite hat einen maximalen Speicherplatz von %s MB"
 
 #: wp-admin/network/settings.php:277
 msgid "The author of the first comment on a new site."
-msgstr "Der Autor des ersten Kommentars eine neuen Seite."
+msgstr "Der_die Autor_in des ersten Kommentars eine neuen Seite."
 
 #: wp-admin/network/settings.php:248
 msgid "The first post on a new site."
@@ -930,15 +930,15 @@ msgstr "Registrierung ist deaktiviert."
 
 #: wp-admin/network/settings.php:155
 msgid "User accounts may be registered."
-msgstr "Benutzer dürfen sich registrieren."
+msgstr "Benutzer_innen dürfen sich registrieren."
 
 #: wp-admin/network/settings.php:156
 msgid "Logged in users may register new sites."
-msgstr "Angemeldete Benutzer können neue Seiten anlegen."
+msgstr "Angemeldete Benutzer_innen können neue Seiten anlegen."
 
 #: wp-admin/network/settings.php:157
 msgid "Both sites and user accounts can be registered."
-msgstr "Es können neue Seiten und Benutzer registriert werden."
+msgstr "Es können neue Seiten und Benutzer_innen registriert werden."
 
 #: wp-admin/network/settings.php:125
 msgid "Operational Settings"
@@ -970,7 +970,7 @@ msgstr "Fehlende E-Mail-Adresse"
 
 #: wp-admin/network/settings.php:135 wp-admin/network.php:303
 msgid "Network Admin Email"
-msgstr "Website-Administrator-E-Mailadresse"
+msgstr "Website-Administrator_innen-E-Mailadresse"
 
 #: wp-admin/network/settings.php:294
 msgid "Site upload space"
@@ -978,11 +978,11 @@ msgstr "Speicherplatz pro Seite"
 
 #: wp-admin/network/settings.php:173
 msgid "Send the network admin an email notification every time someone registers a site or user account."
-msgstr "Sende dem Administrator des Netzwerks jedes mal eine E-Mail, wenn sich jemand eine Seite oder Benutzernamen registriert."
+msgstr "Sende der_m Administrator_in des Netzwerks jedes mal eine E-Mail, wenn sich jemand eine Seite oder Benutzer_innennamen registriert."
 
 #: wp-admin/network/settings.php:189
 msgid "Users are not allowed to register these sites. Separate names by spaces."
-msgstr "Benutzer dürfen diese Namen nicht als Seitenadresse verwenden. Trenne die einzelnen Namen mit einem Leerzeichen."
+msgstr "Benutzer_innen dürfen diese Namen nicht als Seitenadresse verwenden. Trenne die einzelnen Namen mit einem Leerzeichen."
 
 #: wp-admin/network/upgrade.php:88
 msgid "Next Sites"
@@ -994,7 +994,7 @@ msgstr "[%s] Neue Seite wurde erstellt"
 
 #: wp-admin/network/settings.php:228
 msgid "The welcome email sent to new site owners."
-msgstr "Diese E-Mail wird an Benutzer versandt, die einee neuen Seite registriert haben."
+msgstr "Diese E-Mail wird an Benutzer_innen versandt, die einee neuen Seite registriert haben."
 
 #: wp-admin/network/settings.php:147
 msgid "Allow new registrations"
@@ -1006,7 +1006,7 @@ msgstr "Registrierungs-Benachrichtigung"
 
 #: wp-admin/network/settings.php:178
 msgid "Add New Users"
-msgstr "Neue Benutzer hinzufügen"
+msgstr "Neue Benutzer_innen hinzufügen"
 
 #: wp-admin/network/settings.php:195
 msgid "Limited Email Registrations"
@@ -1022,11 +1022,11 @@ msgstr "Willkommens-E-Mail"
 
 #: wp-admin/network/settings.php:233
 msgid "Welcome User Email"
-msgstr "Benutzer-Willkommen-Email"
+msgstr "Benutzer_innen-Willkommen-Email"
 
 #: wp-admin/network/settings.php:238
 msgid "The welcome email sent to new users."
-msgstr "Diese E-Mail wird an jeden neu registrierten Benutzer versandt."
+msgstr "Diese E-Mail wird an jede_n neu registrierte_n Benutzer_in versandt."
 
 #: wp-admin/network/settings.php:253
 msgid "First Page"
@@ -1038,7 +1038,7 @@ msgstr "Erster Kommentar"
 
 #: wp-admin/network/settings.php:273
 msgid "First Comment Author"
-msgstr "Autor des ersten Kommentars"
+msgstr "Autor_in des ersten Kommentars"
 
 #: wp-admin/network/settings.php:306
 msgid "Max upload file size"
@@ -1050,19 +1050,19 @@ msgstr "Standardsprache"
 
 #: wp-admin/network/user-new.php:39
 msgid "Cannot create an empty user."
-msgstr "Es kann kein leerer Benutzer angelegt werden."
+msgstr "Es kann kein_e leere_r Benutzer_in angelegt werden."
 
 #: wp-admin/network/site-new.php:146
 msgid "Admin Email"
-msgstr "Administrator E-Mail-Adresse"
+msgstr "Administrator_innen E-Mail-Adresse"
 
 #: wp-admin/network/site-new.php:150
 msgid "A new user will be created if the above email address is not in the database."
-msgstr "Es wird ein neuer Benutzer angelegt, sofern nicht schon ein Benutzer mit dieser E-Mail-Adresse vorhanden ist."
+msgstr "Es wird ein_e neue_r Benutzer_in angelegt, sofern nicht schon ein_e Benutzer_in mit dieser E-Mail-Adresse vorhanden ist."
 
 #: wp-admin/network/site-new.php:150
 msgid "The username and password will be mailed to this email address."
-msgstr "Der Benutzername und das Passwort werden an die angegebene E-Mail-Adresse gesendet."
+msgstr "Der Benutzer_innenname und das Passwort werden an die angegebene E-Mail-Adresse gesendet."
 
 #: wp-admin/network/sites.php:77
 msgid "Confirm"
@@ -1070,7 +1070,7 @@ msgstr "Bestätigen"
 
 #: wp-admin/network/site-users.php:310 wp-admin/network/user-new.php:98
 msgid "Username and password will be mailed to the above email address."
-msgstr "Benutzername und Passwort werden an die angegebene E-Mail-Adresse versandt."
+msgstr "Benutzer_innenname und Passwort werden an die angegebene E-Mail-Adresse versandt."
 
 #: wp-admin/network/index.php:20 wp-admin/network/settings.php:20
 #: wp-admin/network/site-info.php:43 wp-admin/network/site-settings.php:43
@@ -1097,7 +1097,7 @@ msgstr "Seiten-Adresse"
 
 #: wp-admin/network/site-users.php:233
 msgid "Duplicated username or email address."
-msgstr "Schon vorhandener Benutzername oder vorhandene E-Mail-Adresse."
+msgstr "Schon vorhandener Benutzer_innenname oder vorhandene E-Mail-Adresse."
 
 #: wp-admin/network/settings.php:282
 msgid "First Comment URL"

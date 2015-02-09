@@ -108,7 +108,7 @@ msgstr "Schlagwort nicht auf der Webseite anzeigen."
 
 #. Description of the plugin/theme
 msgid "In 2014, our default theme lets you create a responsive magazine website with a sleek, modern design. Feature your favorite homepage content in either a grid or a slider. Use the three widget areas to customize your website, and change your content's layout with a full-width page template and a contributor page to show off your authors. Creating a magazine website with WordPress has never been easier."
-msgstr "In 2014 lässt dich unser Standard-Theme eine adaptive Magazin-Website mit einem schnittigen, modernen Design erstellen. Präsentiere deine wichtigsten Beiträge entweder in einem Raster oder einem Slider. Passe deine Website mit drei Widget-Bereichen an deine Bedürfnisse an und verändere das Layout deiner Inhalte mit einem Autoren Template einer Seiten-Template über die gesamte Breite."
+msgstr "In 2014 lässt dich unser Standard-Theme eine adaptive Magazin-Website mit einem schnittigen, modernen Design erstellen. Präsentiere deine wichtigsten Beiträge entweder in einem Raster oder einem Slider. Passe deine Website mit drei Widget-Bereichen an deine Bedürfnisse an und verändere das Layout deiner Inhalte mit einem Autor_innen Template einer Seiten-Template über die gesamte Breite."
 
 #: content-aside.php:17 content-audio.php:17 content-featured-post.php:28
 #: content-gallery.php:17 content-image.php:17 content-link.php:17
@@ -215,7 +215,7 @@ msgstr "Mit <a href=\"%s\">Beitragsbildern</a> kannst du die Gestaltung deiner W
 
 #. Template Name of the plugin/theme
 msgid "Contributor Page"
-msgstr "Autoren Seite"
+msgstr "Autor_innen Seite"
 
 #: inc/widgets.php:258
 msgid "Number of posts to show:"
