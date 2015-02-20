@@ -105,13 +105,13 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'comment_status_approve' => _x(
-					'Approved a comment to "{comment_post_title}" by {comment_author}',
+					'Approved a comment to "{comment_post_title}" by {comment_author} ()',
 					'A comment was approved',
 					'simple-history'
 				),
 
 				'comment_status_hold' => _x(
-					'Unapproved a comment to "{comment_post_title}" by {comment_author}',
+					'Unapproved a comment to "{comment_post_title}" by {comment_author} ()',
 					'A comment was was unapproved',
 					'simple-history'
 				),
@@ -123,25 +123,25 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'comment_status_trash' => _x(
-					'Trashed a comment to "{comment_post_title}" by {comment_author}',
+					'Trashed a comment to "{comment_post_title}" by {comment_author} ()',
 					'A comment was marked moved to the trash',
 					'simple-history'
 				),
 
 				'comment_untrashed' => _x(
-					'Restored a comment to "{comment_post_title}" by {comment_author} from the trash',
+					'Restored a comment to "{comment_post_title}" by {comment_author} () from the trash',
 					'A comment was restored from the trash',
 					'simple-history'
 				),
 
 				'comment_deleted' => _x(
-					'Deleted a comment to "{comment_post_title}" by {comment_author}',
+					'Deleted a comment to "{comment_post_title}" by {comment_author} ()',
 					'A comment was deleted',
 					'simple-history'
 				),
 
 				'comment_edited' => _x(
-					'Edited a comment to "{comment_post_title}" by {comment_author}',
+					'Edited a comment to "{comment_post_title}" by {comment_author} ()',
 					'A comment was edited',
 					'simple-history'
 				),
@@ -160,13 +160,13 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'trackback_status_approve' => _x(
-					'Approved a trackback to "{comment_post_title}" by {comment_author}',
+					'Approved a trackback to "{comment_post_title}" by {comment_author} ()',
 					'A trackback was approved',
 					'simple-history'
 				),
 
 				'trackback_status_hold' => _x(
-					'Unapproved a trackback to "{comment_post_title}" by {comment_author}',
+					'Unapproved a trackback to "{comment_post_title}" by {comment_author} ()',
 					'A trackback was was unapproved',
 					'simple-history'
 				),
@@ -178,25 +178,25 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'trackback_status_trash' => _x(
-					'Trashed a trackback to "{comment_post_title}" by {comment_author}',
+					'Trashed a trackback to "{comment_post_title}" by {comment_author} ()',
 					'A trackback was marked moved to the trash',
 					'simple-history'
 				),
 
 				'trackback_untrashed' => _x(
-					'Restored a trackback to "{comment_post_title}" by {comment_author} from the trash',
+					'Restored a trackback to "{comment_post_title}" by {comment_author} () from the trash',
 					'A trackback was restored from the trash',
 					'simple-history'
 				),
 
 				'trackback_deleted' => _x(
-					'Deleted a trackback to "{comment_post_title}" by {comment_author}',
+					'Deleted a trackback to "{comment_post_title}" by {comment_author} ()',
 					'A trackback was deleted',
 					'simple-history'
 				),
 
 				'trackback_edited' => _x(
-					'Edited a trackback to "{comment_post_title}" by {comment_author}',
+					'Edited a trackback to "{comment_post_title}" by {comment_author} ()',
 					'A trackback was edited',
 					'simple-history'
 				),
@@ -215,13 +215,13 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'pingback_status_approve' => _x(
-					'Approved a pingback to "{comment_post_title}" by "{comment_author}""',
+					'Approved a pingback to "{comment_post_title}" by "{comment_author}"" ()',
 					'A pingback was approved',
 					'simple-history'
 				),
 
 				'pingback_status_hold' => _x(
-					'Unapproved a pingback to "{comment_post_title}" by "{comment_author}"',
+					'Unapproved a pingback to "{comment_post_title}" by "{comment_author}" ()',
 					'A pingback was was unapproved',
 					'simple-history'
 				),
@@ -233,25 +233,25 @@ class SimpleCommentsLogger extends SimpleLogger
 				),
 
 				'pingback_status_trash' => _x(
-					'Trashed a pingback to "{comment_post_title}" by {comment_author}',
+					'Trashed a pingback to "{comment_post_title}" by {comment_author} ()',
 					'A pingback was marked moved to the trash',
 					'simple-history'
 				),
 
 				'pingback_untrashed' => _x(
-					'Restored a pingback to "{comment_post_title}" by {comment_author} from the trash',
+					'Restored a pingback to "{comment_post_title}" by {comment_author} () from the trash',
 					'A pingback was restored from the trash',
 					'simple-history'
 				),
 
 				'pingback_deleted' => _x(
-					'Deleted a pingback to "{comment_post_title}" by {comment_author}',
+					'Deleted a pingback to "{comment_post_title}" by {comment_author} ()',
 					'A pingback was deleted',
 					'simple-history'
 				),
 
 				'pingback_edited' => _x(
-					'Edited a pingback to "{comment_post_title}" by {comment_author}',
+					'Edited a pingback to "{comment_post_title}" by {comment_author} ()',
 					'A pingback was edited',
 					'simple-history'
 				),
@@ -371,9 +371,9 @@ class SimpleCommentsLogger extends SimpleLogger
 		$context = array(
 			"comment_ID" => $comment_ID_original,
 			"comment_author" => $comment_data->comment_author,
-//			"comment_author_email" => $comment_data->comment_author_email,
+			"comment_author_email" => "",
 			"comment_author_url" => $comment_data->comment_author_url,
-//			"comment_author_IP" => $comment_data->comment_author_IP,
+			"comment_author_IP" => "",
 			"comment_content" => $comment_data->comment_content,
 			"comment_approved" => $comment_data->comment_approved,
 			"comment_agent" => $comment_data->comment_agent,
