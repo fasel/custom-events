@@ -185,16 +185,30 @@ class SimpleLogger {
 					 */
 					$tmpl_initiator_html = apply_filters("simple_history/header_initiator_html_existing_user", $tmpl_initiator_html);
 
+					// do not disclose admin user
+					if ($user_id == 1) {
+						$fuser = "fadmin";
+					} else {
+						$fuser = esc_html($user->user_login);
+					}
+
 					$initiator_html .= sprintf(
 						$tmpl_initiator_html,
 						esc_html($user->user_login), 	// 1
 						//esc_html($user->user_email), 	// 2
-						esc_html($user_display_name), 	// 3
+						$fuser, 	// 3
 						$user_role, 	// 4
 						_x("You", "header output when initiator is the currently logged in user", "simple-history") 	// 5
 					);
 
 				} else if ($user_id > 0) {
+
+					// do not disclose admin user
+					if ($user_id == 1) {
+						$fuser = "fadmin";
+					} else {
+						$fuser = esc_html($context["_user_login"]);
+					}
 
 					// Sender was a user, but user is deleted now
 					// output all info we have
@@ -208,7 +222,7 @@ class SimpleLogger {
 						'</strong>',
 						esc_html($context["_user_id"]),
 						//esc_html($context["_user_email"]),
-						esc_html($context["_user_login"])
+						$fuser
 					);
 
 				}
@@ -908,9 +922,16 @@ class SimpleLogger {
 
 				if ( isset( $current_user->ID ) && $current_user->ID ) {
 
+					// do not disclose admin user
+					if ($context["_user_id"] == 1) {
+						$fuser = "fadmin";
+					} else {
+						$fuser = $current_user->user_login;
+					}
+
 					$data["initiator"] = SimpleLoggerLogInitiators::WP_USER;
 					$context["_user_id"] = $current_user->ID;
-					$context["_user_login"] = $current_user->user_login;
+					$context["_user_login"] = $fuser;
 					$context["_user_email"] = "";
 
 				}
@@ -988,6 +1009,14 @@ class SimpleLogger {
 					$current_user = wp_get_current_user();
 
 					if (isset($current_user->ID) && $current_user->ID) {
+
+						// do not disclose admin user
+						if ($context["_user_id"] == 1) {
+							$fuser = "fadmin";
+						} else {
+							$fuser = $current_user->user_login;
+						}
+
 						$context["_user_id"] = $current_user->ID;
 						$context["_user_login"] = $current_user->user_login;
 						$context["_user_email"] = "";

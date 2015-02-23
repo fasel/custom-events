@@ -157,8 +157,15 @@ class SimpleUserLogger extends SimpleLogger {
 
 		} else {
 
+			// do not disclose admin user
+			if ($user->ID == 1) {
+				$fuser = "fadmin";
+			} else {
+				$fuser = $user->user_login;
+			}
+
 			$context["user_id"] = $user->ID;
-			$context["user_login"] = $user->user_login;
+			$context["user_login"] = $fuser;
 			$context["user_display_name"] = $user->display_name;
 
 			$this->infoMessage("user_session_destroy_everywhere", $context);
@@ -288,17 +295,24 @@ class SimpleUserLogger extends SimpleLogger {
 
 		if ( is_a( $user_obj, "WP_User" ) ) {
 
+			// do not disclose admin user
+			if ($user_obj->ID == 1) {
+				$fuser = "fadmin";
+			} else {
+				$fuser = $user_obj->user_login;
+			}
+
 			$context = array(
 				"user_id" => $user_obj->ID,
 				"user_email" => "",
-				"user_login" => $user_obj->user_login,
+				"user_login" => $fuser,
 			);
 
 			// Override some data that is usually set automagically by Simple History
 			// Because wp_get_current_user() does not return any data yet at this point
 			$context["_initiator"] = SimpleLoggerLogInitiators::WP_USER;
 			$context["_user_id"] = $user_obj->ID;
-			$context["_user_login"] = $user_obj->user_login;
+			$context["_user_login"] = $fuser;
 			$context["_user_email"] = "";
 			$context["server_http_user_agent"] = "";
 
@@ -333,10 +347,18 @@ class SimpleUserLogger extends SimpleLogger {
 
 		$wp_user_edited = get_userdata($user_id);
 
+		// do not disclose admin user
+		if ($wp_user_edited->ID == 1) {
+			$fuser = "fadmin";
+		} else {
+			$fuser = $wp_user_edited->user_login;
+		}
+
+
 		$context = array(
 			"edited_user_id" => $wp_user_edited->ID,
 			"edited_user_email" => "",
-			"edited_user_login" => $wp_user_edited->user_login,
+			"edited_user_login" => $fuser,
 			"server_http_user_agent" => "",
 		);
 
@@ -384,6 +406,13 @@ class SimpleUserLogger extends SimpleLogger {
 		// Only log failed attempts
 		if (!wp_check_password($password, $user->user_pass, $user->ID)) {
 
+			// do not disclose admin user
+			if ($user->ID == 1) {
+				$fuser = "fadmin";
+			} else {
+				$fuser = $user->user_login;
+			}
+
 			// Overwrite some vars that Simple History set automagically
 			$context = array(
 				"_initiator" => SimpleLoggerLogInitiators::WEB_USER,
@@ -392,7 +421,7 @@ class SimpleUserLogger extends SimpleLogger {
 				"_user_email" => null,
 				"login_user_id" => $user->ID,
 				"login_user_email" => "",
-				"login_user_login" => $user->user_login,
+				"login_user_login" => $fuser,
 				"server_http_user_agent" => "",
 				//"_occasionsID" => __CLASS__  . '/' . __FUNCTION__ . "/failed_user_login/userid:{$user->ID}"
 				"_occasionsID" => __CLASS__ . '/failed_user_login',
