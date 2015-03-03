@@ -961,12 +961,12 @@ class SimpleLogger {
 
 		}
 
-                // Detect XML-RPC calls and append to context, if not already there
-                if ( defined("XMLRPC_REQUEST") && XMLRPC_REQUEST && ! isset( $context["_xmlrpc_request"] ) ) {
+		// Detect XML-RPC calls and append to context, if not already there
+		if ( defined("XMLRPC_REQUEST") && XMLRPC_REQUEST && ! isset( $context["_xmlrpc_request"] ) ) {
 
-                        $context["_xmlrpc_request"] = true;
+			$context["_xmlrpc_request"] = true;
 
-                }
+		}
 
 		/**
 		 * Filter data to be saved to db
