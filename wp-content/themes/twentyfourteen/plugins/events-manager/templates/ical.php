@@ -82,7 +82,7 @@ unset($weblink);
 $output .= "
 LOCATION:{$location}
 URL:{$EM_Event->get_permalink()}
-END:VEVENT";
+END:VEVENT\r";
 
 		//clean up new lines, rinse and repeat
 		echo preg_replace("/([^\r])\n/", "$1\r\n", $output);
@@ -100,5 +100,5 @@ END:VEVENT";
 
 //calendar footer
 $output = "
-END:VCALENDAR";
+END:VCALENDAR\r";
 echo preg_replace("/([^\r])\n/", "$1\r\n", $output);
