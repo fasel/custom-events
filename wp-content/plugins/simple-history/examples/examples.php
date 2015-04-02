@@ -16,6 +16,27 @@ define("SIMPLE_HISTORY_LOG_DEBUG", true);
  * Some examples of filter usage and so on
  */
 
+// Allow only the users specified in $allowed_users to show the history page, the history widget on the dashboard, or the history settings page
+add_filter("simple_history/show_dashboard_page", "function_show_history_dashboard_or_page");
+add_filter("simple_history/show_dashboard_widget", "function_show_history_dashboard_or_page");
+add_filter("simple_history/show_settings_page", "function_show_history_dashboard_or_page");
+function function_show_history_dashboard_or_page($show) {
+
+	$allowed_users = array(
+		"user1@example.com",
+		"anotheruser@example.com"
+	);
+
+	$user = wp_get_current_user();
+	
+	if ( ! in_array( $user->user_email, $allowed_users ) ) {
+		$show = false;
+	}
+
+	return $show;
+
+}
+
 
 // Skip loading of loggers
 add_filter("simple_history/logger/load_logger", function($load_logger, $oneLoggerFile) {
@@ -28,6 +49,22 @@ add_filter("simple_history/logger/load_logger", function($load_logger, $oneLogge
 	return $load_logger;
 
 }, 10, 2);
+
+/**
+ * Load only the loggers that are specified in the $do_log_us array
+ */
+add_filter("simple_history/logger/load_logger", function($load_logger, $logger_basename) {
+
+	$load_logger = false;
+	$do_log_us = array("SimplePostLogger", "SimplePluginLogger", "SimpleLogger");
+
+	if ( in_array( $logger_basename, $do_log_us ) ) {
+		$load_logger = true;
+	}
+
+	return $load_logger;
+
+}, 10, 2 );
 
 
 // Skip the loading of dropins

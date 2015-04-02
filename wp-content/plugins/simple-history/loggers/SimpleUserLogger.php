@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) or die();
+
 /**
  * Logs changes to user logins (and logouts)
  */
@@ -353,7 +355,6 @@ class SimpleUserLogger extends SimpleLogger {
 		} else {
 			$fuser = $wp_user_edited->user_login;
 		}
-
 
 		$context = array(
 			"edited_user_id" => $wp_user_edited->ID,

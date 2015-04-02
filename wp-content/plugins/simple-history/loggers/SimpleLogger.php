@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) or die();
+
 /**
  * A PSR-3 inspired logger class
  * This class logs + formats logs for display in the Simple History GUI/Viewer
@@ -159,8 +161,11 @@ class SimpleLogger {
 					$is_current_user = ($user_id == get_current_user_id()) ? true : false;
 
 					// get user role, as done in user-edit.php
-					$user_roles = array_intersect(array_values($user->roles), array_keys(get_editable_roles()));
-					$user_role = array_shift($user_roles);
+					$wp_roles = $GLOBALS["wp_roles"];
+					$all_roles = (array) $wp_roles->roles;
+					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
+					$user_role = array_shift( $user_roles );
+
 					$user_display_name = $user->display_name;
 
 					$tmpl_initiator_html = '
@@ -187,16 +192,16 @@ class SimpleLogger {
 
 					// do not disclose admin user
 					if ($user_id == 1) {
-						$fuser = "fadmin";
+					        $fuser = "fadmin";
 					} else {
-						$fuser = esc_html($user->user_login);
+					        $fuser = esc_html($user->user_login);
 					}
 
 					$initiator_html .= sprintf(
 						$tmpl_initiator_html,
 						esc_html($user->user_login), 	// 1
-						//esc_html($user->user_email), 	// 2
-						$fuser, 	// 3
+//						esc_html($user->user_email), 	// 2
+						$fuser, // 3
 						$user_role, 	// 4
 						_x("You", "header output when initiator is the currently logged in user", "simple-history") 	// 5
 					);
@@ -410,7 +415,14 @@ class SimpleLogger {
 
 		} else {
 
-			$message = $this->messages[$message_key]["translated_text"];
+			// Check that messages does exist
+			// If we for example disable a Logger we may have references
+			// to message keys that are unavailable. If so then fallback to message.
+			if ( isset( $this->messages[$message_key]["translated_text"] ) ) {
+				$message = $this->messages[$message_key]["translated_text"];
+			} else {
+				// Not message exists for message key. Just keep using message.
+			}
 
 		}
 
@@ -934,6 +946,7 @@ class SimpleLogger {
 					$context["_user_login"] = $fuser;
 					$context["_user_email"] = "";
 
+
 				}
 
 			}
@@ -1025,7 +1038,7 @@ class SimpleLogger {
 						}
 
 						$context["_user_id"] = $current_user->ID;
-						$context["_user_login"] = $current_user->user_login;
+						$context["_user_login"] = $fuser;
 						$context["_user_email"] = "";
 					}
 
