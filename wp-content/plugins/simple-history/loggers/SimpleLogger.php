@@ -168,17 +168,24 @@ class SimpleLogger {
 
 					$user_display_name = $user->display_name;
 
-					$tmpl_initiator_html = '
-						<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-						<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
-					'	;
-
 					// If user who logged this is the currently logged in user
-					// we replace name and email with just "You"
-					if ($is_current_user) {
+					// skip name and email and use just "You"
+					if ( $is_current_user ) {
+
 						$tmpl_initiator_html = '
-							<strong class="SimpleHistoryLogitem__inlineDivided">%5$s</strong>
+							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
+								<strong class="SimpleHistoryLogitem__inlineDivided">%5$s</strong>
+							</a>
 						'	;
+					} else {
+
+						$tmpl_initiator_html = '
+							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
+								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
+								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
+							</a>
+						';
+
 					}
 
 					/**
@@ -190,30 +197,17 @@ class SimpleLogger {
 					 */
 					$tmpl_initiator_html = apply_filters("simple_history/header_initiator_html_existing_user", $tmpl_initiator_html);
 
-					// do not disclose admin user
-					if ($user_id == 1) {
-					        $fuser = "fadmin";
-					} else {
-					        $fuser = esc_html($user->user_login);
-					}
-
 					$initiator_html .= sprintf(
 						$tmpl_initiator_html,
 						esc_html($user->user_login), 	// 1
-						//esc_html($user->user_email), 	// 2
-						$fuser, 	// 3
+						esc_html($user->user_email), 	// 2
+						esc_html($user_display_name), 	// 3
 						$user_role, 	// 4
-						_x("You", "header output when initiator is the currently logged in user", "simple-history") 	// 5
+						_x("You", "header output when initiator is the currently logged in user", "simple-history"),	// 5
+						get_edit_user_link( $user_id ) // 6
 					);
 
 				} else if ($user_id > 0) {
-
-					// do not disclose admin user
-					if ($user_id == 1) {
-					        $fuser = "fadmin";
-					} else {
-					        $fuser = esc_html($context["_user_login"]);
-					}
 
 					// Sender was a user, but user is deleted now
 					// output all info we have
@@ -225,9 +219,9 @@ class SimpleLogger {
 						'<strong class="SimpleHistoryLogitem__inlineDivided">' .
 						__('Deleted user (had id %1$s, email %2$s, login %3$s)', "simple-history") .
 						'</strong>',
-						esc_html($context["_user_id"]),
-						//esc_html($context["_user_email"]),
-						$fuser
+						esc_html($context["_user_id"]), // 1
+						esc_html($context["_user_email"]), // 2
+						esc_html($context["_user_login"]) // 3
 					);
 
 				}
@@ -524,6 +518,7 @@ class SimpleLogger {
 				break;
 
 		}
+
 		/**
 		 * Filter generated output for row image (sender image)
 		 *
@@ -973,17 +968,10 @@ class SimpleLogger {
 
 				if ( isset( $current_user->ID ) && $current_user->ID ) {
 
-					// do not disclose admin user
-					if ($context["_user_id"] == 1) {
-					        $fuser = "fadmin";
-					} else {
-					        $fuser = $current_user->user_login;
-					}
-
 					$data["initiator"] = SimpleLoggerLogInitiators::WP_USER;
 					$context["_user_id"] = $current_user->ID;
-					$context["_user_login"] = $fuser;
-					$context["_user_email"] = "";
+					$context["_user_login"] = $current_user->user_login;
+					$context["_user_email"] = $current_user->user_email;
 
 				}
 
@@ -1067,17 +1055,9 @@ class SimpleLogger {
 					$current_user = wp_get_current_user();
 
 					if (isset($current_user->ID) && $current_user->ID) {
-
-						// do not disclose admin user
-						if ($context["_user_id"] == 1) {
-						        $fuser = "fadmin";
-						} else {
-						        $fuser = $current_user->user_login;
-						}
-
 						$context["_user_id"] = $current_user->ID;
-						$context["_user_login"] = $fuser;
-						$context["_user_email"] = "";
+						$context["_user_login"] = $current_user->user_login;
+						$context["_user_email"] = $current_user->user_email;
 					}
 
 				}
@@ -1088,7 +1068,7 @@ class SimpleLogger {
 			// Good to always have
 			if (!isset($context["_server_remote_addr"])) {
 
-				$context["_server_remote_addr"] = "";
+				$context["_server_remote_addr"] = $_SERVER["REMOTE_ADDR"];
 
 				// If web server is behind a load balancer then the ip address will always be the same
 				// See bug report: https://wordpress.org/support/topic/use-x-forwarded-for-http-header-when-logging-remote_addr?replies=1#post-6422981
@@ -1100,42 +1080,42 @@ class SimpleLogger {
 				// Check for IP in lots of headers
 				// Based on code found here:
 				// http://blackbe.lt/advanced-method-to-obtain-the-client-ip-in-php/
-				//$ip_keys = $this->get_ip_number_header_keys();
+				$ip_keys = $this->get_ip_number_header_keys();
 
-				//foreach ($ip_keys as $key) {
+				foreach ($ip_keys as $key) {
 
-				//	if (array_key_exists($key, $_SERVER) === true) {
+					if (array_key_exists($key, $_SERVER) === true) {
 
-				//		// Loop through all IPs
-				//		$ip_loop_num = 0;
-				//		foreach (explode(',', $_SERVER[$key]) as $ip) {
+						// Loop through all IPs
+						$ip_loop_num = 0;
+						foreach (explode(',', $_SERVER[$key]) as $ip) {
 
-				//			// trim for safety measures
-				//			$ip = trim($ip);
+							// trim for safety measures
+							$ip = trim($ip);
 
-				//			// attempt to validate IP
-				//			if ($this->validate_ip($ip)) {
+							// attempt to validate IP
+							if ($this->validate_ip($ip)) {
 
-				//				// valid, add to context, with loop index appended so we can store many IPs
-				//				$key_lower = strtolower($key);
-				//				$context["_server_{$key_lower}_{$ip_loop_num}"] = $ip;
+								// valid, add to context, with loop index appended so we can store many IPs
+								$key_lower = strtolower($key);
+								$context["_server_{$key_lower}_{$ip_loop_num}"] = $ip;
 
-				//			}
+							}
 
-				//			$ip_loop_num++;
+							$ip_loop_num++;
 
-				//		}
+						}
 
-				//	}
+					}
 
-				//}
+				}
 
 			}
 
 			// Append http referer
 			// Also good to always have!
 			if (!isset($context["_server_http_referer"]) && isset($_SERVER["HTTP_REFERER"])) {
-				$context["_server_http_referer"] = "";
+				$context["_server_http_referer"] = $_SERVER["HTTP_REFERER"];
 			}
 
 
@@ -1179,7 +1159,6 @@ class SimpleLogger {
 	 * @since 2.0.29
 	 */
 	public function get_ip_number_header_keys() {
-		return;
 
 		$arr = array(
 			'HTTP_CLIENT_IP', 
@@ -1200,7 +1179,6 @@ class SimpleLogger {
 	 * @since 2.0.29
 	 */
 	function get_event_ip_number_headers($row) {
-		return;
 
 		$ip_keys = $this->get_ip_number_header_keys();
 		$arr_found_additional_ip_headers = array();
