@@ -10,13 +10,13 @@ msgstr ""
 "X-Generator: GlotPress/1.0-alpha-1000\n"
 "Project-Id-Version: Twenty Thirteen\n"
 
-#. Theme URI of the plugin/theme
-msgid "https://wordpress.org/themes/twentythirteen/"
-msgstr "https://wordpress.org/themes/twentythirteen/"
-
 #. Author URI of the plugin/theme
 msgid "https://wordpress.org/"
 msgstr "https://wordpress.org/"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentythirteen/"
+msgstr "https://wordpress.org/themes/twentythirteen/"
 
 #. translators: %s: Name of current post
 #: content-aside.php:16 content-audio.php:27 content-chat.php:26
@@ -38,6 +38,10 @@ msgstr "Das 2013 Theme für WordPress bringt uns zurück zum Blog. Es wird eine 
 msgid "Appears in the footer section of the site."
 msgstr "Erscheint in der Fußzeile der Seite."
 
+#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
+msgid "Twenty Thirteen requires at least WordPress version 3.6. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Thirteen benötigt mindestens WordPress Version 3.6. Du benutzt Version %s. Bitte aktualisieren und erneut versuchen."
+
 #: image.php:38
 msgid "Link to full-size image"
 msgstr "Link zum Bild in Originalgröße"
@@ -58,17 +62,9 @@ msgstr "Erscheint bei Beiträgen und Seiten in der Seitenleiste."
 msgid "Full resolution"
 msgstr "Volle Auflösung"
 
-#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
-msgid "Twenty Thirteen requires at least WordPress version 3.6. You are running version %s. Please upgrade and try again."
-msgstr "Twenty Thirteen benötigt mindestens WordPress Version 3.6. Du benutzt Version %s. Bitte aktualisieren und erneut versuchen."
-
 #: 404.php:21
 msgid "This is somewhat embarrassing, isn&rsquo;t it?"
 msgstr "Das ist etwas peinlich, nicht wahr?"
-
-#: 404.php:22
-msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "Es sieht so aus, als ob wir nicht das finden konnten, wonach du gesucht hast. Möglicherweise hilft eine Suche."
 
 #: archive.php:29
 msgid "Daily Archives: %s"
@@ -142,13 +138,6 @@ msgstr "Kommentare sind geschlossen."
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: content-aside.php:27 content-aside.php:35 content-audio.php:38
-#: content-chat.php:36 content-gallery.php:46 content-image.php:42
-#: content-link.php:19 content-quote.php:32 content-status.php:26
-#: content-video.php:42 content.php:31 image.php:44 page.php:39
-msgid "Edit"
-msgstr "Bearbeiten"
-
 #: functions.php:369
 msgid "Permalink to %s"
 msgstr "Permanentlink zu %s"
@@ -160,11 +149,6 @@ msgstr "Hinterlasse einen Kommentar"
 
 #: content-gallery.php:43 content-image.php:39 content-quote.php:29
 #: content-video.php:39 content.php:56
-msgid "One comment so far"
-msgstr "Bisher ein Kommentar"
-
-#: content-gallery.php:43 content-image.php:39 content-quote.php:29
-#: content-video.php:39 content.php:56
 msgid "View all % comments"
 msgstr "Zeige alle % Kommentare"
 
@@ -172,17 +156,9 @@ msgstr "Zeige alle % Kommentare"
 msgid "Nothing Found"
 msgstr "Nichts gefunden"
 
-#: content-none.php:18
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Bereit, um deinen ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Starte hier</a>."
-
 #: content-none.php:22
 msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
 msgstr "Entschuldige, aber es konnte nichts gefunden werden. Versuche es mit anderen Schlüsselwörtern erneut."
-
-#: content-none.php:27
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Es sieht so aus, als ob wir nicht das finden konnten, wonach du gesucht hast. Möglicherweise hilft eine Suche."
 
 #: footer.php:19
 msgid "http://wordpress.org/"
@@ -219,21 +195,13 @@ msgstr "on"
 msgid "Page %s"
 msgstr "Seite %s"
 
-#: functions.php:266
-msgid "Posts navigation"
-msgstr "Beitrags-Navigation"
-
-#: functions.php:270
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Artikel"
-
 #: functions.php:274
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Neuere Artikel <span class=\"meta-nav\">&rarr;</span>"
 
-#: functions.php:300
-msgid "Post navigation"
-msgstr "Beitragsnavigation"
+#: functions.php:266
+msgid "Posts navigation"
+msgstr "Beitrags-Navigation"
 
 #: functions.php:303
 msgctxt "Previous post link"
@@ -248,11 +216,6 @@ msgstr "%title <span class=\"meta-nav\">&rarr;</span>"
 #: functions.php:322
 msgid "Sticky"
 msgstr "Sticky"
-
-#. Translators: used between list items, there is a space after the comma.
-#: functions.php:328 functions.php:334
-msgid ", "
-msgstr ", "
 
 #: functions.php:343
 msgid "View all posts by %s"
@@ -270,10 +233,6 @@ msgstr "Menü"
 #: header.php:44
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
-
-#: image.php:22
-msgid "<span class=\"attachment-meta\">Published on <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" rel=\"gallery\">%5$s</a></span>"
-msgstr "<span class=\"attachment-meta\">Veröffentlicht am <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Zurück zu %4$s\" rel=\"gallery\">%5$s</a>.</span>"
 
 #: image.php:51
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
@@ -317,3 +276,44 @@ msgstr "Twenty Thirteen"
 #. Author of the plugin/theme
 msgid "the WordPress team"
 msgstr "das WordPress Team"
+
+#: content-gallery.php:43 content-image.php:39 content-quote.php:29
+#: content-video.php:39 content.php:56
+msgid "One comment so far"
+msgstr "Bisher ein Kommentar"
+
+#: functions.php:300
+msgid "Post navigation"
+msgstr "Beitragsnavigation"
+
+#: functions.php:270
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Artikel"
+
+#. Translators: used between list items, there is a space after the comma.
+#: functions.php:328 functions.php:334
+msgid ", "
+msgstr ", "
+
+#: content-none.php:27
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Es sieht so aus, als ob wir nicht das finden konnten, wonach du gesucht hast. Möglicherweise hilft eine Suche."
+
+#: image.php:22
+msgid "<span class=\"attachment-meta\">Published on <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" rel=\"gallery\">%5$s</a></span>"
+msgstr "<span class=\"attachment-meta\">Veröffentlicht am <time class=\"entry-date\" datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Zurück zu %4$s\" rel=\"gallery\">%5$s</a>.</span>"
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Es sieht so aus, als ob wir nicht das finden konnten, wonach du gesucht hast. Möglicherweise hilft eine Suche."
+
+#: content-aside.php:27 content-aside.php:35 content-audio.php:38
+#: content-chat.php:36 content-gallery.php:46 content-image.php:42
+#: content-link.php:19 content-quote.php:32 content-status.php:26
+#: content-video.php:42 content.php:31 image.php:44 page.php:39
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: content-none.php:18
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Bereit, um deinen ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Starte hier</a>."
