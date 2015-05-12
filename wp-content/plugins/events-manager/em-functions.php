@@ -826,10 +826,15 @@ if (is_object($EM_Event)) {
 		break;
 	// #_ATT{Weblink}
 	case 'has_att_weblink':
-		if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Weblink']))
+		if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Weblink'])) {
 			$replacement = preg_replace('/\{\/?has_att_weblink\}/', '', $match);
-		else
+			$replacement = preg_replace( "/\r|\n/", "", $replacement );
+			$replacement = parse_url($replacement, PHP_URL_SCHEME) === null ? "http://" . $replacement : $replacement;
+			$replacement = esc_url($replacement);
+			$replacement = '<p><b>Link zur Veranstaltung:</b> <a href="' . $replacement . '" target="_blank">' . $replacement . '</a></p>';
+		} else {
 			$replacement = '';
+		}
 		break;
 	// #_ATT{Sprache des Events}
 	case 'has_att_lang':
