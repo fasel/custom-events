@@ -158,11 +158,11 @@ msgstr "Vorschau der Website"
 
 #: wp-includes/user.php:153
 msgid "<strong>ERROR</strong>: The password you entered for the username <strong>%1$s</strong> is incorrect. <a href=\"%2$s\">Lost your password?</a>"
-msgstr "<strong>FEHLER</strong>: Das Passwort, dass du für den Benutzernamen <strong>%1$s</strong> eingegeben hast, stimmt nicht. <a href=\"%2$s\">Hast du dein Passwort vergessen?</a> "
+msgstr "<strong>FEHLER</strong>: Das Passwort, dass du für den Benutzer_innennamen <strong>%1$s</strong> eingegeben hast, stimmt nicht. <a href=\"%2$s\">Hast du dein Passwort vergessen?</a> "
 
 #: wp-includes/user.php:137
 msgid "<strong>ERROR</strong>: Invalid username. <a href=\"%s\">Lost your password?</a>"
-msgstr "<strong>FEHLER</strong>: Ungültiger Benutzername. <a href=\"%s\">Hast du dein Passwort vergessen?</a>"
+msgstr "<strong>FEHLER</strong>: Ungültiger Benutzer_innenname. <a href=\"%s\">Hast du dein Passwort vergessen?</a>"
 
 #: wp-includes/theme.php:1969
 msgid "Customizer"
@@ -204,7 +204,7 @@ msgstr ""
 "Hallo USERNAME,\n"
 "dein neues Konto wurde eingerichtet.\n"
 "Du kannst dich mit folgenden Angaben anmelden:\n"
-"Benutzername: USERNAME\n"
+"Benutzer_innenname: USERNAME\n"
 "Passwort: PASSWORD\n"
 "LOGINLINK\n"
 "\n"
@@ -247,9 +247,9 @@ msgstr ""
 "Deine neue Website SITE_NAME wurde erfolgreich eingerichtet:\n"
 "BLOG_URL\n"
 "\n"
-"Du kannst dich mit den folgenden Angaben als Administrator anmelden:\n"
+"Du kannst dich mit den folgenden Angaben als Administrator_in anmelden:\n"
 "\n"
-"Benutzername: USERNAME\n"
+"Benutzer_innenname: USERNAME\n"
 "Passwort: PASSWORD\n"
 "Melde dich hier an: BLOG_URLwp-login.php\n"
 "\n"
@@ -260,7 +260,7 @@ msgstr ""
 #. translators: 1: comment author, 2: author IP, 3: author domain
 #: wp-includes/pluggable.php:1448 wp-includes/pluggable.php:1579
 msgid "Author: %1$s (IP: %2$s, %3$s)"
-msgstr "Autor: %1$s (IP: %2$s, %3$s)"
+msgstr "Autor_in: %1$s (IP: %2$s, %3$s)"
 
 #. translators: 1: website name, 2: website IP, 3: website hostname
 #: wp-includes/pluggable.php:1428 wp-includes/pluggable.php:1438
@@ -549,7 +549,7 @@ msgstr "Jahr: %s"
 
 #: wp-includes/general-template.php:1161
 msgid "Author: %s"
-msgstr "Autor: %s"
+msgstr "Autor_in: %s"
 
 #: wp-includes/general-template.php:1159
 msgid "Tag: %s"
@@ -892,7 +892,7 @@ msgstr "Deine Anpassungen für %s"
 #: wp-includes/update.php:119 wp-includes/update.php:295
 #: wp-includes/update.php:457
 msgid "(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)"
-msgstr "(WordPress konnte keine sichere Verbindung zu WordPress.org herstellen. Bitte kontaktiere deinen Server-Administrator.)"
+msgstr "(WordPress konnte keine sichere Verbindung zu WordPress.org herstellen. Bitte kontaktiere deine_n Server-Administrator_in.)"
 
 #: wp-includes/class-wp-customize-widgets.php:978
 msgid "Shift-click to edit this widget."
@@ -956,7 +956,7 @@ msgstr "Bild-CSS-Klasse"
 #: wp-includes/media-template.php:386 wp-includes/media-template.php:565
 #: wp-includes/media.php:1490
 msgid "Artist"
-msgstr "Künstler"
+msgstr "Künstler_in"
 
 #: wp-includes/media-template.php:387 wp-includes/media-template.php:566
 #: wp-includes/media.php:1491
@@ -1375,7 +1375,7 @@ msgstr "%s und %s"
 
 #: wp-includes/media-template.php:802
 msgid "Show Artist Name in Tracklist"
-msgstr "Zeige Name des Künstlers in der Titelliste"
+msgstr "Zeige Name der_s Künstler_in in der Titelliste"
 
 #: wp-includes/media-template.php:810
 msgid "Show Images"
@@ -1532,9 +1532,9 @@ msgid ""
 msgstr ""
 "\n"
 "<h1>Fehler beim Aufbau der Datenbank-Verbindung</h1>\n"
-"<p>Das bedeutet entweder, dass Benutzername oder Passwort in der Datei <code>wp-config.php</code> falsch sind oder der Datenbankserver <code>%s</code>nicht erreichbar ist.</p>\n"
+"<p>Das bedeutet entweder, dass Benutzer_innenname oder Passwort in der Datei <code>wp-config.php</code> falsch sind oder der Datenbankserver <code>%s</code>nicht erreichbar ist.</p>\n"
 "<ul>\n"
-"→\t<li>Bist du sicher, dass Benutzername und Passwort stimmen?</li>\n"
+"→\t<li>Bist du sicher, dass Benutzer_innenname und Passwort stimmen?</li>\n"
 "→\t<li>Bist du sicher, dass der Name des Datenbankservers stimmt?</li>\n"
 "→\t<li>Bist du sicher, dass der Datenbankserver läuft?</li>\n"
 "</ul>\n"
@@ -1552,11 +1552,11 @@ msgid ""
 "<p>If you don't know how to set up a database you should <strong>contact your host</strong>. If all else fails you may find help at the <a href=\"https://wordpress.org/support/\">WordPress Support Forums</a>.</p>"
 msgstr ""
 "<h1>Datenbank kann nicht ausgewählt werden</h1>\n"
-"<p>Die Verbindung zum Datenbankserver konnte hergestellt werden (Benutzername und Passwort sind also korrekt), die Datenbank <code>%1$s</code> konnte jedoch nicht ausgewählt werden.</p>\n"
+"<p>Die Verbindung zum Datenbankserver konnte hergestellt werden (Benutzer_innenname und Passwort sind also korrekt), die Datenbank <code>%1$s</code> konnte jedoch nicht ausgewählt werden.</p>\n"
 "<ul>\n"
 "<li>Bist du sicher, dass die Datenbank existiert?</li>\n"
-"<li>Hat der Benutzer <code>%2$s</code> die notwendigen Rechte, um die Datenbank <code>%1$s</code> zu verwenden?</li>\n"
-"<li>Auf einigen Systemen wird dem Datenbanknamen der Benutzername vorangestellt, so dass dieser die Form <code>username_%1$s</code> hat. Könnte dies das Problem sein?</li>\n"
+"<li>Hat die_der Benutzer_in <code>%2$s</code> die notwendigen Rechte, um die Datenbank <code>%1$s</code> zu verwenden?</li>\n"
+"<li>Auf einigen Systemen wird dem Datenbanknamen der Benutzer_innenname vorangestellt, so dass dieser die Form <code>username_%1$s</code> hat. Könnte dies das Problem sein?</li>\n"
 "</ul>\n"
 "<p>Wenn du nicht weißt, wie man eine Datenbank einrichtet, solltest du dich <strong>an deinen Hoster wenden</strong>. Sofern keiner dieser Vorschläge zur Lösung führt, kannst du dich jederzeit an den <a href='http://de.wordpress.org/hilfe/'>WordPress-Support</a> wenden.</p>"
 
@@ -1875,7 +1875,7 @@ msgstr "Eine Wortwolke deiner meist genutzten Schlagworte."
 
 #: wp-includes/default-widgets.php:1344
 msgid "Add a custom menu to your sidebar."
-msgstr "Füge ein benutzerdefiniertes Menü zur Sidebar hinzu."
+msgstr "Füge ein benutzer_innendefiniertes Menü zur Sidebar hinzu."
 
 #: wp-includes/default-widgets.php:964
 msgid "Entries from any RSS or Atom feed."
@@ -2094,7 +2094,7 @@ msgstr "Der Web-Browser auf deinem Gerät kann leider nicht zum Hochladen von Da
 
 #: wp-includes/user.php:2394
 msgid "<strong>ERROR</strong>: Couldn&#8217;t register you&hellip; please contact the <a href=\"mailto:%s\">webmaster</a> !"
-msgstr "<strong>FEHLER</strong>: Du konntest nicht registriert werden, bitte kontaktiere den <a href=\"mailto:%s\">Webmaster</a>"
+msgstr "<strong>FEHLER</strong>: Du konntest nicht registriert werden, bitte kontaktiere die_den <a href=\"mailto:%s\">Webmaster_in</a>"
 
 #: wp-login.php:404
 msgid "Possible reason: your host may have disabled the mail() function."
@@ -2204,7 +2204,7 @@ msgstr "Website-Adresse (URL)"
 
 #: wp-includes/user.php:2087 wp-includes/user.php:2093
 msgid "Invalid user ID."
-msgstr "Ungültige Benutzer-ID."
+msgstr "Ungültige Benutzer_innen-ID."
 
 #: wp-includes/media-template.php:750
 msgid "Random Order"
@@ -2354,7 +2354,7 @@ msgstr "&#8592; Zurück zur Bibliothek"
 #: wp-includes/media-template.php:668 wp-includes/media-template.php:868
 #: wp-includes/media-template.php:981
 msgid "Custom URL"
-msgstr "Benutzerdefinierte URL"
+msgstr "Benutzer_innendefinierte URL"
 
 #: wp-includes/media-template.php:736
 msgid "Columns"
@@ -2434,7 +2434,7 @@ msgid ""
 "\n"
 "After you activate, you will receive *another email* with your login."
 msgstr ""
-"Um deine Benutzer zu aktivieren, klicke bitte auf den folgenden Link: \n"
+"Um deine Benutzer_in zu aktivieren, klicke bitte auf den folgenden Link: \n"
 "%s \n"
 "Nach dem Aktivieren erhältst du *eine neue E-Mail* mit deinen Zugangsdaten. "
 
@@ -2459,7 +2459,7 @@ msgid ""
 "\n"
 "Disable these notifications: %3$s"
 msgstr ""
-"Neuer Benutzer: %1$s\n"
+"Neuer Benutzer_in: %1$s\n"
 "Remote-IP: %2$s\n"
 "\n"
 "Deaktiviere diese Mitteilungen: %3$s"
@@ -2497,7 +2497,7 @@ msgstr "Galerie aktualisieren"
 
 #: wp-includes/user.php:2344
 msgid "<strong>ERROR</strong>: This username is already registered. Please choose another one."
-msgstr "<strong>ERROR</strong>: Dieser Benutzername ist bereits registriert. Bitte wähle einen anderen."
+msgstr "<strong>ERROR</strong>: Dieser Benutzer_innenname ist bereits registriert. Bitte wähle einen anderen."
 
 #: wp-includes/ms-functions.php:494
 msgid "Please enter a valid email address."
@@ -2505,7 +2505,7 @@ msgstr "Bitte gib eine gültige E-Mail-Adresse ein."
 
 #: wp-includes/ms-functions.php:181
 msgid "The requested user does not exist."
-msgstr "Der angeforderte Benutzer existiert nicht."
+msgstr "Der_die angeforderte Benutzer_in existiert nicht."
 
 #: wp-includes/class-wp-image-editor-gd.php:89
 #: wp-includes/class-wp-image-editor-imagick.php:122
@@ -2602,7 +2602,7 @@ msgstr "oder"
 
 #: wp-includes/class-wp-xmlrpc-server.php:238
 msgid "Incorrect username or password."
-msgstr "Benutzer oder Passwort falsch."
+msgstr "Benutzer_in oder Passwort falsch."
 
 #: wp-includes/class-wp-xmlrpc-server.php:231
 msgid "XML-RPC services are disabled on this site."
@@ -2615,19 +2615,19 @@ msgstr "%1$s %2$s %3$s Feed"
 
 #: wp-includes/class-wp-xmlrpc-server.php:4445
 msgid "You are not allowed to create pages as this user."
-msgstr "Du darfst als dieser Benutzer keine Seiten anlegen."
+msgstr "Du darfst als diese_r Benutzer_in keine Seiten anlegen."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2242
 msgid "Sorry, you cannot edit users."
-msgstr "Verzeihung, du kannst keine Benutzer bearbeiten."
+msgstr "Verzeihung, du kannst keine Benutzer_innen bearbeiten."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2297
 msgid "Sorry, you cannot list users."
-msgstr "Verzeihung, du kannst keine Benutzer auflisten."
+msgstr "Verzeihung, du kannst keine Benutzer_innen auflisten."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2313
 msgid "The role specified is not valid"
-msgstr "Die gewählte Benutzerrolle ist nicht gültig."
+msgstr "Die gewählte Benutzer_innenrolle ist nicht gültig."
 
 #: wp-includes/media-template.php:206
 msgid "Select Files"
@@ -2643,11 +2643,11 @@ msgstr "Veröffentlichungsdatum anzeigen?"
 
 #: wp-includes/class-wp-xmlrpc-server.php:2247
 msgid "Invalid user ID"
-msgstr "Ungültige Benutzer-ID"
+msgstr "Ungültige Benutzer_innen-ID"
 
 #: wp-includes/class-wp-xmlrpc-server.php:2443
 msgid "Sorry, the user cannot be updated."
-msgstr "Bedaure, dieser Benutzer kann nicht aktualisiert werden."
+msgstr "Bedaure, diese_r Benutzer_in kann nicht aktualisiert werden."
 
 #: wp-includes/class-wp-xmlrpc-server.php:3827
 #: wp-includes/class-wp-xmlrpc-server.php:3894
@@ -2749,11 +2749,11 @@ msgstr "Der Seitenname muss mindestens 4 Zeichen lang sein."
 
 #: wp-includes/ms-functions.php:478
 msgid "That username is not allowed."
-msgstr "Dieser Benutzername ist nicht erlaubt."
+msgstr "Dieser Benutzer_innenname ist nicht erlaubt."
 
 #: wp-includes/ms-functions.php:470
 msgid "Please enter a username."
-msgstr "Bitte gib einen Benutzernamen ein."
+msgstr "Bitte gib einen Benutzer_innennamen ein."
 
 #: wp-includes/ms-functions.php:611
 msgid "Please enter a site name."
@@ -2769,7 +2769,7 @@ msgstr "Dieser Name ist nicht erlaubt."
 
 #: wp-includes/ms-functions.php:484
 msgid "Username must be at least 4 characters."
-msgstr "Der Benutzername muss mindestens aus 4 Zeichen bestehen."
+msgstr "Der Benutzer_innenname muss mindestens aus 4 Zeichen bestehen."
 
 #: wp-includes/class-wp-customize-manager.php:1465
 msgid "A static page"
@@ -3044,7 +3044,7 @@ msgstr "Ungültiger Inhaltstyp"
 #: wp-includes/class-wp-xmlrpc-server.php:1216
 #: wp-includes/class-wp-xmlrpc-server.php:4452
 msgid "Invalid author ID."
-msgstr "Ungültige Autoren-ID."
+msgstr "Ungültige Autor_innen-ID."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1341
 msgid "Sorry, you are not allowed to add a term to one of the given taxonomies."
@@ -3065,7 +3065,7 @@ msgstr "Leider bist du nicht berechtigt, einen passwortgeschützten Beitrag mit 
 #: wp-includes/class-wp-xmlrpc-server.php:1211
 #: wp-includes/class-wp-xmlrpc-server.php:4441
 msgid "You are not allowed to create posts as this user."
-msgstr "Du bist nicht berechtigt, als dieser Benutzer Beiträge zu erstellen."
+msgstr "Du bist nicht berechtigt, als diese_r Benutzer_in Beiträge zu erstellen."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1192
 msgid "Sorry, you are not allowed to create private posts in this post type"
@@ -3163,11 +3163,11 @@ msgstr "Du kannst die Datei <code>wp-config.php</code> durch das Webinterface er
 
 #: wp-activate.php:98
 msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;. Please check your email inbox at %4$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a>."
-msgstr "Deine Seite <a href=\"%1$s\">%2$s</a> ist aktiviert. Du kannst dich nun mit dem gewählten Benutzername &#8220;%3$s&#8221; einloggen. Bitte überprüfe deinen E-Mail-Posteingang %4$s für dein Passwort und die Login-Instruktionen. Falls du keine E-Mail erhalten hast, überprüfe bitte auch deinen Spam-Ordner. Solltest du nicht innerhalb von einer Stunde eine E-Mail erhalten haben, kannst du dein <a href=\"%5$s\">Passwort zurücksetzen</a> lassen."
+msgstr "Deine Seite <a href=\"%1$s\">%2$s</a> ist aktiviert. Du kannst dich nun mit dem gewählten Benutzer_innenname &#8220;%3$s&#8221; einloggen. Bitte überprüfe deinen E-Mail-Posteingang %4$s für dein Passwort und die Login-Instruktionen. Falls du keine E-Mail erhalten hast, überprüfe bitte auch deinen Spam-Ordner. Solltest du nicht innerhalb von einer Stunde eine E-Mail erhalten haben, kannst du dein <a href=\"%5$s\">Passwort zurücksetzen</a> lassen."
 
 #: wp-activate.php:96
 msgid "Your account has been activated. You may now <a href=\"%1$s\">log in</a> to the site using your chosen username of &#8220;%2$s&#8221;. Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
-msgstr "Dein Benutzerkonto wurde aktiviert. Du kannst dich nun mit dem gewählten Benutzername &#8220;%2$s&#8221; <a href=\"%1$s\">anmelden</a>. Bitte überprüfe deinen E-Mail-Posteingang %3$s für dein Passwort und die Login-Instruktionen. Falls du keine E-Mail erhalten hast, überprüfe bitte auch deinen Spam-Ordner. Solltest du nicht innerhalb von einer Stunde eine E-Mail erhalten haben, kannst du dein <a href=\"%4$s\">Passwort zurücksetzen</a>."
+msgstr "Dein Benutzer_innenkonto wurde aktiviert. Du kannst dich nun mit dem gewählten Benutzer_innenname &#8220;%2$s&#8221; <a href=\"%1$s\">anmelden</a>. Bitte überprüfe deinen E-Mail-Posteingang %3$s für dein Passwort und die Login-Instruktionen. Falls du keine E-Mail erhalten hast, überprüfe bitte auch deinen Spam-Ordner. Solltest du nicht innerhalb von einer Stunde eine E-Mail erhalten haben, kannst du dein <a href=\"%4$s\">Passwort zurücksetzen</a>."
 
 #: wp-signup.php:376
 msgid "<a href=\"http://%1$s\">http://%2$s</a> is your new site. <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
@@ -3326,7 +3326,7 @@ msgstr "Benutze stattdessen <code>WP_User->ID</code>."
 
 #: wp-includes/ms-functions.php:1937
 msgid "You have been added to this site. Please visit the <a href=\"%s\">homepage</a> or <a href=\"%s\">log in</a> using your username and password."
-msgstr "Du wurdest zu dieser Seite hinzugefügt. Du kannst nun die <a href=\"%s\">Startseite</a> besuchen oder dich mit deinem Benutzernamen und Passwort <a href=\"%s\">anmelden</a>."
+msgstr "Du wurdest zu dieser Seite hinzugefügt. Du kannst nun die <a href=\"%s\">Startseite</a> besuchen oder dich mit deinem Benutzer_innennamen und Passwort <a href=\"%s\">anmelden</a>."
 
 #: wp-includes/script-loader.php:252
 msgid "Memory exceeded. Please try another smaller file."
@@ -3357,7 +3357,7 @@ msgstr "Datei"
 #: wp-includes/admin-bar.php:598
 msgctxt "add new from admin bar"
 msgid "User"
-msgstr "Benutzer"
+msgstr "Benutzer_in"
 
 #: wp-includes/taxonomy.php:489
 msgid "View Tag"
@@ -3377,11 +3377,11 @@ msgstr "Wörteranzahl: %s"
 
 #: wp-activate.php:121
 msgid "Your account is now activated. <a href=\"%1$s\">Log in</a> or go back to the <a href=\"%2$s\">homepage</a>."
-msgstr "Dein Benutzerkonto ist jetzt aktiviert. <a href=\"%1$s\">Melde dich an</a> oder gehe zurück <a href=\"%2$s\">zur Startseite.</a>."
+msgstr "Dein Benutzer_innenkonto ist jetzt aktiviert. <a href=\"%1$s\">Melde dich an</a> oder gehe zurück <a href=\"%2$s\">zur Startseite.</a>."
 
 #: wp-activate.php:119
 msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Log in</a>"
-msgstr "Dein Benutzerkonto ist jetzt aktiviert. <a href=\"%1$s\">Besuche deine Seite</a> oder <a href=\"%2$s\">melde dich an</a>."
+msgstr "Dein Benutzer_innenkonto ist jetzt aktiviert. <a href=\"%1$s\">Besuche deine Seite</a> oder <a href=\"%2$s\">melde dich an</a>."
 
 #: wp-includes/admin-bar.php:183
 msgid "Howdy, %1$s"
@@ -3461,7 +3461,7 @@ msgstr "Werkzeugleiste"
 
 #: wp-includes/class-wp-editor.php:862
 msgid "Poster"
-msgstr "Ersteller"
+msgstr "Ersteller_in"
 
 #: wp-includes/class-http.php:224
 msgid "Destination directory for file streaming does not exist or is not writable."
@@ -3502,7 +3502,7 @@ msgstr "Bedingungsabfragen (Conditional Tags) funktionieren nicht, wenn die Beit
 
 #: wp-includes/ms-functions.php:979
 msgid "The user is already active."
-msgstr "Der Benutzer ist bereits aktiviert."
+msgstr "Der_die Benutzer_in ist bereits aktiviert."
 
 #: wp-includes/functions.php:3558
 msgid "(This message was added in version %s.)"
@@ -3628,7 +3628,7 @@ msgstr "Diese Datei muss nicht mehr per include() oder require() eingebunden wer
 
 #: wp-login.php:548
 msgid "Please enter your username or email address. You will receive a link to create a new password via email."
-msgstr "Bitte gib deinen Benutzernamen oder deine E-Mail-Adresse hier ein. Du bekommst eine E-Mail zugesandt, mit deren Hilfe du ein neues Passwort erstellen kannst."
+msgstr "Bitte gib deinen Benutzer_innennamen oder deine E-Mail-Adresse hier ein. Du bekommst eine E-Mail zugesandt, mit deren Hilfe du ein neues Passwort erstellen kannst."
 
 #: wp-includes/default-widgets.php:375 wp-includes/default-widgets.php:669
 msgid "Display as dropdown"
@@ -3664,7 +3664,7 @@ msgstr "Höhe für maximale Bildgröße"
 
 #: wp-login.php:363
 msgid "Someone requested that the password be reset for the following account:"
-msgstr "Jemand hat das Zurücksetzen des Passworts für folgendes Benutzerkonto angefordert:"
+msgstr "Jemand hat das Zurücksetzen des Passworts für folgendes Benutzer_innenkonto angefordert:"
 
 #: wp-login.php:366
 msgid "If this was a mistake, just ignore this email and nothing will happen."
@@ -3761,17 +3761,17 @@ msgstr "Dein Server läuft mit der PHP-Version %1$s, aber WordPress %2$s benöti
 #: wp-signup.php:661
 msgctxt "Multisite active signup type"
 msgid "user"
-msgstr "Benutzern"
+msgstr "Benutzer_innen"
 
 #: wp-signup.php:658
 msgctxt "Multisite active signup type"
 msgid "all"
-msgstr "Benutzern und Seiten"
+msgstr "Benutzer_innen und Seiten"
 
 #: wp-signup.php:659
 msgctxt "Multisite active signup type"
 msgid "none"
-msgstr "keinen neuen Seiten oder Benutzern"
+msgstr "keinen neuen Seiten oder Benutzer_innen"
 
 #: wp-signup.php:660
 msgctxt "Multisite active signup type"
@@ -3950,7 +3950,7 @@ msgstr "Überprüfe deinen Junk/SPAM-Ordner deines E-Mail-Postfachs, da E-Mails 
 
 #: wp-signup.php:664
 msgid "Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href=\"%s\">Options page</a>."
-msgstr "Hallo, Administrator! Du hast zurzeit das Registrieren von %s erlaubt. Um diese Einstellungen zu ändern, öffne die <a href=\"%s\">Einstellungen</a>."
+msgstr "Hallo, Administrator_in! Du hast zurzeit das Registrieren von %s erlaubt. Um diese Einstellungen zu ändern, öffne die <a href=\"%s\">Einstellungen</a>."
 
 #: wp-signup.php:706
 msgid "Sorry, new registrations are not allowed at this time."
@@ -4014,7 +4014,7 @@ msgstr "Die Konstante <code>VHOST</code> <strong>ist veraltet</strong>. Nutze di
 
 #: wp-includes/user.php:2341
 msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
-msgstr "<strong>Fehler:</strong> Dieser Benutzername kann nicht verwendet werden, da er ungültige Zeichen enthält. Bitte gib einen gültigen Benutzernamen an."
+msgstr "<strong>Fehler:</strong> Dieser Benutzer_innenname kann nicht verwendet werden, da er ungültige Zeichen enthält. Bitte gib einen gültigen Benutzer_innennamen an."
 
 #: wp-includes/comment-template.php:2212
 msgid "Required fields are marked %s"
@@ -4038,7 +4038,7 @@ msgstr "Bitte statte dein Theme mit einer %1$s-Datei aus, damit es auch in zukü
 
 #: wp-includes/class-wp-xmlrpc-server.php:3995
 msgid "Sorry, you do not have access to user data on this site."
-msgstr "Du hast keinen Zugriff auf die Benutzerdaten dieser Seite."
+msgstr "Du hast keinen Zugriff auf die Benutzer_innendaten dieser Seite."
 
 #: wp-includes/class-wp-xmlrpc-server.php:4375
 msgid "Sorry, you are not allowed to publish pages on this site."
@@ -4107,7 +4107,7 @@ msgstr "Entschuldige, Seitennamen müssen auch Buchstaben enthalten!"
 
 #: wp-includes/pluggable.php:1688
 msgid "New user registration on your site %s:"
-msgstr "Neue Benutzerregistrierung auf deiner Seite %s:"
+msgstr "Neue Benutzer_innenregistrierung auf deiner Seite %s:"
 
 #: wp-includes/class-wp-xmlrpc-server.php:2730
 #: wp-includes/class-wp-xmlrpc-server.php:4080
@@ -4162,7 +4162,7 @@ msgstr "Dieser Blog wurde deaktiviert oder archiviert."
 
 #: wp-includes/load.php:472
 msgid "The site you have requested is not installed properly. Please contact the system administrator."
-msgstr "Die Website, die du aufrufen möchtest, wurde nicht korrekt installiert. Bitte kontaktiere den Administrator."
+msgstr "Die Website, die du aufrufen möchtest, wurde nicht korrekt installiert. Bitte kontaktiere die_den Administrator_in."
 
 #: wp-includes/nav-menu.php:247 wp-includes/nav-menu.php:254
 msgid "The menu name <strong>%s</strong> conflicts with another menu name. Please try another."
@@ -4202,7 +4202,7 @@ msgstr "Es wurde keine gültige URL übermittelt."
 
 #: wp-includes/comment-template.php:2228
 msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
-msgstr "Angemeldet als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Vom Benutzerkonto ausloggen\">Abmelden?</a>"
+msgstr "Angemeldet als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Vom Benutzer_innenkonto ausloggen\">Abmelden?</a>"
 
 #: wp-includes/class-wp-image-editor-gd.php:177
 #: wp-includes/class-wp-image-editor-imagick.php:237
@@ -4211,7 +4211,7 @@ msgstr "Die Abmessungen des größenveränderten Bildes konnten nicht berechnet 
 
 #: wp-mail.php:15
 msgid "This action has been disabled by the administrator."
-msgstr "Diese Aktion wurde vom Administrator deaktiviert."
+msgstr "Diese Aktion wurde von der_m Administrator_in deaktiviert."
 
 #: wp-includes/author-template.php:62
 msgid "Use <code>get_the_author()</code> instead if you do not want the value echoed."
@@ -4235,7 +4235,7 @@ msgstr "Du bist bereits angemeldet und brauchst dich nicht erneut zu registriere
 
 #: wp-includes/ms-functions.php:487
 msgid "Sorry, usernames may not contain the character &#8220;_&#8221;!"
-msgstr "Benutzernamen dürfen keinen Unterstrich enthalten."
+msgstr "Benutzer_innennamen dürfen keinen Unterstrich enthalten."
 
 #: wp-includes/ms-load.php:427
 msgid "If you&#8217;re still stuck with this message, then check that your database contains the following tables:"
@@ -4247,7 +4247,7 @@ msgstr "Du musst dich zuerst <a href=\"%s\">einloggen</a>, um eine Website anleg
 
 #: wp-signup.php:262
 msgid "Welcome back, %s. By filling out the form below, you can <strong>add another site to your account</strong>. There is no limit to the number of sites you can have, so create to your heart&#8217;s content, but write responsibly!"
-msgstr "Willkommen zurück, %s. In dem du dieses Formular ausfüllst, kannst du eine <strong>weitere Website</strong> für dein Benutzerkonto anlegen. Es gibt hierfür keine Begrenzung, also zögere nicht."
+msgstr "Willkommen zurück, %s. In dem du dieses Formular ausfüllst, kannst du eine <strong>weitere Website</strong> für dein Benutzer_innenkonto anlegen. Es gibt hierfür keine Begrenzung, also zögere nicht."
 
 #: wp-includes/script-loader.php:521
 msgid "Are you sure you want to install this plugin?"
@@ -4438,7 +4438,7 @@ msgstr "Menüs"
 
 #: wp-includes/class-wp-xmlrpc-server.php:451
 msgid "Allow new users to sign up"
-msgstr "Erlaube neuen Benutzern die Registrierung"
+msgstr "Erlaube neuen Benutzer_innen die Registrierung"
 
 #: wp-includes/wp-db.php:1285
 msgid "WordPress database error %1$s for query %2$s made by %3$s"
@@ -4504,7 +4504,7 @@ msgstr "Um einen Kommentar zu hinterlassen, musst du angemeldet sein."
 
 #: wp-includes/class-wp-xmlrpc-server.php:3258
 msgid "Comment author name and email are required"
-msgstr "Name und E-Mail-Adresse des Autoren sind erforderlich."
+msgstr "Name und E-Mail-Adresse der_s Autor_in sind erforderlich."
 
 #: wp-includes/class-wp-xmlrpc-server.php:3495
 msgid "You are not allowed to update options."
@@ -4512,7 +4512,7 @@ msgstr "Du darfst die Einstellungen nicht ändern."
 
 #: wp-includes/class-wp-xmlrpc-server.php:4770
 msgid "You are not allowed to change the page author as this user."
-msgstr "Dieser Benutzer darf den Autor der Seite nicht verändern."
+msgstr "Diese_r Benutzer_in darf die_den Autor_in der Seite nicht verändern."
 
 #: wp-includes/class-wp-xmlrpc-server.php:5314
 msgid "Could not write file %1$s (%2$s)"
@@ -4591,7 +4591,7 @@ msgstr "Du darfst nicht auf Details von Kommentaren zugreifen."
 #: wp-includes/class-wp-xmlrpc-server.php:5757
 #: wp-includes/class-wp-xmlrpc-server.php:5897
 msgid "The specified target URL cannot be used as a target. It either doesn&#8217;t exist, or it is not a pingback-enabled resource."
-msgstr "Die angegebene URL kann nicht als Ziel verwendet werden. Entweder existiert sie nicht oder der Empfänger erlaubt keine Pingbacks."
+msgstr "Die angegebene URL kann nicht als Ziel verwendet werden. Entweder existiert sie nicht oder die_der Empfänger_in erlaubt keine Pingbacks."
 
 #: wp-includes/class-wp-xmlrpc-server.php:3168
 msgid "Sorry, the comment could not be edited. Something wrong happened."
@@ -4642,7 +4642,7 @@ msgstr "Du verfügst nicht über ausreichende Rechte, um diesen Beitrag zu verö
 
 #: wp-includes/class-wp-xmlrpc-server.php:4765
 msgid "You are not allowed to change the post author as this user."
-msgstr "Dieser Benutzer darf den Autor des Beitrags nicht verändern."
+msgstr "Diese_r Benutzer_in darf die_den Autor_in des Beitrags nicht verändern."
 
 #: wp-includes/class-wp-xmlrpc-server.php:4917
 msgid "Sorry, your entry could not be edited. Something wrong happened."
@@ -4654,7 +4654,7 @@ msgstr "Du verfügst nicht über ausreichende Rechte, um diesen Beitrag zu bearb
 
 #: wp-includes/user.php:1847
 msgid "Cannot create a user with an empty login name."
-msgstr "Ohne Benutzername kann kein neuer Benutzer angelegt werden."
+msgstr "Ohne Benutzer_innenname kann kein_e neue_r Benutzer_in angelegt werden."
 
 #: wp-includes/class-wp-image-editor-imagick.php:203
 msgid "Could not read image size"
@@ -4807,7 +4807,7 @@ msgstr "Link-Beziehung"
 
 #: wp-includes/class-http.php:196
 msgid "User has blocked requests through HTTP."
-msgstr "Der Benutzer hat Anfragen über HTTP blockiert."
+msgstr "Der_die Benutzer_in hat Anfragen über HTTP blockiert."
 
 #: wp-includes/script-loader.php:113 wp-includes/script-loader.php:432
 msgid "An unidentified error has occurred."
@@ -4831,7 +4831,7 @@ msgstr "Bei dem Upload ist ein Fehler aufgetaucht. Probiere es später noch einm
 
 #: wp-includes/script-loader.php:255
 msgid "There was a configuration error. Please contact the server administrator."
-msgstr "Die Konfiguration ist fehlerhaft. Bitte wende dich an deinen Serveradministrator."
+msgstr "Die Konfiguration ist fehlerhaft. Bitte wende dich an deine_n Serveradministrator_in."
 
 #: wp-includes/script-loader.php:256
 msgid "You may only upload 1 file."
@@ -5506,7 +5506,7 @@ msgstr "[%1$s] Bitte moderiere: \"%2$s\""
 
 #: wp-includes/pluggable.php:1661
 msgid "Password Lost and Changed for user: %s"
-msgstr "Passwort verloren und geändert für Benutzer: %s"
+msgstr "Passwort verloren und geändert für Benutzer_in: %s"
 
 #: wp-includes/pluggable.php:1665
 msgid "[%s] Password Lost/Changed"
@@ -5514,11 +5514,11 @@ msgstr "[%s] Passwort verloren/ändern"
 
 #: wp-includes/pluggable.php:1692
 msgid "[%s] New User Registration"
-msgstr "[%s] Registrierung eines neuen Benutzers"
+msgstr "[%s] Registrierung einer_s neuen Benutzer_in"
 
 #: wp-includes/pluggable.php:1701
 msgid "[%s] Your username and password"
-msgstr "[%s] Dein Benutzername und Passwort"
+msgstr "[%s] Dein Benutzer_innenname und Passwort"
 
 #: wp-includes/post-template.php:130
 msgid "Protected: %s"
@@ -5780,12 +5780,12 @@ msgstr "Powered by WordPress"
 
 #: wp-login.php:337
 msgid "Password reset is not allowed for this user"
-msgstr "Für diesen Benutzer ist es nicht erlaubt, das Passwort zurückzusetzen."
+msgstr "Für diese_n Benutzer_in ist es nicht erlaubt, das Passwort zurückzusetzen."
 
 #: wp-includes/pluggable.php:1689 wp-includes/pluggable.php:1697
 #: wp-login.php:365
 msgid "Username: %s"
-msgstr "Benutzername: %s"
+msgstr "Benutzer_innenname: %s"
 
 #: wp-login.php:379
 msgid "[%s] Password Reset"
@@ -5815,7 +5815,7 @@ msgstr "Passwort verloren"
 
 #: wp-login.php:556
 msgid "Username or E-mail:"
-msgstr "Benutzername oder E-Mail-Adresse:"
+msgstr "Benutzer_innenname oder E-Mail-Adresse:"
 
 #: wp-login.php:567
 msgid "Get New Password"
@@ -5861,7 +5861,7 @@ msgstr "Du hast dich erfolgreich abgemeldet."
 
 #: wp-login.php:862
 msgid "User registration is currently not allowed."
-msgstr "Zurzeit ist die Benutzer-Registrierung nicht erlaubt."
+msgstr "Zurzeit ist die Benutzer_innen-Registrierung nicht erlaubt."
 
 #: wp-login.php:864
 msgid "Check your e-mail for the confirmation link."
@@ -5881,11 +5881,11 @@ msgstr "Da scheint keine neue E-Mail zu sein."
 
 #: wp-mail.php:122
 msgid "Author is %s"
-msgstr "Der Autor ist %s"
+msgstr "Der_die Autor_in ist %s"
 
 #: wp-mail.php:247
 msgid "<strong>Author:</strong> %s"
-msgstr "<strong>Autor:</strong> %s"
+msgstr "<strong>Autor_in:</strong> %s"
 
 #: wp-mail.php:248
 msgid "<strong>Posted title:</strong> %s"
@@ -5897,15 +5897,15 @@ msgstr "Oops: %s"
 
 #: wp-login.php:278
 msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
-msgstr "<strong>Fehler:</strong> Benutzername oder E-Mail-Adresse eingeben"
+msgstr "<strong>Fehler:</strong> Benutzer_innenname oder E-Mail-Adresse eingeben"
 
 #: wp-login.php:282
 msgid "<strong>ERROR</strong>: There is no user registered with that email address."
-msgstr "<strong>Fehler:</strong> Es existiert kein Benutzer mit dieser E-Mail-Adresse"
+msgstr "<strong>Fehler:</strong> Es existiert kein_e Benutzer_in mit dieser E-Mail-Adresse"
 
 #: wp-login.php:299
 msgid "<strong>ERROR</strong>: Invalid username or e-mail."
-msgstr "<strong>Fehler:</strong> Falscher Benutzername oder E-Mail-Adresse."
+msgstr "<strong>Fehler:</strong> Falscher Benutzer_innenname oder E-Mail-Adresse."
 
 #: wp-includes/user.php:2349
 msgid "<strong>ERROR</strong>: Please type your e-mail address."
@@ -5944,7 +5944,7 @@ msgstr "Kommentar abschicken"
 
 #: wp-includes/user.php:126
 msgid "<strong>ERROR</strong>: The username field is empty."
-msgstr "<strong>Fehler:</strong> Das Benutzerfeld ist leer."
+msgstr "<strong>Fehler:</strong> Das Benutzer_innenfeld ist leer."
 
 #: wp-includes/user.php:129
 msgid "<strong>ERROR</strong>: The password field is empty."
@@ -5968,7 +5968,7 @@ msgstr "Absätze automatisch hinzufügen"
 
 #: wp-includes/pluggable.php:568
 msgid "<strong>ERROR</strong>: Invalid username or incorrect password."
-msgstr "<strong>Fehler:</strong> Falscher Benutzername oder E-Mail-Adresse."
+msgstr "<strong>Fehler:</strong> Falscher Benutzer_innenname oder E-Mail-Adresse."
 
 #: wp-signup.php:126
 msgid "Privacy:"
@@ -5992,7 +5992,7 @@ msgstr "Registriere dich in nur wenigen Sekunden bei %s."
 
 #: wp-signup.php:498
 msgid "%s is your new username"
-msgstr "%s ist dein neuer Benutzername"
+msgstr "%s ist dein neuer Benutzer_innenname"
 
 #: wp-signup.php:499
 msgid "But, before you can start using your new username, <strong>you must activate it</strong>."
@@ -6000,7 +6000,7 @@ msgstr "Bevor du jedoch loslegen und ihn nutzen kannst, musst du ihn erst <stron
 
 #: wp-signup.php:501
 msgid "If you do not activate your username within two days, you will have to sign up again."
-msgstr "Wenn du deinen Benutzernamen nicht innerhalb von zwei Tagen aktivierst, musst du dich erneut registrieren."
+msgstr "Wenn du deinen Benutzer_innennamen nicht innerhalb von zwei Tagen aktivierst, musst du dich erneut registrieren."
 
 #: wp-signup.php:565
 msgid "Signup"
@@ -6016,19 +6016,19 @@ msgstr "Die Registrierung wurde deaktiviert."
 
 #: wp-signup.php:681
 msgid "User registration has been disabled."
-msgstr "Die Benutzerregistrierung wurde deaktiviert."
+msgstr "Die Benutzer_innenregistrierung wurde deaktiviert."
 
 #: wp-includes/ms-functions.php:260
 msgid "That user does not exist."
-msgstr "Dieser Benutzer existiert nicht."
+msgstr "Diese_r Benutzer_in existiert nicht."
 
 #: wp-includes/ms-functions.php:481
 msgid "You cannot use that email address to signup. We are having problems with them blocking some of our email. Please use another email provider."
-msgstr "Du kannst dich leider nicht mit dieser E-Mail-Adresse registrieren, da dein E-Mail-Anbieter einen Teil unserer E-Mails blockiert. Nutze bitte eine E-Mailadresse eines anderen E-Mail-Anbieters."
+msgstr "Du kannst dich leider nicht mit dieser E-Mail-Adresse registrieren, da dein_e E-Mail-Anbieter_in einen Teil unserer E-Mails blockiert. Nutze bitte eine E-Mailadresse einer_s anderen E-Mail-Anbieter_in."
 
 #: wp-includes/ms-functions.php:491
 msgid "Sorry, usernames must have letters too!"
-msgstr "Entschuldige, aber Benutzernamen müssen auch Buchstaben enthalten!"
+msgstr "Entschuldige, aber Benutzer_innennamen müssen auch Buchstaben enthalten!"
 
 #: wp-includes/ms-functions.php:500
 msgid "Sorry, that email address is not allowed!"
@@ -6036,7 +6036,7 @@ msgstr "Diese E-Mail-Adresse ist nicht erlaubt!"
 
 #: wp-includes/ms-functions.php:505 wp-includes/user.php:1850
 msgid "Sorry, that username already exists!"
-msgstr "Entschuldige, aber der Benutzername existiert bereits!"
+msgstr "Entschuldige, aber der Benutzer_innenname existiert bereits!"
 
 #: wp-includes/ms-functions.php:509 wp-includes/user.php:1906
 msgid "Sorry, that email address is already used!"
@@ -6044,7 +6044,7 @@ msgstr "Entschuldige, aber diese Email-Adresse wird bereits verwendet!"
 
 #: wp-includes/ms-functions.php:521
 msgid "That username is currently reserved but may be available in a couple of days."
-msgstr "Dieser Benutzername ist derzeit reserviert, ist aber möglicherweise in den nächsten Tagen verfügbar."
+msgstr "Dieser Benutzer_innenname ist derzeit reserviert, ist aber möglicherweise in den nächsten Tagen verfügbar."
 
 #: wp-includes/ms-functions.php:975
 msgid "Invalid activation key."
@@ -6052,19 +6052,19 @@ msgstr "Ungültiger Aktivierungsschlüssel."
 
 #: wp-includes/ms-functions.php:995
 msgid "Could not create user"
-msgstr "Der Benutzer konnte nicht erstellt werden"
+msgstr "Der_die Benutzer_in konnte nicht erstellt werden"
 
 #: wp-includes/ms-functions.php:1003
 msgid "That username is already activated."
-msgstr "Dieser Benutzername wurde bereits aktiviert."
+msgstr "Dieser Benutzer_innenname wurde bereits aktiviert."
 
 #: wp-includes/ms-functions.php:1255
 msgid "New User Registration: %s"
-msgstr "Neue Benutzerregistrierung: %s"
+msgstr "Neue Benutzer_innenregistrierung: %s"
 
 #: wp-includes/ms-functions.php:1573
 msgid "New %1$s User: %2$s"
-msgstr "Neuer %1$s Benutzer: %2$s"
+msgstr "Neue_r %1$s Benutzer_in: %2$s"
 
 #: wp-includes/script-loader.php:456
 msgid "Publish on:"
@@ -6118,7 +6118,7 @@ msgstr "Du hast nicht die erforderlichen Rechte, um die Entwurfsvorschau zu sehe
 
 #: wp-signup.php:449
 msgid "Just a username, please."
-msgstr "Ich möche nur einen Benutzernamen, keine Seite."
+msgstr "Ich möche nur einen Benutzer_innennamen, keine Seite."
 
 #: wp-includes/cron.php:172
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
@@ -6202,7 +6202,7 @@ msgstr "Beitrags-Inhalt anzeigen?"
 
 #: wp-includes/default-widgets.php:1191
 msgid "Display item author if available?"
-msgstr "Beitrags-Autor anzeigen, wenn verfügbar?"
+msgstr "Beitrags-Autor_in anzeigen, wenn verfügbar?"
 
 #: wp-includes/default-widgets.php:1194
 msgid "Display item date?"
@@ -6381,7 +6381,7 @@ msgstr "Einen Kommentar hinterlassen"
 
 #: wp-includes/theme-compat/comments.php:82
 msgid "Log out of this account"
-msgstr "Diesen Benutzer abmelden"
+msgstr "Diese_n Benutzer_in abmelden"
 
 #: wp-includes/theme-compat/comments.php:82
 msgid "Log out &raquo;"
@@ -6626,7 +6626,7 @@ msgstr "Es wurden keine Kommentare gefunden, die deinen Suchkriterien entspreche
 
 #: wp-includes/user.php:2339
 msgid "<strong>ERROR</strong>: Please enter a username."
-msgstr "<strong>Fehler:</strong> Bitte gib einen Benutzernamen ein."
+msgstr "<strong>Fehler:</strong> Bitte gib einen Benutzer_innennamen ein."
 
 #: wp-includes/user.php:2354
 msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
@@ -6695,7 +6695,7 @@ msgstr "Feed für alle unter %s abgelegten Beiträge"
 
 #: wp-includes/class-wp-xmlrpc-server.php:491
 msgid "Allow people to post comments on new articles"
-msgstr "Erlaube Besuchern, neue Beiträge zu kommentieren"
+msgstr "Erlaube Besucher_innen, neue Beiträge zu kommentieren"
 
 #: wp-includes/class-wp-xmlrpc-server.php:4249
 msgid "For some strange yet very annoying reason, this post could not be edited."
@@ -6966,7 +6966,7 @@ msgstr "Links"
 
 #: wp-includes/admin-bar.php:372
 msgid "Users"
-msgstr "Benutzer"
+msgstr "Benutzer_innen"
 
 #: wp-includes/media.php:2999
 msgid "Select"
@@ -6991,7 +6991,7 @@ msgstr "Bilder"
 
 #: wp-includes/general-template.php:392 wp-login.php:736 wp-login.php:902
 msgid "Username"
-msgstr "Benutzername"
+msgstr "Benutzer_innenname"
 
 #: wp-includes/general-template.php:393 wp-login.php:906
 msgid "Password"
@@ -7030,7 +7030,7 @@ msgstr "Nein"
 
 #: wp-includes/class-wp-editor.php:846 wp-includes/theme-compat/sidebar.php:21
 msgid "Author"
-msgstr "Autor"
+msgstr "Autor_in"
 
 #: wp-includes/class-wp-editor.php:1444 wp-includes/media-template.php:376
 #: wp-includes/media-template.php:555 wp-includes/media.php:2996
@@ -7232,7 +7232,7 @@ msgstr "Aktivierungsschlüssel"
 
 #: wp-activate.php:92 wp-activate.php:111
 msgid "Your account is now active!"
-msgstr "Dein Benutzerkonto ist nun aktiviert!"
+msgstr "Dein Benutzer_innenkonto ist nun aktiviert!"
 
 #: wp-activate.php:103
 msgid "An error occurred during the activation"
@@ -7240,7 +7240,7 @@ msgstr "Ein Fehler ist während der Anmeldung aufgetreten."
 
 #: wp-activate.php:114 wp-signup.php:177
 msgid "Username:"
-msgstr "Benutzername:"
+msgstr "Benutzer_innenname:"
 
 #: wp-includes/class-wp-xmlrpc-server.php:3544
 #: wp-includes/class-wp-xmlrpc-server.php:3589

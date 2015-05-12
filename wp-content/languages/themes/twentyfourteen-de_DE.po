@@ -219,7 +219,7 @@ msgstr "Mit <a href=\"%s\">Beitragsbildern</a> kannst du die Gestaltung deiner W
 
 #. Template Name of the plugin/theme
 msgid "Contributor Page"
-msgstr "Autoren Seite"
+msgstr "Autor_innen Seite"
 
 #: inc/widgets.php:258
 msgid "Number of posts to show:"
