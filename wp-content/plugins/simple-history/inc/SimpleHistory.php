@@ -10,7 +10,7 @@ class SimpleHistory {
 	const NAME = "Simple History";
 
 	// Dont use this any more! Will be removed in future versions. Use global SIMPLE_HISTORY_VERSION instead.
-	const VERSION = "2.1";
+	const VERSION = "2.1.1";
 
 	/**
 	 * For singleton
@@ -125,10 +125,10 @@ class SimpleHistory {
 
 		// custom filter
 		add_filter("simple_history/log_html_output_details_table/row_keys_to_show", function($logRowKeysToShow, $oneLogRow) {
-		        $logRowKeysToShow["user_email"] = false;
-		        return $logRowKeysToShow;
+			$logRowKeysToShow["user_email"] = false;
+			return $logRowKeysToShow;
 		}, 10, 2);
-
+		
 		// custom filter
 		add_filter("simple_history/log_insert_context", function($context, $data) {
 			if ($context["user_id"] == 1) {
@@ -143,7 +143,7 @@ class SimpleHistory {
 			unset($context["server_http_user_agent"]);
 			unset($context["_server_http_referer"]);
 			unset($context["server_http_referer"]);
-
+			
 			return $context;
 		}, 10, 2);
 
@@ -193,7 +193,7 @@ class SimpleHistory {
 	public static function get_instance() {
 
 		if ( ! isset( self::$instance ) ) {
-			
+
 			self::$instance = new SimpleHistory();
 
 		}
@@ -377,8 +377,8 @@ class SimpleHistory {
 			</script>
 
 			<script type="text/html" id="tmpl-simple-history-occasions-too-many">
-				<li 
-					class="SimpleHistoryLogitem 
+				<li
+					class="SimpleHistoryLogitem
 						   SimpleHistoryLogitem--occasion
 						   SimpleHistoryLogitem--occasion-tooMany
 						   ">
@@ -387,9 +387,9 @@ class SimpleHistory {
 						<div class="SimpleHistoryLogitem__text">
 							<?php _e('Sorry, but there are too many similar events to show.', "simple-history"); ?>
 							<!-- <br>occasionsCount: {{ data.occasionsCount }}
-							<br>occasionsCountMaxReturn: {{ data.occasionsCountMaxReturn }} 
-							<br>diff: {{ data.occasionsCount - data.occasionsCountMaxReturn }} 
-							Suggestions: 
+							<br>occasionsCountMaxReturn: {{ data.occasionsCountMaxReturn }}
+							<br>diff: {{ data.occasionsCount - data.occasionsCountMaxReturn }}
+							Suggestions:
 							<ul>
 								<li>- dig into database directly
 								<li>- Export
@@ -620,9 +620,9 @@ class SimpleHistory {
 	/**
 	 * Register an external logger so Simple History knows about it.
 	 * Does not load the logger, so file with logger must be loaded already.
-	 * 
+	 *
 	 * See example-logger.php for an example on how to use this.
-	 * 
+	 *
 	 * @since 2.1
 	 */
 	function register_logger($loggerClassName) {
@@ -673,7 +673,7 @@ class SimpleHistory {
 		// Array with slug of loggers to instantiate
 		// Slug of logger must also be the name of the logger class
 		$arrLoggersToInstantiate = array();
-	
+
 		foreach ( $loggersFiles as $oneLoggerFile ) {
 
 			$load_logger = true;
@@ -708,7 +708,7 @@ class SimpleHistory {
 		 *
 		 * @param array $arrLoggersToInstantiate Array with class names
 		 */
-		
+
 		do_action("simple_history/add_custom_logger", $this);
 
 		$arrLoggersToInstantiate = array_merge($arrLoggersToInstantiate, $this->externalLoggers);
@@ -728,7 +728,7 @@ class SimpleHistory {
 		 * @param array $arrLoggersToInstantiate Array with class names
 		 */
 		$arrLoggersToInstantiate = apply_filters("simple_history/loggers_to_instantiate", $arrLoggersToInstantiate);
-		
+
 		// Instantiate each logger
 		foreach ($arrLoggersToInstantiate as $oneLoggerName) {
 
@@ -793,16 +793,17 @@ class SimpleHistory {
 
 		$dropinsDir = SIMPLE_HISTORY_PATH . "dropins/";
 
-		/**
-		 * Filter the directory to load loggers from
-		 *
-		 * @since 2.0
-		 *
-		 * @param string $dropinsDir Full directory path
-		 */
-		$dropinsDir = apply_filters("simple_history/dropins_dir", $dropinsDir);
-
-		$dropinsFiles = glob($dropinsDir . "*.php");
+		$dropinsFiles = array(
+			$dropinsDir . "SimpleHistoryDonateDropin.php",
+			$dropinsDir . "SimpleHistoryExportDropin.php",
+			$dropinsDir . "SimpleHistoryFilterDropin.php",
+			$dropinsDir . "SimpleHistoryIpInfoDropin.php",
+			$dropinsDir . "SimpleHistoryNewRowsNotifier.php",
+			$dropinsDir . "SimpleHistoryRSSDropin.php",
+			$dropinsDir . "SimpleHistorySettingsLogtestDropin.php",
+			$dropinsDir . "SimpleHistorySettingsStatsDropin.php",
+			$dropinsDir . "SimpleHistorySidebarDropin.php",
+		);
 
 		/**
 		 * Filter the array with absolute paths to files as returned by glob function.
@@ -817,7 +818,7 @@ class SimpleHistory {
 
 		$arrDropinsToInstantiate = array();
 
-		foreach ($dropinsFiles as $oneDropinFile) {
+		foreach ( $dropinsFiles as $oneDropinFile ) {
 
 			// path/path/simplehistory/dropins/SimpleHistoryDonateDropin.php => SimpleHistoryDonateDropin
 			$oneDropinFileBasename = basename($oneDropinFile, ".php");
@@ -937,7 +938,7 @@ class SimpleHistory {
 			 * @param bool Show the page or not
 			 */
 			$show_dashboard_widget = apply_filters("simple_history/show_dashboard_widget", true);
-			
+
 			if ( $show_dashboard_widget ) {
 				wp_add_dashboard_widget("simple_history_dashboard_widget", __("Simple History", 'simple-history'), array($this, "dashboard_widget_output"));
 			}
@@ -1404,7 +1405,7 @@ class SimpleHistory {
 			$show_dashboard_page = apply_filters("simple_history/show_dashboard_page", true);
 
 			if ( $show_dashboard_page ) {
-			
+
 				add_dashboard_page(
 					SimpleHistory::NAME,
 					_x("Simple History", 'dashboard menu name', 'simple-history'),
@@ -1420,7 +1421,7 @@ class SimpleHistory {
 		// Add a settings page
 		$show_settings_page = true;
 		$show_settings_page = apply_filters("simple_history_show_settings_page", $show_settings_page);
-		$show_settings_page = apply_filters("simple_history/show_settings_page", $show_settings_page);		
+		$show_settings_page = apply_filters("simple_history/show_settings_page", $show_settings_page);
 
 		if ( $show_settings_page ) {
 
@@ -2022,7 +2023,7 @@ class SimpleHistory {
 		$data_attrs .= sprintf(' data-level="%1$s" ', esc_attr( $oneLogRow->level ) );
 		$data_attrs .= sprintf(' data-date="%1$s" ', esc_attr( $oneLogRow->date ) );
 		$data_attrs .= sprintf(' data-initiator="%1$s" ', esc_attr( $oneLogRow->initiator ) );
-		
+
 		if ( isset( $oneLogRow->context["_user_id"] ) ) {
 			$data_attrs .= sprintf(' data-initiator-user-id="%1$d" ', $oneLogRow->context["_user_id"] );
 		}
@@ -2084,7 +2085,7 @@ class SimpleHistory {
 				// Only columns from oneLogRow that exist in logRowKeysToShow will be outputed
 				if ( ! array_key_exists($rowKey, $logRowKeysToShow) || ! $logRowKeysToShow[$rowKey] ) {
 					continue;
-				}				
+				}
 
 				// skip arrays and objects and such
 				if (is_array($rowVal) || is_object($rowVal)) {
@@ -2152,7 +2153,7 @@ class SimpleHistory {
 				// Only columns from context that exist in logRowContextKeysToShow will be outputed
 				if ( ! array_key_exists($contextKey, $logRowContextKeysToShow) || ! $logRowContextKeysToShow[$contextKey] ) {
 					continue;
-				}				
+				}
 
 				$more_details_html .= sprintf(
 					'<tr>
@@ -2812,7 +2813,7 @@ function simple_history_add($args) {
  *
  * @since 2.0.29
  *
- * 
+ *
  * Original description from wp_text_diff():
  *
  * Displays a human readable HTML representation of the difference between two strings.
@@ -2828,7 +2829,7 @@ function simple_history_add($args) {
  * 'title_left' : Default is an empty string. Change the HTML to the left of the
  *		title.
  * 'title_right' : Default is an empty string. Change the HTML to the right of
- *		the title. 
+ *		the title.
  *
  * @see wp_parse_args() Used to change defaults to user defined settings.
  * @uses Text_Diff
@@ -2840,10 +2841,10 @@ function simple_history_add($args) {
  * @return string Empty string if strings are equivalent or HTML with differences.
  */
 function simple_history_text_diff( $left_string, $right_string, $args = null ) {
-	
-	$defaults = array( 
-		'title' => '', 
-		'title_left' => '', 
+
+	$defaults = array(
+		'title' => '',
+		'title_left' => '',
 		'title_right' => '',
 		"leading_context_lines" => 1,
 		"trailing_context_lines" => 1

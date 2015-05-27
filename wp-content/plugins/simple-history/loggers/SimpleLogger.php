@@ -196,7 +196,7 @@ class SimpleLogger {
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
 								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
+								<!-- removed -->
 							</a>
 						';
 
