@@ -4311,7 +4311,7 @@ msgstr "Nicht verfügbare Tickets anzeigen?"
 #: admin/em-options.php:1765
 msgid "You can choose whether or not to show unavailable tickets to visitors."
 msgstr ""
-"Du kannst wählen, ob du nicht verfügbare Tickets für Besucher_innen anzeigen "
+"Du kannst wählen, ob du nicht verfügbare Tickets für Besucher anzeigen "
 "willst oder nicht."
 
 #: admin/em-options.php:1768
@@ -4345,7 +4345,7 @@ msgstr ""
 
 #: admin/em-options.php:1783 admin/em-options.php:1898
 msgid "No-User Booking Mode"
-msgstr "Nicht-Benutzer_innen Buchungsmodus"
+msgstr "Nicht-Benutzer Buchungsmodus"
 
 #: admin/em-options.php:1787
 msgid ""
@@ -4353,9 +4353,9 @@ msgid ""
 "account, if the user is not registered nor logged in and guest bookings are "
 "enabled, an account will be created for them."
 msgstr ""
-"Standardmäßig wird eine Buchung mit einem Benutzer_innenkonto verknüpft. Wenn ein_e "
-"Anwender_in weder registriert, noch angemeldet ist und Gastbuchungen aktiviert "
-"sind, wird ein Benutzer_innenkonto automatisch angelegt."
+"Standardmäßig wird eine Buchung mit einem Benutzerkonto verknüpft. Wenn ein "
+"Anwender weder registriert, noch angemeldet ist und Gastbuchungen aktiviert "
+"sind, wird ein Benutzerkonto automatisch angelegt."
 
 #: admin/em-options.php:1788
 msgid ""
@@ -4365,11 +4365,11 @@ msgid ""
 "information about the person is stored alongside the booking record rather "
 "than as a WordPress user."
 msgstr ""
-"Diese Option ermöglicht, Benutzer_innenkonten zu deaktivieren und alle Buchungen "
-"einer_m übergeordneten Benutzer_in zuzuordnen. Die persönlichen Informationen für "
+"Diese Option ermöglicht, Benutzerkonten zu deaktivieren und alle Buchungen "
+"einem übergeordneten Benutzer zuzuordnen. Die persönlichen Informationen für "
 "jede Buchung bleiben erhalten. Wenn dieser Modus aktiviert ist, werden "
 "zusätzliche Buchungsinformationen über die Person im Buchungsdatensatz "
-"gespeichert und nicht in der_dem WordPress Benutzer_in."
+"gespeichert und nicht im WordPress Benutzer."
 
 #: admin/em-options.php:1790
 msgid ""
@@ -4385,11 +4385,11 @@ msgstr ""
 
 #: admin/em-options.php:1793
 msgid "Enable No-User Booking Mode?"
-msgstr "Möchtest du Buchungen für nicht registrierte Benutzer_innen aktivieren?"
+msgstr "Möchtest du Buchungen für nicht registrierte Benutzer aktivieren?"
 
 #: admin/em-options.php:1793
 msgid "This disables user registrations for bookings."
-msgstr "Dies deaktiviert Benutzer_innen Registrierungen für Buchungen."
+msgstr "Dies deaktiviert Benutzer Registrierungen für Buchungen."
 
 #: admin/em-options.php:1801 admin/em-options.php:1803
 msgid "Assign bookings to"
@@ -4401,9 +4401,9 @@ msgid ""
 "be unaware of this and will never have access to those user details. This "
 "should be a subscriber user you do not use to log in with yourself."
 msgstr ""
-"Wähle eine_n übergeordnete_n Benutzer_in, der_dem Buchungen zugeordnet werden. "
+"Wähle einen übergeordneten Benutzer, dem Buchungen zugeordnet werden. "
 "Buchende Gäste werden dies nicht bemerken und keinen Zugriff auf "
-"Benutzer_innendetails haben. Der_die Benutzer_in sollte eine Abonennt_innenrolle haben und "
+"Benutzerdetails haben. Der Benutzer sollte eine Abonenntenrolle haben und "
 "nicht zum Login verwendet werden."
 
 #: admin/em-options.php:1823
@@ -4416,15 +4416,15 @@ msgstr "Du kannst diese E-Mail deaktivieren, indem du den Betreff leer läßt."
 
 #: admin/em-options.php:1829
 msgid "Email events admin?"
-msgstr "E-Mails an Administrator_innen der Veranstaltung?"
+msgstr "E-Mails an Administrator der Veranstaltung?"
 
 #: admin/em-options.php:1829
 msgid ""
 "If you would like every event booking confirmation email sent to an "
 "administrator write their email here (leave blank to not send an email)."
 msgstr ""
-"Wenn Du möchtest, dass jede Buchungsbestätigung per E-Mail an eine_n "
-"Administrator_in geschickt werden soll, gib hier seine E-Mail-Adresse ein (leer "
+"Wenn Du möchtest, dass jede Buchungsbestätigung per E-Mail an einen "
+"Administrator geschickt werden soll, gib hier seine E-Mail-Adresse ein (leer "
 "lassen, um keine Emails zu verschicken)."
 
 #: admin/em-options.php:1829
@@ -4437,7 +4437,7 @@ msgstr ""
 
 #: admin/em-options.php:1830
 msgid "Email event owner?"
-msgstr "E-Mails an den_die Veranstaltungseigentümer_in"
+msgstr "E-Mails an den Veranstaltungseigentümer"
 
 #: admin/em-options.php:1830
 msgid ""
@@ -4460,31 +4460,31 @@ msgid ""
 "from going out when a user anonymously books an event."
 msgstr ""
 "Aktiviere diese Option, wenn du verhindern willst, dass die Wordpress-"
-"Registrierungs-Mail verschickt wird, wenn ein_e User_in anonym eine Veranstaltung "
+"Registrierungs-Mail verschickt wird, wenn ein User anonym eine Veranstaltung "
 "gebucht."
 
 #: admin/em-options.php:1835
 msgid "Contact person booking confirmed"
-msgstr "Ansprechpartner_in für bestätigte Buchung "
+msgstr "Ansprechpartner für bestätigte Buchung "
 
 #: admin/em-options.php:1836
 msgid ""
 "An email will be sent to the event contact when a booking is first made."
 msgstr ""
-"Eine E-Mail wird an die_den Ansprechpartner_in geschickt, wenn erstmalig eine "
+"Eine E-Mail wird an den Ansprechpartner geschickt, wenn erstmalig eine "
 "Buchung gemacht wird."
 
 #: admin/em-options.php:1839
 msgid "Contact person email subject"
-msgstr "Betreff der E-Mail an den_die Ansprechpartner_in"
+msgstr "Betreff der E-Mail an den Ansprechpartner"
 
 #: admin/em-options.php:1840
 msgid "Contact person email"
-msgstr "Inhalt der E-Mail an Ansprechpartner_innen"
+msgstr "Inhalt der E-Mail an Ansprechpartner"
 
 #: admin/em-options.php:1843
 msgid "Contact person booking cancelled"
-msgstr "Ansprechpartner_in für stornierte Buchungen"
+msgstr "Ansprechpartner für stornierte Buchungen"
 
 #: admin/em-options.php:1844
 msgid ""
@@ -4495,11 +4495,11 @@ msgstr ""
 
 #: admin/em-options.php:1847
 msgid "Contact person cancellation subject"
-msgstr "Betreff der E-Mail an den_die Ansprechpartner_in bei Stornierung"
+msgstr "Betreff der E-Mail an den Ansprechpartner bei Stornierung"
 
 #: admin/em-options.php:1848
 msgid "Contact person cancellation email"
-msgstr "E-Mail Inhalt an den_die Ansprechpartner_in bei Stornierung"
+msgstr "E-Mail Inhalt an den Ansprechpartner bei Stornierung"
 
 #: admin/em-options.php:1854
 msgid "Confirmed booking email"
@@ -4512,10 +4512,10 @@ msgid ""
 "approvals are disabled, this is sent out when a user first submits their "
 "booking."
 msgstr ""
-"Diese E-Mail wird an die_den Benutzer_in geschickt, wenn die Buchung bestätigt "
+"Diese E-Mail wird an den Benutzer geschickt, wenn die Buchung bestätigt "
 "wird. Wenn eine Genehmigung erforderlich ist, erfolgt dies nach der "
-"Genehmigung durch die_den Administrator_in. Wenn die Genehmigung deaktiviert ist, "
-"wird die E-Mail an die_den Benutzer_in geschickt, sobald diese_r die Buchung zum "
+"Genehmigung durch den Administrator. Wenn die Genehmigung deaktiviert ist, "
+"wird die E-Mail an den Benutzer geschickt, sobald dieser die Buchung zum "
 "ersten Mal aufgibt."
 
 #: admin/em-options.php:1858
@@ -4556,7 +4556,7 @@ msgid ""
 "This will be sent automatically when a booking is rejected. Not relevant if "
 "bookings don't require approval."
 msgstr ""
-"Diese E-Mail wird automatisch an die_den Benutzer_in geschickt, wenn die Buchung "
+"Diese E-Mail wird automatisch an den Benutzer geschickt, wenn die Buchung "
 "abgelehnt wird. Ist nicht relevant, wenn Buchungen keine Genehmigung "
 "erfordern."
 
@@ -4575,7 +4575,7 @@ msgstr "Buchung storniert"
 #: admin/em-options.php:1879
 msgid "This will be sent when a user cancels their booking."
 msgstr ""
-"Diese E-Mail wird verschickt, wenn die_der Benutzer_in ihre_seine Buchung storniert."
+"Diese E-Mail wird verschickt, wenn der Benutzer seine Buchung storniert."
 
 #: admin/em-options.php:1882
 msgid "Booking cancelled email subject"
@@ -4591,7 +4591,7 @@ msgstr "Veranstaltung einreichen Vorlagen"
 
 #: admin/em-options.php:1920
 msgid "Administrator Email"
-msgstr "Administrator_innen E-Mail"
+msgstr "Administrator E-Mail"
 
 #: admin/em-options.php:1920
 msgid "Event submission notifications will be sent to emails added here."
@@ -4617,7 +4617,7 @@ msgid ""
 "submitted and pending approval."
 msgstr ""
 "Wenn eine Veranstaltung eingereicht wurde, wird eine E-Mail an die "
-"Administrator_innen E-Mail Adressen zur Genehmigung versendet."
+"Administrator E-Mail Adressen zur Genehmigung versendet."
 
 #: admin/em-options.php:1928
 msgid "Event submitted subject"
@@ -4642,7 +4642,7 @@ msgid ""
 "When a user modifies a previously published event, it will be put back into "
 "pending review status and will not be publisehd until you re-approve it."
 msgstr ""
-"Wenn ein_e Benutzer_in eine zuvor veröffentlichte Veranstaltung ändert, wird "
+"Wenn ein Benutzer eine zuvor veröffentlichte Veranstaltung ändert, wird "
 "diese in den anstehenden Überprüfungestatus zurückgesetzt und solange nicht "
 "veröffentlicht, bis du erneut eine Genehmigung bekommen hast."
 
@@ -4663,8 +4663,8 @@ msgid ""
 "An email will be sent to an administrator of your choice when an event is "
 "published by users who are not administrators."
 msgstr ""
-"Wenn eine Veranstaltung durch Nicht-Administrator_innenen veröffentlicht wird, "
-"wird eine E-Mail zu einer_m Administrator_in deiner Wahl versendet."
+"Wenn eine Veranstaltung durch Nicht-Administratoren veröffentlicht wird, "
+"wird eine E-Mail zu einem Administrator deiner Wahl versendet."
 
 #: admin/em-options.php:1944
 msgid "Event published subject"
@@ -4684,13 +4684,13 @@ msgid ""
 "requiring event approval do not have the <code>publish_events</code> "
 "capability."
 msgstr ""
-"Wenn die Veranstaltung genehmigt wird, wir eine E-Mail an die_den Veranstalter_in "
-"geschickt. Benutzer_innen, die eine Veranstaltungs-Genehmigung erfordern, haben "
+"Wenn die Veranstaltung genehmigt wird, wir eine E-Mail an den Veranstalter "
+"geschickt. Benutzer, die eine Veranstaltungs-Genehmigung erfordern, haben "
 "keine <code>puglish_events</code> Berechtigung."
 
 #: admin/em-options.php:1955
 msgid "Event approved subject"
-msgstr "Betreff der E-Mail an die_den Ansprechpartner_in"
+msgstr "Betreff der E-Mail an den Ansprechpartner"
 
 #: admin/em-options.php:1956
 msgid "Event approved email"
@@ -4758,11 +4758,11 @@ msgstr "E-Mail Einstellungen testen"
 
 #: admin/em-options.php:2048
 msgid "Notification sender name"
-msgstr "Name der_s Absender_in von Benachrichtigungen"
+msgstr "Name des Absenders von Benachrichtigungen"
 
 #: admin/em-options.php:2048
 msgid "Insert the display name of the notification sender."
-msgstr "Gib hier den Namen für den_die Absender_in bei Benachrichtigungen an."
+msgstr "Gib hier den Namen für den Absender bei Benachrichtigungen an."
 
 #: admin/em-options.php:2049
 msgid "Notification sender address"
@@ -4771,7 +4771,7 @@ msgstr "Absender E-Mail Adresse"
 #: admin/em-options.php:2049
 msgid "Insert the address of the notification sender."
 msgstr ""
-"Gib hier eine existiernede E-Mail Adresse als Absender_in für die "
+"Gib hier eine existiernede E-Mail Adresse als Absender für die "
 "Benachrichtigungen an."
 
 #: admin/em-options.php:2050
@@ -4847,12 +4847,12 @@ msgstr ""
 
 #: admin/em-options.php:2059
 msgid "SMTP username"
-msgstr "SMTP Benutzer_innenname"
+msgstr "SMTP Benutzername"
 
 #: admin/em-options.php:2059
 msgid "Insert the username to be used to access your SMTP server."
 msgstr ""
-"Gebe den Benutzer_innennamen an, der verwendet werden soll, um auf deinen SMTP-"
+"Gebe den Benutzernamen an, der verwendet werden soll, um auf deinen SMTP-"
 "Server zuzugreifen."
 
 #: admin/em-options.php:2060
@@ -4871,14 +4871,14 @@ msgstr "Überprüfen..."
 
 #: admin/em-options.php:2110
 msgid "User Capabilities"
-msgstr "Benutzer_innen Berechtigungen"
+msgstr "Benutzer Berechtigungen"
 
 #: admin/em-options.php:2114
 msgid ""
 "Warning: Changing these values may result in exposing previously hidden "
 "information to all users."
 msgstr ""
-"Warnung: Die Änderung dieser Werte kann dazu führen, dass alle Benutzer_innen "
+"Warnung: Die Änderung dieser Werte kann dazu führen, dass alle Benutzer "
 "Informationen sehen, die vorher für sie verborgen war."
 
 #: admin/em-options.php:2120 admin/em-options.php:2130
@@ -4889,31 +4889,31 @@ msgstr "%s Berechtigungen"
 #: admin/em-options.php:2122 admin/em-options.php:2132
 #: admin/em-options.php:2140
 msgid "Users can publish %s and skip any admin approval"
-msgstr "Benutzer_in kann %s ohne jegliche Admin-Genehmigung veröffentlichen."
+msgstr "Benutzer kann %s ohne jegliche Admin-Genehmigung veröffentlichen."
 
 #: admin/em-options.php:2123 admin/em-options.php:2133
 #: admin/em-options.php:2141
 msgid "User can delete other users %s"
-msgstr "Benutzer_in kann %s anderer Benutzer_innen löschen."
+msgstr "Benutzer kann %s anderer Benutzer löschen."
 
 #: admin/em-options.php:2124 admin/em-options.php:2134
 #: admin/em-options.php:2142
 msgid "User can edit other users %s"
-msgstr "Benutzer_in kann %s anderer Benutzer_innen bearbeiten."
+msgstr "Benutzer kann %s anderer Benutzer bearbeiten."
 
 #: admin/em-options.php:2125 admin/em-options.php:2135
 #: admin/em-options.php:2143
 msgid "User can delete their own %s"
-msgstr "Benutzer_in kann ihre eigene %s löschen."
+msgstr "Benutzer kann ihre eigene %s löschen."
 
 #: admin/em-options.php:2126 admin/em-options.php:2136
 #: admin/em-options.php:2144
 msgid "User can create and edit %s"
-msgstr "Benutzer_in kann seine_ihre %s erstellen und bearbeiten."
+msgstr "Benutzer kann ihre %s erstellen und bearbeiten."
 
 #: admin/em-options.php:2127 admin/em-options.php:2145
 msgid "User can view private %s"
-msgstr "Der_die Benutzer_in kann private %s anzeigen"
+msgstr "Der Benutzer kann private %s anzeigen"
 
 #: admin/em-options.php:2130 em-posts.php:192
 msgid "Recurring Event"
@@ -4928,31 +4928,31 @@ msgstr "Wiederkehrende Veranstaltung"
 
 #: admin/em-options.php:2146
 msgid "User can use other user locations for their events."
-msgstr "Benutzer_in kann Veranstaltungsorte anderer Benutzer verwenden."
+msgstr "Benutzer kann Veranstaltungsorte anderer Benutzer verwenden."
 
 #: admin/em-options.php:2151
 msgid "User can delete %s categories and tags."
-msgstr "Benutzer_in kann %s Kategorien und Schlagwörter löschen."
+msgstr "Benutzer kann %s Kategorien und Schlagwörter löschen."
 
 #: admin/em-options.php:2152
 msgid "User can edit %s categories and tags."
-msgstr "Benutzer_in kann %s Kategorien und Schlagworte bearbeiten."
+msgstr "Benutzer kann %s Kategorien und Schlagworte bearbeiten."
 
 #: admin/em-options.php:2154
 msgid ""
 "User can manage other users individual bookings and event booking settings."
 msgstr ""
-"Benutzer_in kann individuelle Buchungen und Buchungseinstellungen anderer "
-"Benutzern_innen bearbeiten."
+"Benutzer kann individuelle Buchungen und Buchungseinstellungen anderer "
+"Benutzern bearbeiten."
 
 #: admin/em-options.php:2155
 msgid "User can use and manage bookings with their events."
-msgstr "Benutzer_in kann Buchungen für seine_ihre Veranstaltungen verwalten."
+msgstr "Benutzer kann Buchungen für seine Veranstaltungen verwalten."
 
 #: admin/em-options.php:2156
 msgid "User can upload images along with their events and locations."
 msgstr ""
-"Benutzer_in kann Bilder für seine_ihre Veranstaltungen und Veranstaltungsorte "
+"Benutzer kann Bilder für seine Veranstaltungen und Veranstaltungsorte "
 "hochladen."
 
 #: admin/em-options.php:2115
@@ -4960,8 +4960,8 @@ msgid ""
 "You can now give fine grained control with regards to what your users can do "
 "with events. Each user role can have perform different sets of actions."
 msgstr ""
-"Du kannst nun genau einstellen, welche Benutzer_innengruppe welche Funktionen "
-"ausüben kann. Jede Benutzer_innenrolle kann eine unterschiedliche Menge von "
+"Du kannst nun genau einstellen, welche Benutzergruppe welche Funktionen "
+"ausüben kann. Jede Benutzerrolle kann eine unterschiedliche Menge von "
 "Aktionen ausführen."
 
 #: admin/em-options.php:2162
@@ -4981,11 +4981,11 @@ msgstr ""
 
 #: admin/em-options.php:2225
 msgid "Admin Tools"
-msgstr "Administrator_innenwerkzeuge"
+msgstr "Administratorwerkzeuge"
 
 #: admin/em-options.php:2229
 msgid "Development Versions &amp; Updates"
-msgstr "Entwickler_innenversionen &amp; Aktualisierungen"
+msgstr "Entwicklerversionen &amp; Aktualisierungen"
 
 #: admin/em-options.php:2230
 msgid ""
@@ -5004,14 +5004,14 @@ msgstr ""
 
 #: admin/em-options.php:2232
 msgid "Enable Dev Updates?"
-msgstr "Entwickler_innen Aktualisierungen aktivieren?"
+msgstr "Entwickler Aktualisierungen aktivieren?"
 
 #: admin/em-options.php:2232
 msgid ""
 "If enabled, the latest dev version will always be checked instead of the "
 "latest stable version of the plugin."
 msgstr ""
-"Wenn aktiviert, wird immer auf die letzte Entwickler_innen Version des Plugins "
+"Wenn aktiviert, wird immer auf die letzte Entwickler Version des Plugins "
 "überprüft, statt auf die letzte stabile Version."
 
 #: admin/em-options.php:2234
@@ -5024,7 +5024,7 @@ msgstr "Wenn du prüfen willst, ob es ein neue stabile Version gibt."
 
 #: admin/em-options.php:2238
 msgid "Check Dev Versions"
-msgstr "Überprüfe auf Entwickler_innen Versionen"
+msgstr "Überprüfe auf Entwickler Versionen"
 
 #: admin/em-options.php:2239
 msgid ""
@@ -5032,8 +5032,8 @@ msgid ""
 "force a dev version check by clicking the button below. If there is one "
 "available, it should appear in your plugin updates page as a regular update."
 msgstr ""
-"Wenn du eine Entwickler_innen Version nur einmalig herunterladen willst, kannst du "
-"einen Entwickler_innen Version Check erzwingen, indem du auf den Knopf unten "
+"Wenn du eine Entwickler Version nur einmalig herunterladen willst, kannst du "
+"einen Entwickler Version Check erzwingen, indem du auf den Knopf unten "
 "drückst. Wenn es eine gibt, sollte sie in deiner Plugin Updates Seite als "
 "reguläres Update erscheinen."
 
@@ -5129,11 +5129,11 @@ msgstr "Du hast %s bestätigte Buchungen"
 
 #: buddypress/bp-em-notifications.php:41
 msgid "A user cancelled a booking"
-msgstr "Ein_e Benutzer_in hat eine Buchung storniert"
+msgstr "Ein Benutzer hat eine Buchung storniert"
 
 #: buddypress/bp-em-notifications.php:43
 msgid "%s users cancelled bookings."
-msgstr "%s Benutzer_innen haben Buchungen storniert."
+msgstr "%s Benutzer haben Buchungen storniert."
 
 #: buddypress/screens/group-events.php:20
 #: buddypress/screens/my-group-events.php:20
@@ -5168,7 +5168,7 @@ msgid ""
 "You are currently viewing your public page, this is what other users will "
 "see."
 msgstr ""
-"Du siehst gerade deine öffentliche Seite und siehst das, was andere Benutzer_innen "
+"Du siehst gerade deine öffentliche Seite und siehst das, was andere Benutzer "
 "sehen werden."
 
 #: classes/em-booking.php:133 classes/em-event.php:271
@@ -5224,7 +5224,7 @@ msgstr ""
 
 #: classes/em-booking.php:624 classes/em-booking.php:632
 msgid "Guest User"
-msgstr "Gast Benutzer_in"
+msgstr "Gast Benutzer"
 
 #: classes/em-booking.php:628 classes/em-booking.php:703
 msgid "Not Supplied"
@@ -5259,17 +5259,17 @@ msgid ""
 "Confirmation email could not be sent to contact person. Registrant should "
 "have gotten their email (only admin see this warning)."
 msgstr ""
-"Bestätigung per E-Mail konnte nicht an die_den Ansprechpartner_in der Veranstaltung "
-"gesendet werden. Der_die Registrierende sollte seine_ihre E-Mail bekommen haben (nur "
-"Administrator_innen sehen diese Warnung)."
+"Bestätigung per E-Mail konnte nicht an den Ansprechpartner der Veranstaltung "
+"gesendet werden. Der Registrierende sollte seine E-Mail bekommen haben (nur "
+"Administratoren sehen diese Warnung)."
 
 #: classes/em-booking.php:1027
 msgid ""
 "Confirmation email could not be sent to admin. Registrant should have gotten "
 "their email (only admin see this warning)."
 msgstr ""
-"Bestätigung per E-Mail konnte nicht an die_den Administrator_in gesendet werden. "
-"Registrierende_r sollte seine_ihre E-Mail bekommen haben (nur Administrator_inen "
+"Bestätigung per E-Mail konnte nicht an den Administrator gesendet werden. "
+"Registrierender sollte seine E-Mail bekommen haben (nur Administratoren "
 "sehen diese Warnung)."
 
 #: classes/em-bookings-table.php:55
@@ -5397,7 +5397,7 @@ msgstr "Zeige Veranstaltung"
 
 #: classes/em-bookings-table.php:410
 msgid "Displaying User"
-msgstr "Zeige Benutzer_innen"
+msgstr "Zeige Benutzer"
 
 #: classes/em-bookings-table.php:461
 msgid "No bookings."
@@ -5480,7 +5480,7 @@ msgid ""
 "can also modify this event."
 msgstr ""
 "ACHTUNG: Dies ist eine Veranstaltung, die zur Gruppe \"%s\" gehört. Andere "
-"Gruppen-Administrator_innen können die Veranstaltung ebenso ändern."
+"Gruppen-Administratoren können die Veranstaltung ebenso ändern."
 
 #: classes/em-event-post-admin.php:111
 msgid ""
@@ -5501,7 +5501,7 @@ msgstr ""
 
 #: classes/em-event-post-admin.php:209
 msgid "Anonymous Submitter Info"
-msgstr "Anonyme_r Einreicher_innen Informationen"
+msgstr "Anonymer Einreicher Informationen"
 
 #: classes/em-event-post-admin.php:211 em-actions.php:611
 #: templates/forms/event-editor.php:51
@@ -5573,7 +5573,7 @@ msgstr "Datum und Uhrzeit"
 
 #: classes/em-event-posts-admin.php:176 classes/em-event-posts-admin.php:313
 msgid "Owner"
-msgstr "Eigentümer_in"
+msgstr "Eigentümer"
 
 #: classes/em-event-posts-admin.php:219
 #: templates/buddypress/group-events.php:93
@@ -5694,7 +5694,7 @@ msgid ""
 "administrator about this."
 msgstr ""
 "Etwas ging schief beim Sichern von %s in die Index Tabelle. Bitte informiere "
-"die_den Administrator_in darüber."
+"den Administrator darüber."
 
 #: classes/em-event.php:786 classes/em-event.php:799
 #: classes/em-location.php:402 classes/em-location.php:409
@@ -5707,7 +5707,7 @@ msgid ""
 "site administrator about this."
 msgstr ""
 "Etwas ging schief beim Aktualisieren von %s in der Index Tabelle. Bitte "
-"informiere die_den Administrator_in darüber."
+"informiere den Administrator darüber."
 
 #: classes/em-event-post-admin.php:351 classes/em-event.php:823
 msgid "Something went wrong with the recurrence update..."
@@ -5891,7 +5891,7 @@ msgstr "Das Bild hat ein falsches Format!"
 
 #: classes/em-people.php:25
 msgid "User deleted by administrators"
-msgstr "Benutzer_in wurde von einer_m Administrator_in gelöscht"
+msgstr "Benutzer wurde von einem Administrator gelöscht"
 
 #: classes/em-booking.php:713 classes/em-people.php:35
 #: classes/em-person.php:100 templates/forms/bookingform/booking-fields.php:16
@@ -6075,22 +6075,22 @@ msgstr "<strong>FEHLER</strong>: Die E-Mail-Adresse ist nicht korrekt."
 
 #: em-functions.php:409
 msgid "<strong>ERROR</strong>: Please enter a username."
-msgstr "<strong>FEHLER</strong>: Bitte gib einen Benutzer_innennamen ein."
+msgstr "<strong>FEHLER</strong>: Bitte gib einen Benutzernamen ein."
 
 #: em-functions.php:411
 msgid ""
 "<strong>ERROR</strong>: This username is invalid because it uses illegal "
 "characters. Please enter a valid username."
 msgstr ""
-"<strong>FEHLER</strong>: Dieser Benutzer_innenname ist ungültig, da er nicht "
-"zugelassene Zeichen verwendet. Bitte gib einen gültigen Benutzer_innennamen ein."
+"<strong>FEHLER</strong>: Dieser Benutzername ist ungültig, da er nicht "
+"zugelassene Zeichen verwendet. Bitte gib einen gültigen Benutzernamen ein."
 
 #: em-functions.php:414
 msgid ""
 "<strong>ERROR</strong>: This username is already registered, please choose "
 "another one."
 msgstr ""
-"<strong>FEHLER</strong>: Dieser Benutzer_innenname ist bereits registriert, wähle "
+"<strong>FEHLER</strong>: Dieser Benutzername ist bereits registriert, wähle "
 "bitte einen anderen."
 
 #: em-functions.php:424
@@ -6107,15 +6107,15 @@ msgid ""
 "href=\"mailto:%s\">webmaster</a> !"
 msgstr ""
 "<strong>FEHLER</strong>: Du konntest nicht registriert werden.  Bitte nehme "
-"mit der_m <a href=\"mailto:%s\">Administrator_in</a> Kontakt auf!"
+"mit dem <a href=\"mailto:%s\">Administrator</a> Kontakt auf!"
 
 #: em-functions.php:480
 msgid "New user registration on your blog %s:"
-msgstr "Registrierung einer_s neuen Benutzer_in auf deinem Blog %s:"
+msgstr "Registrierung eines neuen Benutzers auf deinem Blog %s:"
 
 #: em-functions.php:481
 msgid "Username: %s"
-msgstr "Benutzer_innenname: %s"
+msgstr "Benutzername: %s"
 
 #: em-functions.php:482
 msgid "E-mail: %s"
@@ -6123,11 +6123,11 @@ msgstr "E-Mail: %s"
 
 #: em-functions.php:483
 msgid "[%s] New User Registration"
-msgstr "[%s] Neue Benutzer_innenanmeldung"
+msgstr "[%s] Neue Benutzeranmeldung"
 
 #: em-install.php:335
 msgid "[%s] Your username and password"
-msgstr "[%s] Ihr Benutzer_innenname und Passwort"
+msgstr "[%s] Ihr Benutzername und Passwort"
 
 #: em-functions.php:640
 msgid "If translations are left blank, the default value will be used."
@@ -6377,8 +6377,8 @@ msgid ""
 "letting them know of this error."
 msgstr ""
 "Allerdings gab es einige Probleme bei der Übermittlung der Bestätigungs-E-"
-"Mails an dich und/oder den_die Ansprechpartner_in der Veranstaltung. Bitte "
-"kontaktiere den_die Veranstalter_in direkt und teile ihm_ihr die Details zum Fehler mit."
+"Mails an dich und/oder den Ansprechpartner der Veranstaltung. Bitte "
+"kontaktiere den Veranstalter direkt und teile ihm die Details zum Fehler mit."
 
 #: em-install.php:645
 msgid "Booking could not be created"
@@ -6397,7 +6397,7 @@ msgid ""
 "A new user account has been created for you. Please check your email for "
 "access details."
 msgstr ""
-"Ein neues Benutzer_innenkonto wurde für dich angelegt. Die Zugangsdaten wurden per "
+"Ein neues Benutzerkonto wurde für dich angelegt. Die Zugangsdaten wurden per "
 "E-Mail an dich verschickt."
 
 #: em-install.php:648
@@ -6405,8 +6405,8 @@ msgid ""
 "There was a problem creating a user account, please contact a website "
 "administrator."
 msgstr ""
-"Es gab ein Problem beim Erstellen eines Benutzer_innenkontos. Kontaktiere bitte "
-"einen der Administrator_innen."
+"Es gab ein Problem beim Erstellen eines Benutzerkontos. Kontaktiere bitte "
+"einen der Administratoren."
 
 #: em-install.php:649
 msgid "You already have booked a seat at this event."
@@ -6823,7 +6823,7 @@ msgstr "Melde dich an, wenn du bereits ein Konto bei uns hast."
 
 #: em-install.php:338 templates/forms/bookingform/login.php:10
 msgid "Username"
-msgstr "Benutzer_innenname"
+msgstr "Benutzername"
 
 #: em-install.php:339 templates/forms/bookingform/login.php:14
 msgid "Password"
@@ -7016,8 +7016,8 @@ msgid ""
 "As a site admin, you see all group events, users will only be able to choose "
 "groups they are admins of."
 msgstr ""
-"Als Seitenadministrator_in kannst du alle Gruppenveranstaltungen sehen. "
-"Benutzer_innen sind nur berechtigt Gruppen, bei denen sie Administrator_innen sind, "
+"Als Seitenadministrator kannst du alle Gruppenveranstaltungen sehen. "
+"Benutzer sind nur berechtigt Gruppen, bei denen sie Administratoren sind, "
 "auszuwählen."
 
 #: templates/forms/event/group.php:47
