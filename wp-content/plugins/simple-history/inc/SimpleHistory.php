@@ -9,23 +9,10 @@ class SimpleHistory {
 
 	const NAME = "Simple History";
 
-	// Dont use this any more! Will be removed in future versions. Use global SIMPLE_HISTORY_VERSION instead.
-	const VERSION = "2.1.1";
-
 	/**
 	 * For singleton
 	 */
 	private static $instance;
-
-	/**
-	 * Capability required to view the history log
-	 */
-	private $view_history_capability;
-
-	/**
-	 * Capability required to view and edit the settings page
-	 */
-	private $view_settings_capability;
 
 	/**
 	 * Array with external loggers to load
@@ -90,6 +77,12 @@ class SimpleHistory {
 		// Actions and filters, ordered by order specified in codex: http://codex.wordpress.org/Plugin_API/Action_Reference
 		add_action('after_setup_theme', array($this, 'load_plugin_textdomain'));
 		add_action('after_setup_theme', array($this, 'add_default_settings_tabs'));
+		
+		// Plugins and dropins are loaded using the "after_setup_theme" filter so
+		// themes can use filters to modify the loading of them.
+		// The drawback with this is that for example logouts done when plugins like
+		// iThemes Security is installed is not logged, because those plugins fire wp_logout()
+		// using filter "plugins_loaded", i.e. before simple history has loaded its filters.
 		add_action('after_setup_theme', array($this, 'load_loggers'));
 		add_action('after_setup_theme', array($this, 'load_dropins'));
 
@@ -128,7 +121,7 @@ class SimpleHistory {
 			$logRowKeysToShow["user_email"] = false;
 			return $logRowKeysToShow;
 		}, 10, 2);
-		
+
 		// custom filter
 		add_filter("simple_history/log_insert_context", function($context, $data) {
 			if ($context["user_id"] == 1) {
@@ -550,7 +543,6 @@ class SimpleHistory {
 
 		// The "plugin_locale" filter is also used in load_plugin_textdomain()
 		$locale = apply_filters('plugin_locale', get_locale(), $domain);
-
 		load_textdomain($domain, WP_LANG_DIR . '/simple-history/' . $domain . '-' . $locale . '.mo');
 		load_plugin_textdomain($domain, FALSE, dirname($this->plugin_basename) . '/languages/');
 
@@ -565,17 +557,39 @@ class SimpleHistory {
 		$this->instantiatedLoggers = array();
 		$this->instantiatedDropins = array();
 
-		// Capability required to view history = for who will the History page be added
-		$this->view_history_capability = "edit_pages";
-		$this->view_history_capability = apply_filters("simple_history_view_history_capability", $this->view_history_capability);
-		$this->view_history_capability = apply_filters("simple_history/view_history_capability", $this->view_history_capability);
-
-		// Capability required to view settings
-		$this->view_settings_capability = "manage_options";
-		$this->view_settings_capability = apply_filters("simple_history_view_settings_capability", $this->view_settings_capability);
-		$this->view_settings_capability = apply_filters("simple_history/view_settings_capability", $this->view_settings_capability);
-
 		$this->plugin_basename = SIMPLE_HISTORY_BASENAME;
+
+	}
+
+	/**
+	 * Return capability required to view history = for who will the History page be added
+	 *
+	 * @since 2.1.5
+	 * @return string capability
+	 */
+	public function get_view_history_capability() {
+
+		$view_history_capability = "edit_pages";
+		$view_history_capability = apply_filters("simple_history_view_history_capability", $view_history_capability);
+		$view_history_capability = apply_filters("simple_history/view_history_capability", $view_history_capability);
+
+		return $view_history_capability;
+
+	}
+
+	/**
+	 * Return capability required to view settings
+	 *
+	 * @since 2.1.5
+	 * @return string capability
+	 */
+	public function get_view_settings_capability() {
+
+		$view_settings_capability = "manage_options";
+		$view_settings_capability = apply_filters("simple_history_view_settings_capability", $view_settings_capability);
+		$view_settings_capability = apply_filters("simple_history/view_settings_capability", $view_settings_capability);
+
+		return $view_settings_capability;
 
 	}
 
@@ -909,7 +923,7 @@ class SimpleHistory {
 	function plugin_action_links($actions, $b, $c, $d) {
 
 		// Only add link if user has the right to view the settings page
-		if (!current_user_can($this->view_settings_capability)) {
+		if ( ! current_user_can( $this->get_view_settings_capability() ) ) {
 			return $actions;
 		}
 
@@ -928,7 +942,7 @@ class SimpleHistory {
 	 */
 	function add_dashboard_widget() {
 
-		if ( $this->setting_show_on_dashboard() && current_user_can( $this->view_history_capability ) ) {
+		if ( $this->setting_show_on_dashboard() && current_user_can( $this->get_view_history_capability() ) ) {
 
 			/**
 			 * Filter to determine if history page should be added to page below dashboard or not
@@ -1008,13 +1022,11 @@ class SimpleHistory {
 
 			add_thickbox();
 
-			$plugin_url = plugin_dir_url(SIMPLE_HISTORY_BASENAME);
+			wp_enqueue_style("simple_history_styles", SIMPLE_HISTORY_DIR_URL . "css/styles.css", false, SIMPLE_HISTORY_VERSION);
+			wp_enqueue_script("simple_history_script", SIMPLE_HISTORY_DIR_URL . "js/scripts.js", array("jquery", "backbone", "wp-util"), SIMPLE_HISTORY_VERSION, true);
 
-			wp_enqueue_style("simple_history_styles", $plugin_url . "css/styles.css", false, SIMPLE_HISTORY_VERSION);
-			wp_enqueue_script("simple_history_script", $plugin_url . "js/scripts.js", array("jquery", "backbone", "wp-util"), SIMPLE_HISTORY_VERSION, true);
-
-			wp_enqueue_script("select2", $plugin_url . "js/select2/select2.min.js", array("jquery"));
-			wp_enqueue_style("select2", $plugin_url . "js/select2/select2.css");
+			wp_enqueue_script("select2", SIMPLE_HISTORY_DIR_URL . "js/select2/select2.min.js", array("jquery"));
+			wp_enqueue_style("select2", SIMPLE_HISTORY_DIR_URL . "js/select2/select2.css");
 
 			// Translations that we use in JavaScript
 			wp_localize_script('simple_history_script', 'simple_history_script_vars', array(
@@ -1309,17 +1321,17 @@ class SimpleHistory {
 		?>
 		<div class="wrap">
 
-			<h2 class="SimpleHistoryPageHeadline">
+			<h1 class="SimpleHistoryPageHeadline">
 				<div class="dashicons dashicons-backup SimpleHistoryPageHeadline__icon"></div>
 				<?php _e("Simple History Settings", "simple-history")?>
-			</h2>
+			</h1>
 
 			<?php
 			$active_tab = isset($_GET["selected-tab"]) ? $_GET["selected-tab"] : "settings";
 			$settings_base_url = menu_page_url(SimpleHistory::SETTINGS_MENU_SLUG, 0);
 			?>
 
-			<h3 class="nav-tab-wrapper">
+			<h2 class="nav-tab-wrapper">
 				<?php
 				foreach ($arr_settings_tabs as $one_tab) {
 
@@ -1335,7 +1347,7 @@ class SimpleHistory {
 
 				}
 				?>
-			</h3>
+			</h2>
 
 			<?php
 
@@ -1409,7 +1421,7 @@ class SimpleHistory {
 				add_dashboard_page(
 					SimpleHistory::NAME,
 					_x("Simple History", 'dashboard menu name', 'simple-history'),
-					$this->view_history_capability,
+					$this->get_view_history_capability(),
 					"simple_history_page",
 					array($this, "history_page_output")
 				);
@@ -1428,7 +1440,7 @@ class SimpleHistory {
 			add_options_page(
 				__('Simple History Settings', "simple-history"),
 				SimpleHistory::NAME,
-				$this->view_settings_capability,
+				$this->get_view_settings_capability(),
 				SimpleHistory::SETTINGS_MENU_SLUG,
 				array($this, 'settings_page_output')
 			);
@@ -1533,21 +1545,21 @@ class SimpleHistory {
 
 		<div class="wrap SimpleHistoryWrap">
 
-			<h2 class="SimpleHistoryPageHeadline">
+			<h1 class="SimpleHistoryPageHeadline">
 				<div class="dashicons dashicons-backup SimpleHistoryPageHeadline__icon"></div>
 				<?php echo _x("Simple History", 'history page headline', 'simple-history')?>
-			</h2>
+			</h1>
 
 			<?php
-/**
-		 * Fires before the gui div
-		 *
-		 * @since 2.0
-		 *
-		 * @param SimpleHistory $SimpleHistory This class.
-		 */
-		do_action("simple_history/history_page/before_gui", $this);
-		?>
+			/**
+			 * Fires before the gui div
+			 *
+			 * @since 2.0
+			 *
+			 * @param SimpleHistory $SimpleHistory This class.
+			 */
+			do_action("simple_history/history_page/before_gui", $this);
+			?>
 
 			<div class="SimpleHistoryGuiWrap">
 
@@ -2344,6 +2356,13 @@ class SimpleHistory {
 		return $this->instantiatedLoggers;
 
 	}
+
+	public function getInstantiatedDropins() {
+
+		return $this->instantiatedDropins;
+		
+	}
+	
 
 	public function getInstantiatedLoggerBySlug($slug = "") {
 
