@@ -1,10 +1,10 @@
 ﻿=== Simple History ===
 Contributors: eskapism
 Donate link: http://eskapism.se/sida/donate/
-Tags: history, log, changes, changelog, audit, trail, pages, attachments, users, cms, dashboard, admin, syslog, feed, activity, stream
+Tags: history, log, changes, changelog, audit, trail, pages, attachments, users, cms, dashboard, admin, syslog, feed, activity, stream, audit trail, brute-force
 Requires at least: 3.6.0
 Tested up to: 4.3
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 
 View changes made by users within WordPress. See who created a page, uploaded an attachment or approved an comment, and more.
 
@@ -29,7 +29,7 @@ activation and deactivation
 * **User profiles**<br>
 info about added, updated or removed users
 * **User logins**<br>
-see when a user login & logout
+see when a user login & logout. Also see when a user fails to login (good way to catch brute-force login attempts).
 * **Failed user logins**<br>
 see when someone has tried to log in, but failed. The log will then include ip address of the possible hacker.
 
@@ -76,6 +76,8 @@ if ( function_exists("SimpleLogger") ) {
 ?>
 `
 
+Check out the [examples-folder](https://github.com/bonny/WordPress-Simple-History/tree/master/examples) for more examples.
+
 #### Translations/Languages
 
 So far Simple History is translated to:
@@ -117,6 +119,15 @@ initiated by a specific user.
 
 ## Changelog
 
+= 2.1.6 (August 2015) =
+
+- Updated: Danish translation updated. Thanks translator!
+- Fixed: Icon on settings page was a bit unaligned on WordPress not running the latest beta version (hrm, which I guess most of you were..)
+- Fixed: Possible php notice. Should fix https://wordpress.org/support/topic/simplehistoryphp-creates-debug-entries.
+- Changed: Logged messages are now trimmed by default (spaces and new lines will be removed from messages).
+- Updated: When installing and activating the plugin it will now add the same "plugin installed" and "plugin activated" message that other plugins get when they are installed. These events where not logged before because the plugin was not installed and could therefor not log its own installation. Solution was to log it manually. Works. Looks good. But perhaps a bit of cheating.
+- Added: A (hopefully) better welcome message when activating the plugin for the first time. Hopefully the new message makes new users understand a bit better why the log may be empty at first.
+
 = 2.1.5 (August 2015) =
 
 - Fixed: It was not possible to modify the filters `simple_history/view_settings_capability` and `simple_history/view_history_capability` from the `functions.php`-file in a theme (filters where applied to early - they did however work from within a plugin!)
@@ -151,7 +162,7 @@ initiated by a specific user.
 
 = 2.1.1 (May 2015) =
 
-- Removed: filter `simple_history/dropins_dir` removed. 
+- Removed: filter `simple_history/dropins_dir` removed.
 - Changed: Dropins are not loaded from a `glob()` call anymore (just like plugins in the prev release)
 - Updated: Brazilian Portuguese translation updated.
 - Fixed: POT file updated for translators.
