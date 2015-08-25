@@ -10,11 +10,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
-               if ( !is_page( 'Terminkalender' ) ) {
-                       // Page thumbnail and title.
-                       twentyfourteen_post_thumbnail();
-                       the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' );
-                }
+		if ( !is_page( 'Terminkalender' ) ) {
+			// Page thumbnail and title.
+			twentyfourteen_post_thumbnail();
+			the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' );
+		}
 	?>
 
 	<div class="entry-content">

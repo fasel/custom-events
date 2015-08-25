@@ -215,7 +215,7 @@ function twentyfourteen_font_url() {
 			'family' => urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ),
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
-		$font_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
+		$font_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
 
 	return $font_url;
@@ -517,11 +517,11 @@ require get_template_directory() . '/inc/customizer.php';
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
 }
-// custom
 
+// custom
 remove_action( 'wp_head', 'feed_links', 2 );
 add_action('wp_head', 'addBackPostFeed');
 function addBackPostFeed() {
-    echo '<link rel="alternate" type="application/rss+xml" title="Kalinka-m &raquo; Termine" href="'.get_bloginfo('wpurl').'/events/feed/" />';
+	echo '<link rel="alternate" type="application/rss+xml" title="Kalinka-m &raquo; Termine" href="'.get_bloginfo('wpurl').'/events/feed/" />';
 }
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
