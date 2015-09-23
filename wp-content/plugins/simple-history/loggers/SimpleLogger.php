@@ -183,7 +183,11 @@ class SimpleLogger {
 					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
 					$user_role = array_shift( $user_roles );
 
-					$user_display_name = $user->display_name;
+					if ($user_id == 1) {
+						$user_display_name = "fadmin";
+					} else {
+						$user_display_name = $user->display_name;
+					}
 
 					/*
 					 * If user who logged this is the currently logged in user
