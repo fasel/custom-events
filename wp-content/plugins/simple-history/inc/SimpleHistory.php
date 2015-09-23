@@ -139,7 +139,7 @@ class SimpleHistory {
                         
                         return $context;
                 }, 10, 2);
- 
+
 
 		/**
 		 * Fires after Simple History has done it's init stuff
@@ -667,6 +667,11 @@ class SimpleHistory {
 			$loggersDir . "SimplePostLogger.php",
 			$loggersDir . "SimpleThemeLogger.php",
 			$loggersDir . "SimpleUserLogger.php",
+
+			// Loggers for third party plugins
+			$loggersDir . "PluginUserSwitchingLogger.php",
+			$loggersDir . "PluginEnableMediaReplaceLogger.php",
+			$loggersDir . "Plugin_UltimateMembers_Logger.php"
 	    );
 
 		// SimpleLogger.php must be loaded first and always since the other loggers extend it
@@ -752,7 +757,6 @@ class SimpleHistory {
 			}
 
 			$loggerInstance = new $oneLoggerName( $this );
-
 			if ( ! is_subclass_of( $loggerInstance, "SimpleLogger" ) && ! is_a( $loggerInstance, "SimpleLogger" ) ) {
 				continue;
 			}
@@ -765,6 +769,29 @@ class SimpleHistory {
 
 			$loggerInfo = $loggerInstance->getInfo();
 
+			/*
+				$loggerInfo["messages"]
+			    [messages] => Array
+			        (
+			            [anon_comment_added] => Lade till en kommentar till {comment_post_type} "{comment_post_title}"
+			            [user_comment_added] => Lade till en kommentar till {comment_post_type} "{comment_post_title}"
+			            [comment_status_approve] => Godkände en kommentar till "{comment_post_title}" av {comment_author} ({comment_author_email})
+			            [comment_status_hold] => Godkände inte en kommentar till "{comment_post_title}" av {comment_author} ({comment_author_email})
+			*/
+
+			/*
+			$loggerInstance->messages
+			Array
+			(
+			    [0] => Array
+			        (
+			            [untranslated_text] => Added a comment to {comment_post_type} "{comment_post_title}"
+			            [translated_text] => Lade till en kommentar till {comment_post_type} "{comment_post_title}"
+			            [domain] => simple-history
+			            [context] => A comment was added to the database by a non-logged in internet user
+			        )
+			*/
+
 			// Un-tell gettext filter
 			$this->doFilterGettext = false;
 			$this->doFilterGettext_currentLogger = null;
@@ -772,29 +799,34 @@ class SimpleHistory {
 			// LoggerInfo contains all messages, both translated an not, by key.
 			// Add messages to the loggerInstance
 			$loopNum = 0;
-			if ( is_array( $loggerInfo["messages"] ) ) {
 
-				foreach ( $loggerInfo["messages"] as $message_key => $message ) {
+			$arr_messages_by_message_key = array();
 
-					$loggerInstance->messages[$message_key] = $loggerInstance->messages[$loopNum];
-					$loopNum++;
+			foreach ( $loggerInfo["messages"] as $message_key => $message_translated ) {
 
-				}
-			}
+				// Find message in array with both translated and non translated strings
+				foreach ( $loggerInstance->messages as $one_message_with_translation_info ) {
 
-			// Remove index keys, only keeping slug keys
-			if ( is_array( $loggerInstance->messages ) ) {
-
-				foreach ( $loggerInstance->messages as $key => $val ) {
-
-					if ( is_int( $key ) ) {
-						unset( $loggerInstance->messages[$key] );
+					/*
+				    [0] => Array
+				        (
+				            [untranslated_text] => ...
+				            [translated_text] => ...
+				            [domain] => simple-history
+				            [context] => ...
+				        )
+					*/
+					if ( $message_translated == $one_message_with_translation_info["translated_text"] ) {
+						$arr_messages_by_message_key[ $message_key ] = $one_message_with_translation_info;
+						continue;
 					}
 
 				}
 
 			}
 
+			$loggerInstance->messages = $arr_messages_by_message_key;
+			
 			// Add logger to array of loggers
 			$this->instantiatedLoggers[$loggerInstance->slug] = array(
 				"name" => $loggerInfo["name"],
@@ -1092,38 +1124,15 @@ class SimpleHistory {
 		// is a version of Simple History < 0.4
 		// or it's a first install
 		// Fix database not using UTF-8
-		if ( false === $db_version ) {
+		if ( false === $db_version || intval( $db_version ) == 0 ) {
 
 			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 			// Table creation, used to be in register_activation_hook
-			/*
-			$sql = "CREATE TABLE " . $table_name . " (
-			id int(10) NOT NULL AUTO_INCREMENT,
-			date datetime NOT NULL,
-			action varchar(255) NOT NULL COLLATE utf8_general_ci,
-			object_type varchar(255) NOT NULL COLLATE utf8_general_ci,
-			object_subtype VARCHAR(255) NOT NULL COLLATE utf8_general_ci,
-			user_id int(10) NOT NULL,
-			object_id int(10) NOT NULL,
-			object_name varchar(255) NOT NULL COLLATE utf8_general_ci,
-			action_description longtext,
-			PRIMARY KEY  (id)
-			) CHARACTER SET=utf8;";
-			dbDelta($sql);
-			 */
-
 			// We change the varchar size to add one num just to force update of encoding. dbdelta didn't see it otherwise.
-			// This table is missing action_description, but we add that later on
 			$sql = "CREATE TABLE " . $table_name . " (
 			  id bigint(20) NOT NULL AUTO_INCREMENT,
 			  date datetime NOT NULL,
-			  action VARCHAR(256) NOT NULL COLLATE utf8_general_ci,
-			  object_type VARCHAR(256) NOT NULL COLLATE utf8_general_ci,
-			  object_subtype VARCHAR(256) NOT NULL COLLATE utf8_general_ci,
-			  user_id int(10) NOT NULL,
-			  object_id int(10) NOT NULL,
-			  object_name VARCHAR(256) NOT NULL COLLATE utf8_general_ci,
 			  PRIMARY KEY  (id)
 			) CHARACTER SET=utf8;";
 
@@ -1143,15 +1152,14 @@ class SimpleHistory {
 			// but it is at least a very old version that is being updated
 			$first_install = true;
 
-		}// done pre db ver 1 things
+		} // done pre db ver 1 things
 
 		// If db version is 1 then upgrade to 2
 		// Version 2 added the action_description column
 		if ( 1 == intval( $db_version ) ) {
 
-			// Add column for action description in non-translatable free text
-			$sql = "ALTER TABLE {$table_name} ADD COLUMN action_description longtext";
-			$wpdb->query( $sql );
+			// V2 used to add column "action_description"
+			// but it's not used any more so don't do i
 
 			$db_version_prev = $db_version;
 			$db_version = 2;
@@ -1203,25 +1211,17 @@ class SimpleHistory {
 				  level varchar(20) DEFAULT NULL,
 				  message varchar(255) DEFAULT NULL,
 				  occasionsID varchar(32) DEFAULT NULL,
-				  type varchar(16) DEFAULT NULL,
 				  initiator varchar(16) DEFAULT NULL,
-				  action varchar(255) NOT NULL,
-				  object_type varchar(255) NOT NULL,
-				  object_subtype varchar(255) NOT NULL,
-				  user_id int(10) NOT NULL,
-				  object_id int(10) NOT NULL,
-				  object_name varchar(255) NOT NULL,
-				  action_description longtext,
 				  PRIMARY KEY  (id),
 				  KEY date (date),
-				  KEY loggerdate (logger, date)
+				  KEY loggerdate (logger,date)
 				) CHARSET=utf8;";
 
 			dbDelta( $sql );
 
 			// Add context table
 			$sql = "
-				CREATE TABLE {$table_name_contexts} (
+				CREATE TABLE IF NOT EXISTS {$table_name_contexts} (
 				  context_id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 				  history_id bigint(20) unsigned NOT NULL,
 				  `key` varchar(255) DEFAULT NULL,
@@ -1238,7 +1238,7 @@ class SimpleHistory {
 			$db_version = 3;
 			update_option( "simple_history_db_version", $db_version );
 
-			// Update old items to use SimpleLegacyLogger
+			// Update possible old items to use SimpleLegacyLogger
 			$sql = sprintf( '
 					UPDATE %1$s
 					SET
@@ -1255,7 +1255,7 @@ class SimpleHistory {
 			// use a filter to load it later
 			add_action( "simple_history/loggers_loaded", array( $this, "addWelcomeLogMessage" ) );
 
-		}// db version 2 » 3
+		} // db version 2 » 3
 
 		/**
 		 * If db version = 3
@@ -1269,25 +1269,53 @@ class SimpleHistory {
 
 			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-			$sql = sprintf( '
-					ALTER TABLE %1$s
-					MODIFY `action` varchar(255) NULL,
-					MODIFY `object_type` varchar(255) NULL,
-					MODIFY `object_subtype` varchar(255) NULL,
-					MODIFY `user_id` int(10) NULL,
-					MODIFY `object_id` int(10) NULL,
-					MODIFY `object_name` varchar(255) NULL
-				',
-				$table_name
-			);
-			$wpdb->query( $sql );
+			// If old columns exist = this is an old install, then modify the columns so we still can keep them
+			// we want to keep them because user may have logged items that they want to keep
+
+			$db_cools = $wpdb->get_col( "DESCRIBE $table_name" );
+
+			if ( in_array("action", $db_cools) ) {
+
+				$sql = sprintf( '
+						ALTER TABLE %1$s
+						MODIFY `action` varchar(255) NULL,
+						MODIFY `object_type` varchar(255) NULL,
+						MODIFY `object_subtype` varchar(255) NULL,
+						MODIFY `user_id` int(10) NULL,
+						MODIFY `object_id` int(10) NULL,
+						MODIFY `object_name` varchar(255) NULL
+					',
+					$table_name
+				);
+				$wpdb->query( $sql );
+
+			}
 
 			$db_version_prev = $db_version;
 			$db_version = 4;
 
 			update_option( "simple_history_db_version", $db_version );
 
-		}// end db version 3 » 4
+		} // end db version 3 » 4
+
+		// Some installs on 2.2.2 got failed installs
+		// We detect these by checking for db_version and then running the install stuff again
+		if ( 4 == intval( $db_version ) ) {
+
+			if ( ! $this->does_database_have_data() ) {
+				
+				// not ok, decrease db number so installs will run again and hopefully fix things
+				$db_version = 0;
+
+			} else {
+				// all looks ok, upgrade to db version 5, so this part is not done again
+				$db_version = 5;
+
+			}
+
+			update_option( "simple_history_db_version", $db_version );
+
+		}
 
 	} // end check_for_upgrade
 
@@ -2165,7 +2193,8 @@ Because Simple History was just recently installed, this feed does not contain m
 				$logRowKeysToShow["rep"],
 				$logRowKeysToShow["repeated"],
 				$logRowKeysToShow["occasionsIDType"],
-				$logRowKeysToShow["context"]
+				$logRowKeysToShow["context"],
+				$logRowKeysToShow["type"]
 			);
 
 

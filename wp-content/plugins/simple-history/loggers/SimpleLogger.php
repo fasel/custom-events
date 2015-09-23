@@ -114,20 +114,31 @@ class SimpleLogger {
 
 	/**
 	 * Interpolates context values into the message placeholders.
+	 *
+	 * @param string $message
+	 * @param array $context
+	 * @param array $row Currently not always passed, because loggers need to be updated to support this...
 	 */
-	function interpolate($message, $context = array()) {
+	function interpolate($message, $context = array(), $row = null) {
 
-		if (!is_array($context)) {
+		if ( ! is_array( $context ) ) {
 			return $message;
 		}
 
-		// build a replacement array with braces around the context keys
+		/**
+		 * Filter the context used to create the message from the message template
+		 * 
+		 * @since 2.2.4
+		 */
+		$context = apply_filters( "simple_history/logger/interpolate/context", $context, $message, $row );
+
+		// Build a replacement array with braces around the context keys
 		$replace = array();
-		foreach ($context as $key => $val) {
+		foreach ( $context as $key => $val ) {
 			$replace['{' . $key . '}'] = $val;
 		}
 
-		// interpolate replacement values into the message and return
+		// Interpolate replacement values into the message and return
 		return strtr($message, $replace);
 
 	}
@@ -452,8 +463,7 @@ class SimpleLogger {
 
 		// Message is translated here, but translation must be added in
 		// plain text before
-
-		if (empty( $message_key )) {
+		if ( empty( $message_key ) ) {
 
 			// Message key did not exist, so check if we should translate using textdomain
 			if ( ! empty( $row->context["_gettext_domain"] ) ) {
@@ -473,7 +483,7 @@ class SimpleLogger {
 
 		}
 
-		$html = $this->interpolate($message, $row->context);
+		$html = $this->interpolate($message, $row->context, $row);
 
 		// All messages are escaped by default.
 		// If you need unescaped output override this method
