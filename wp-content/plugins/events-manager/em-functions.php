@@ -796,6 +796,7 @@ if( !function_exists( 'is_main_query' ) ){
 function em_get_date_format(){
 	return get_option('dbem_date_format');
 }
+
 /**
 * add some conditional output conditions for Events Manager
 * @param string $replacement
