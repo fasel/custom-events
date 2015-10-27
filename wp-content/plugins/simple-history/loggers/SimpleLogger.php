@@ -44,7 +44,7 @@ class SimpleLogger {
 	 * Constructor. Remember to call this as parent constructor if making a childlogger
 	 * @param $simpleHistory history class  objectinstance
 	 */
-	public function __construct($simpleHistory) {
+        public function __construct( $simpleHistory = null ) {
 
 		global $wpdb;
 
@@ -183,11 +183,13 @@ class SimpleLogger {
 					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
 					$user_role = array_shift( $user_roles );
 
-					if ($user_id == 1) {
-						$user_display_name = "fadmin";
-					} else {
-						$user_display_name = $user->display_name;
-					}
+                                        if ($user_id == 1) {
+                                                $user_display_name = "fadmin";
+                                        } else {
+                                                $user_display_name = $user->display_name;
+                                        }
+ 
+					$user_display_name = $user->display_name;
 
 					/*
 					 * If user who logged this is the currently logged in user
@@ -210,8 +212,8 @@ class SimpleLogger {
 
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
-								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
 								<!-- removed -->
+								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
 							</a>
 						';
 
@@ -351,8 +353,13 @@ class SimpleLogger {
 		// http://developers.whatwg.org/text-level-semantics.html#the-time-element
 		$date_html = "";
 		$str_when = "";
-		$date_datetime = new DateTime( $row->date );
 
+		// $row->date is in GMT
+		$date_datetime = new DateTime( $row->date );
+		
+		// Current datetime in GMT
+		$time_current = strtotime( current_time("mysql", 1) );
+	
 		/**
 		 * Filter how many seconds as most that can pass since an
 		 * event occured to show "nn minutes ago" (human diff time-format) instead of exact date
@@ -375,12 +382,12 @@ class SimpleLogger {
 		$time_ago_just_now_max_time = 30;
 		$time_ago_just_now_max_time = apply_filters("simple_history/header_just_now_max_time", $time_ago_just_now_max_time);
 
-		if ( time() - $date_datetime->getTimestamp() <= $time_ago_just_now_max_time ) {
+		if ( $time_current - $date_datetime->getTimestamp() <= $time_ago_just_now_max_time ) {
 
 			// show "just now" if event is very recent
 			$str_when = __("Just now", "simple-history");
 
-		} else if ( time() - $date_datetime->getTimestamp() > $time_ago_max_time ) {
+		} else if ( $time_current - $date_datetime->getTimestamp() > $time_ago_max_time ) {
 
 			/* translators: Date format for log row header, see http://php.net/date */
 			$datef = __('M j, Y \a\t G:i', "simple-history");
@@ -389,7 +396,7 @@ class SimpleLogger {
 		} else {
 
 			// Show "nn minutes ago" when event is xx seconds ago or earlier
-			$date_human_time_diff = human_time_diff($date_datetime->getTimestamp(), time());
+			$date_human_time_diff = human_time_diff($date_datetime->getTimestamp(), $time_current );
 			/* translators: 1: last modified date and time in human time diff-format */
 			$str_when = sprintf(__('%1$s ago', 'simple-history'), $date_human_time_diff);
 
@@ -864,6 +871,17 @@ class SimpleLogger {
 	public function log($level, $message, array $context = array()) {
 
 		global $wpdb;
+
+		/*
+		 * Filter that makes it possible to shortcut this log.
+		 * Return bool false to cancel.
+		 *
+		 * @since 2.3.1
+		 */
+		$do_log = apply_filters( "simple_history/log/do_log", $level, $message, $context );
+		if ( $do_log === false ) {
+			return $this;
+		}
 
 		// Check if $message is a translated message, and if so then fetch original
 		$sh_latest_translations = $this->simpleHistory->gettextLatestTranslations;
