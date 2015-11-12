@@ -189,8 +189,6 @@ class SimpleLogger {
                                                 $user_display_name = $user->display_name;
                                         }
  
-					$user_display_name = $user->display_name;
-
 					/*
 					 * If user who logged this is the currently logged in user
 					 * skip name and email and use just "You"
@@ -212,8 +210,8 @@ class SimpleLogger {
 
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
+								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
 								<!-- removed -->
-								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
 							</a>
 						';
 

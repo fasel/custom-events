@@ -126,7 +126,7 @@ class SimpleHistoryPluginPatchesDropin {
 			if ( is_a( $user, "WP_User") ) {
 
 				$context["login_user_id"] = $user->ID;
-				$context["login_user_email"] = $user->user_email;
+				$context["login_user_email"] = "";
 				$context["login_user_login"] = $user->user_login;
 				
 			}
