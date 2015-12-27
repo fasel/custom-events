@@ -186,7 +186,7 @@ div#em-loading { position:absolute; width:100%; height:100%; background:#FFFFFF 
 	table.em-calendar.table tr.days-names { font-weight: bold; } 
 	table.em-calendar td.eventless-pre, .em-calendar td.eventless-post { color: #ccc; }
 	table.em-calendar td.eventful-pre a, table.em-calendar td.eventful-post a{ color: #aaa; text-decoration:underline; }
-	table.em-calendar td.eventful a, table.em-calendar td.eventful-today a { color: #FD7E29; }
+	table.em-calendar td.eventful a, table.em-calendar td.eventful-today a { color: #BC315A; }
 	table.em-calendar td.eventful-today a { font-weight: bold; }
 	table.em-calendar td.eventless-today, table.em-calendar td.eventful-today { background-color: #CFCFCF; }
 	table.em-calendar thead { font-size: 120%; font-weight: bold; }
