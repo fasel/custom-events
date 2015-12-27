@@ -119,7 +119,7 @@ class SimpleLogger {
 	 * @param array $context
 	 * @param array $row Currently not always passed, because loggers need to be updated to support this...
 	 */
-	function interpolate($message, $context = array(), $row = null) {
+	function interpolate( $message, $context = array(), $row = null ) {
 
 		if ( ! is_array( $context ) ) {
 			return $message;
@@ -135,11 +135,38 @@ class SimpleLogger {
 		// Build a replacement array with braces around the context keys
 		$replace = array();
 		foreach ( $context as $key => $val ) {
+
+			// Both key and val must be strings or number (for vals)
+			if ( is_string( $key ) || is_numeric( $key ) ) {
+				// key ok
+			}
+
+			if ( is_string( $val ) || is_numeric( $val ) ) {
+				// val ok
+			} else {
+				// not a value we can replace
+				continue;
+			}
+
 			$replace['{' . $key . '}'] = $val;
+
 		}
 
 		// Interpolate replacement values into the message and return
-		return strtr($message, $replace);
+		/*
+		if ( ! is_string( $message )) {
+			echo "message:";
+			var_dump($message);exit;
+		}
+		//*/
+		/*
+		if ( ! is_string( $replace )) {
+			echo "replace: \n";
+			var_dump($replace);
+		}
+		// */
+
+		return strtr( $message, $replace );
 
 	}
 
@@ -188,7 +215,7 @@ class SimpleLogger {
                                         } else {
                                                 $user_display_name = $user->display_name;
                                         }
- 
+
 					/*
 					 * If user who logged this is the currently logged in user
 					 * skip name and email and use just "You"
@@ -399,16 +426,25 @@ class SimpleLogger {
 			$str_when = sprintf(__('%1$s ago', 'simple-history'), $date_human_time_diff);
 
 		}
-
+		
 		$item_permalink = admin_url("index.php?page=simple_history_page");
 		$item_permalink .= "#item/{$row->id}";
+
+		$date_format = get_option('date_format') . ' - '. get_option('time_format');
+		$str_datetime_title = sprintf(
+			__('%1$s local time %3$s (%2$s GMT time)', "simple-history"),
+			get_date_from_gmt( $date_datetime->format('Y-m-d H:i:s'), $date_format ), // 1 local time
+			$date_datetime->format( $date_format ), // GMT time
+			PHP_EOL // 3, new line
+		);
 
 		$date_html = "<span class='SimpleHistoryLogitem__permalink SimpleHistoryLogitem__when SimpleHistoryLogitem__inlineDivided'>";
 		$date_html .= "<a class='' href='{$item_permalink}'>";
 		$date_html .= sprintf(
-			'<time datetime="%1$s" title="%1$s" class="">%2$s</time>',
-			$date_datetime->format(DateTime::RFC3339), // 1 datetime attribute
-			$str_when
+			'<time datetime="%3$s" title="%1$s" class="">%2$s</time>',
+			esc_attr( $str_datetime_title ), // 1 datetime attribute
+			esc_html( $str_when ), // 2 date text, visible in log
+			$date_datetime->format( DateTime::RFC3339 ) // 3
 		);
 		$date_html .= "</a>";
 		$date_html .= "</span>";
@@ -876,7 +912,8 @@ class SimpleLogger {
 		 *
 		 * @since 2.3.1
 		 */
-		$do_log = apply_filters( "simple_history/log/do_log", $level, $message, $context );
+		$do_log = apply_filters( "simple_history/log/do_log", true, $level, $message, $context, $this );
+		
 		if ( $do_log === false ) {
 			return $this;
 		}
@@ -1173,11 +1210,16 @@ class SimpleLogger {
 			$context = apply_filters("simple_history/log_insert_context", $context, $data);
 
 			// Insert all context values into db
-			foreach ($context as $key => $value) {
+			foreach ( $context as $key => $value ) {
 
 				// If value is array or object then use json_encode to store it
-				if (is_object($value) || is_array($value)) {
-					$value = simpleHistory::json_encode($value);
+				//if ( is_object( $value ) || is_array( $value ) ) {
+				//	$value = simpleHistory::json_encode($value);
+				//}
+				// Any reason why the check is not the other way around?
+				// Everything except strings should be json_encoded
+				if ( ! is_string( $value ) ) {
+					$value = simpleHistory::json_encode( $value );
 				}
 
 				$data = array(
@@ -1186,7 +1228,7 @@ class SimpleLogger {
 					"value" => $value,
 				);
 
-				$result = $wpdb->insert($db_table_contexts, $data);
+				$result = $wpdb->insert ($db_table_contexts, $data );
 
 			}
 

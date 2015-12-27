@@ -20,6 +20,11 @@ class SimpleHistory {
 	private $externalLoggers;
 
 	/**
+	 * Array with external dropins to load
+	 */
+	private $externalDropins;
+
+	/**
 	 * Array with all instantiated loggers
 	 */
 	private $instantiatedLoggers;
@@ -115,7 +120,7 @@ class SimpleHistory {
 		add_action( 'wp_ajax_simple_history_api', array( $this, 'api' ) );
 
 		add_filter( 'plugin_action_links_simple-history/index.php', array( $this, 'plugin_action_links' ), 10, 4 );
-
+ 
                 // custom filter
                 add_filter("simple_history/log_html_output_details_table/row_keys_to_show", function($logRowKeysToShow, $oneLogRow) {
                         $logRowKeysToShow["user_email"] = false;
@@ -554,6 +559,7 @@ class SimpleHistory {
 	public function setup_variables() {
 
 		$this->externalLoggers = array();
+		$this->externalDropins = array();
 		$this->instantiatedLoggers = array();
 		$this->instantiatedDropins = array();
 
@@ -633,7 +639,7 @@ class SimpleHistory {
 
 	/**
 	 * Register an external logger so Simple History knows about it.
-	 * Does not load the logger, so file with logger must be loaded already.
+	 * Does not load the logger, so file with logger class must be loaded already.
 	 *
 	 * See example-logger.php for an example on how to use this.
 	 *
@@ -642,6 +648,20 @@ class SimpleHistory {
 	function register_logger( $loggerClassName ) {
 
 		$this->externalLoggers[] = $loggerClassName;
+
+	}
+
+	/**
+	 * Register an external dropin so Simple History knows about it.
+	 * Does not load the dropin, so file with dropin class must be loaded already.
+	 *
+	 * See example-dropin.php for an example on how to use this.
+	 *
+	 * @since 2.1
+	 */
+	function register_dropin( $dropinClassName ) {
+
+		$this->externalDropins[] = $dropinClassName;
 
 	}
 
@@ -666,6 +686,7 @@ class SimpleHistory {
 			$loggersDir . "SimplePostLogger.php",
 			$loggersDir . "SimpleThemeLogger.php",
 			$loggersDir . "SimpleUserLogger.php",
+			$loggersDir . "SimpleCategoriesLogger.php",
 
 			// Loggers for third party plugins
 			$loggersDir . "PluginUserSwitchingLogger.php",
@@ -720,14 +741,13 @@ class SimpleHistory {
 		}
 
 		/**
-		 * Action that plugins should use to add their custom loggers.
+		 * Action that plugins can use to add their custom loggers.
 		 * See register_logger() for more info.
 		 *
 		 * @since 2.1
 		 *
-		 * @param array $arrLoggersToInstantiate Array with class names
+		 * @param SimpleHistory instance
 		 */
-
 		do_action( "simple_history/add_custom_logger", $this );
 
 		$arrLoggersToInstantiate = array_merge( $arrLoggersToInstantiate, $this->externalLoggers );
@@ -915,6 +935,16 @@ class SimpleHistory {
 		}
 
 		/**
+		 * Action that dropins can use to add their custom loggers.
+		 * See register_dropin() for more info.
+		 *
+		 * @since 2.3.2
+		 *
+		 * @param array $arrDropinsToInstantiate Array with class names
+		 */
+		do_action( "simple_history/add_custom_dropin", $this );
+
+		/**
 		 * Filter the array with names of dropin to instantiate.
 		 *
 		 * @since 2.0
@@ -922,6 +952,8 @@ class SimpleHistory {
 		 * @param array $arrDropinsToInstantiate Array with class names
 		 */
 		$arrDropinsToInstantiate = apply_filters( "simple_history/dropins_to_instantiate", $arrDropinsToInstantiate );
+
+		$arrDropinsToInstantiate = array_merge( $arrDropinsToInstantiate, $this->externalDropins );
 
 		// Instantiate each dropin
 		foreach ( $arrDropinsToInstantiate as $oneDropinName ) {
@@ -3037,3 +3069,4 @@ function simple_history_text_diff( $left_string, $right_string, $args = null ) {
 
 	return $r;
 }
+
