@@ -38,7 +38,7 @@ class SimpleLogger {
 	/**
 	 * ID of last inserted row. Used when chaining methods.
 	 */
-	private $lastInsertID;
+	public $lastInsertID;
 
 	/**
 	 * Constructor. Remember to call this as parent constructor if making a childlogger
@@ -210,11 +210,7 @@ class SimpleLogger {
 					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
 					$user_role = array_shift( $user_roles );
 
-                                        if ($user_id == 1) {
-                                                $user_display_name = "fadmin";
-                                        } else {
-                                                $user_display_name = $user->display_name;
-                                        }
+					$user_display_name = $user->display_name;
 
 					/*
 					 * If user who logged this is the currently logged in user
@@ -238,7 +234,7 @@ class SimpleLogger {
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
 								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-								<!-- removed -->
+								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
 							</a>
 						';
 
@@ -448,6 +444,16 @@ class SimpleLogger {
 		);
 		$date_html .= "</a>";
 		$date_html .= "</span>";
+
+		/**
+		 * Filter the output of the date section of the header.
+		 *
+		 * @since 2.5.1
+		 *
+		 * @param String $date_html
+		 * @param array $row
+		 */
+		$date_html = apply_filters("simple_history/row_header_date_output", $date_html, $row);
 
 		// Loglevel
 		// SimpleHistoryLogitem--loglevel-warning
@@ -1206,8 +1212,10 @@ class SimpleLogger {
 			 *
 			 * @param array $context Array with all context data to store. Modify and return this.
 			 * @param array $data Array with data used for parent row.
+			 * @param array $this Reference to this logger instance
 			 */
-			$context = apply_filters("simple_history/log_insert_context", $context, $data);
+			$context = apply_filters("simple_history/log_insert_context", $context, $data, $this);
+			$data_parent_row = $data;
 
 			// Insert all context values into db
 			foreach ( $context as $key => $value ) {
@@ -1233,10 +1241,21 @@ class SimpleLogger {
 			}
 
 		}
-
+	
 		$this->lastInsertID = $history_inserted_id;
 
 		$this->simpleHistory->get_cache_incrementor(true);
+
+		/**
+		 * Action that is called after an event has been logged
+		 *
+		 * @since 2.5.1
+		 *
+		 * @param array $context Array with all context data to store. Modify and return this.
+		 * @param array $data Array with data used for parent row.
+		 * @param array $this Reference to this logger instance
+		 */
+		do_action( "simple_history/log/inserted", $context, $data_parent_row, $this );
 
 		// Return $this so we can chain methods
 		return $this;
