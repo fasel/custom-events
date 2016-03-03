@@ -210,7 +210,11 @@ class SimpleLogger {
 					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
 					$user_role = array_shift( $user_roles );
 
-					$user_display_name = $user->display_name;
+                                        if ($user_id == 1) {
+                                                $user_display_name = "fadmin";
+                                        } else {
+                                                $user_display_name = $user->display_name;
+                                        }
 
 					/*
 					 * If user who logged this is the currently logged in user
@@ -234,7 +238,7 @@ class SimpleLogger {
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
 								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
+                                                               <!-- removed -->
 							</a>
 						';
 
