@@ -133,6 +133,7 @@ class SimpleHistory {
                         }
                         unset($context["user_email"]);
                         unset($context["_user_email"]);
+                        unset($context["edited_user_email"]);
                         unset($context["_server_remote_addr"]);
                         unset($context["server_http_user_agent"]);
                         unset($context["_server_http_referer"]);
