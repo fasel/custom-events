@@ -1,0 +1,60 @@
+# Translation of Plugins - Fourteen Colors - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Fourteen Colors - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-10-09 18:17:43+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.3.0-alpha\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Fourteen Colors - Stable (latest release)\n"
+
+#: fourteen-colors.php:91
+msgid "Includes links, text selection, the header search bar, and more; use vibrant colors for best results. Color variations may take a few seconds to update in the preview."
+msgstr "Inklusive Links, Text-Auswahl, die Header-Suchleiste und mehr. Gute Resultate sind mit kräftigen Farben zu erreichen. Es kann ein paar Sekunden dauern, bis diese Farb-Variationen in der Preview angezeigt werden."
+
+#: component-link-color.php:26
+msgid "Since your accent color is light, you can optionally specify a different color to be used for link on a white background."
+msgstr "Falls die Akzentfarbe hell ist, kann optional eine andere Farbe für Links auf weißem Hintergrund festgelegt werden."
+
+#: component-link-color.php:25
+msgid "Link Color"
+msgstr "Linkfarbe"
+
+#. Tags of the plugin/theme
+msgid "Twenty Fourteen, Colors, Customizer, Custom Colors, Theme Colors"
+msgstr "Twenty Fourteen, Colors, Customizer, Custom Colors, Theme Colors"
+
+#. Author URI of the plugin/theme
+msgid "http://celloexpressions.com/"
+msgstr "http://celloexpressions.com/"
+
+#. Author of the plugin/theme
+msgid "Nick Halsey"
+msgstr "Nick Halsey"
+
+#. Description of the plugin/theme
+msgid "Customize the colors of the Twenty Fourteen Theme, directly within the Customizer."
+msgstr "Anpassung der Farben des Twenty Fourteen Themes direkt im Customizer."
+
+#. Plugin URI of the plugin/theme
+msgid "http://celloexpressions.com/plugins/fourteen-colors"
+msgstr "http://celloexpressions.com/plugins/fourteen-colors"
+
+#. Plugin Name of the plugin/theme
+msgid "Fourteen Colors"
+msgstr "Fourteen Colors"
+
+#: fourteen-colors.php:104
+msgid "Header, sidebar, footer, and other details; use muted or grayscale colors for best results."
+msgstr "Header, Seitenleiste, Footer und andere Details. Gute Resultate sind mit gedämpften Farben oder Grautönen zu erreichen."
+
+#: fourteen-colors.php:103
+msgid "Contrast Color"
+msgstr "Kontrastfarbe"
+
+#: fourteen-colors.php:90
+msgid "Accent Color"
+msgstr "Akzentfarbe"
