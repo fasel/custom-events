@@ -101,7 +101,7 @@ class SimpleLogger {
 	 * @return Mixed
 	 */
 	function getInfoValueByKey( $key ) {
-		
+
 		$arr_info = $this->getInfo();
 
 		return isset( $arr_info[ $key ] ) ? $arr_info[ $key ] : null;
@@ -142,7 +142,7 @@ class SimpleLogger {
 
 		/**
 		 * Filter the context used to create the message from the message template
-		 * 
+		 *
 		 * @since 2.2.4
 		 */
 		$context = apply_filters( "simple_history/logger/interpolate/context", $context, $message, $row );
@@ -225,11 +225,7 @@ class SimpleLogger {
 					$user_roles = array_intersect( array_values( (array) $user->roles ), array_keys( (array) $wp_roles->roles ));
 					$user_role = array_shift( $user_roles );
 
-                                        if ($user_id == 1) {
-                                                $user_display_name = "fadmin";
-                                        } else {
-                                                $user_display_name = $user->display_name;
-                                        }
+					$user_display_name = $user->display_name;
 
 					/*
 					 * If user who logged this is the currently logged in user
@@ -253,7 +249,7 @@ class SimpleLogger {
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
 								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-								<!-- removed -->
+								<span class="SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__headerEmail">%2$s</span>
 							</a>
 						';
 
@@ -395,11 +391,11 @@ class SimpleLogger {
 		$str_when = "";
 
 		// $row->date is in GMT
-		$date_datetime = new DateTime( $row->date );
-		
+		$date_datetime = new DateTime( $row->date, new DateTimeZone('GMT') );
+
 		// Current datetime in GMT
 		$time_current = strtotime( current_time("mysql", 1) );
-	
+
 		/**
 		 * Filter how many seconds as most that can pass since an
 		 * event occured to show "nn minutes ago" (human diff time-format) instead of exact date
@@ -441,7 +437,7 @@ class SimpleLogger {
 			$str_when = sprintf(__('%1$s ago', 'simple-history'), $date_human_time_diff);
 
 		}
-		
+
 		$item_permalink = admin_url("index.php?page=simple_history_page");
 		if ( ! empty( $row->id ) ) {
 			$item_permalink .= "#item/{$row->id}";
@@ -482,13 +478,13 @@ class SimpleLogger {
 		// that "caused" this event
 		$via_html = "";
 		$logger_name_via = $this->getInfoValueByKey("name_via");
-	
+
 		if ( $logger_name_via ) {
-		
+
 			$via_html = "<span class='SimpleHistoryLogitem__inlineDivided SimpleHistoryLogitem__via'>";
 			$via_html .= $logger_name_via;
 			$via_html .= "</span>";
-		
+
 		}
 
 		// Loglevel
@@ -502,8 +498,8 @@ class SimpleLogger {
 
 		// Glue together final result
 		$template = '
-			%1$s 
-			%2$s 
+			%1$s
+			%2$s
 			%3$s
 		';
 		#if ( ! $initiator_html ) {
@@ -550,7 +546,7 @@ class SimpleLogger {
 	public function getLogRowPlainTextOutput($row) {
 
 		$message = $row->message;
-		$message_key = $row->context["_message_key"];
+		$message_key = isset( $row->context["_message_key"] ) ? $row->context["_message_key"] : null;
 
 		// Message is translated here, but translation must be added in
 		// plain text before
@@ -959,7 +955,7 @@ class SimpleLogger {
 		 * @since 2.3.1
 		 */
 		$do_log = apply_filters( "simple_history/log/do_log", true, $level, $message, $context, $this );
-		
+
 		if ( $do_log === false ) {
 			return $this;
 		}
@@ -1114,7 +1110,8 @@ class SimpleLogger {
 			//  - it is a user that is manually doing this, on purpose, with intent, so not auto wordpress
 			//  - it is a specific user, but we don't know who
 			// - sounds like a special case, set initiator to wp_cli
-			if ( isset( $_SERVER["WP_CLI_PHP_USED"] ) && "cli" == php_sapi_name() ) {
+			// Can be used by plugins/themes to check if WP-CLI is running or not
+			if ( defined( "WP_CLI" ) && WP_CLI ) {
 
 				$data["initiator"] = SimpleLoggerLogInitiators::WP_CLI;
 
@@ -1281,7 +1278,7 @@ class SimpleLogger {
 			}
 
 		}
-	
+
 		$this->lastInsertID = $history_inserted_id;
 
 		$this->simpleHistory->get_cache_incrementor(true);

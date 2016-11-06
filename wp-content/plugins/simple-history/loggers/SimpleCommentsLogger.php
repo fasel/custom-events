@@ -28,7 +28,9 @@ class SimpleCommentsLogger extends SimpleLogger
 	 */
 	function maybe_modify_log_query_sql_where($where) {
 
-		$include_spam = false;
+		// since 19 sept 2016 we do include spam, to skip the subquery
+		// spam comments should not be logged anyway since some time
+		$include_spam = true;
 
 		/**
 		 * Filter option to include spam or not in the gui
@@ -409,9 +411,10 @@ class SimpleCommentsLogger extends SimpleLogger
 
 	}
 
-	public function on_delete_comment($comment_ID) {
+	public function on_delete_comment( $comment_ID ) {
 
-		$context = $this->get_context_for_comment($comment_ID);
+		$context = $this->get_context_for_comment( $comment_ID );
+		
 		if ( ! $context ) {
 			return;
 		}
@@ -423,7 +426,11 @@ class SimpleCommentsLogger extends SimpleLogger
 		// if not added, spam comments can easily flood the log
 		// Deletions of spam easiy flood log
 		if ( isset( $comment_data->comment_approved ) && "spam" === $comment_data->comment_approved ) {
-			$context["_occasionsID"] = __CLASS__  . '/' . __FUNCTION__ . "/anon_{$context["comment_type"]}_deleted/type:spam";
+			
+			// since 2.5.5: don't log deletion of spam comments
+			return;
+			// $context["_occasionsID"] = __CLASS__  . '/' . __FUNCTION__ . "/anon_{$context["comment_type"]}_deleted/type:spam";
+
 		}
 
 		$this->infoMessage(
@@ -455,9 +462,10 @@ class SimpleCommentsLogger extends SimpleLogger
 	 *                                    'approve', 'spam', 'trash', or false.
 	 * do_action( 'wp_set_comment_status', $comment_id, $comment_status );
 	 */
-	public function on_wp_set_comment_status($comment_ID, $comment_status) {
+	public function on_wp_set_comment_status( $comment_ID, $comment_status ) {
 
 		$context = $this->get_context_for_comment($comment_ID);
+		
 		if ( ! $context ) {
 			return;
 		}
@@ -473,7 +481,6 @@ class SimpleCommentsLogger extends SimpleLogger
 			hold
 				comment was un-approved
 		*/
-		// sf_d($comment_status);exit;
 		$message = "{$context["comment_type"]}_status_{$comment_status}";
 
 		$this->infoMessage(
@@ -486,11 +493,16 @@ class SimpleCommentsLogger extends SimpleLogger
 	/**
 	 * Fires immediately after a comment is inserted into the database.
 	 */
-	public function on_comment_post($comment_ID, $comment_approved) {
+	public function on_comment_post( $comment_ID, $comment_approved ) {
 
-		$context = $this->get_context_for_comment($comment_ID);
+		$context = $this->get_context_for_comment( $comment_ID );
 
 		if ( ! $context ) {
+			return;
+		}
+
+		// since 2.5.5: no more logging of spam comments
+		if ( isset( $comment_approved ) && "spam" === $comment_approved ) {
 			return;
 		}
 
