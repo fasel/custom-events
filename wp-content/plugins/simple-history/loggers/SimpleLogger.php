@@ -252,8 +252,8 @@ class SimpleLogger {
 
 						$tmpl_initiator_html = '
 							<a href="%6$s" class="SimpleHistoryLogitem__headerUserProfileLink">
-                                                               <strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
-                                                               <!-- removed -->
+								<strong class="SimpleHistoryLogitem__inlineDivided">%3$s</strong>
+								<!-- removed -->
 							</a>
 						';
 
@@ -1146,6 +1146,8 @@ class SimpleLogger {
 		// sf_d($db_table, '$db_table');exit;
 
 		$result = $wpdb->insert($db_table, $data);
+
+		$data_parent_row = null;
 
 		// Only save context if able to store row
 		if (false === $result) {
