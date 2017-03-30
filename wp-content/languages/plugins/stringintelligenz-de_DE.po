@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Stringintelligenz - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-10-08 09:01:14+0000\n"
+"PO-Revision-Date: 2016-12-27 08:49:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,14 @@ msgstr ""
 "X-Generator: GlotPress/2.3.0-alpha\n"
 "Language: de\n"
 "Project-Id-Version: Plugins - Stringintelligenz - Stable (latest release)\n"
+
+#. Description of the plugin/theme
+msgid "Open language for WordPress in German"
+msgstr "Offene Sprache für WordPress in Deutsch"
+
+#: templates/admin-notice-locale-not-supported.php:5
+msgid "Switch to <strong>“Deutsch”</strong> at <a href=\"%1$s\">Settings→General→Site&#160;Language</a> or at <a href=\"%2$s\">Profile→Personal&#160;Options→Language</a> in order to enable inclusive German in your WordPress admin interface.<br><em>(Quick check: As an administrator you should see the word “Profile” instead of “Benutzer” in your admin menu after you have activated Deutsch.)</em>"
+msgstr "Wechsle zu <strong>„Deutsch“</strong> unter <a href=\"%1$s\">Einstellungen&160;Allgemein&#8594;Sprache&#160;der&#160;Website</a> oder unter <a href=\"%2$s\">Profil&#8594;Persönliche&#160;Optionen</a>, um offenes Deutsch in deinem WordPress zu aktivieren.<br><em>(Schnell-Test: Sofern du Administrationsrechte hast, solltest du den Menü-Eintrag „Profile“ anstelle von „Benutzer“ in deinem Admin-Menü sehen, sobald du zur deutschen Du-Version gewechselt hast.)</em>"
 
 #. Author URI of the plugin/theme
 msgid "https://profiles.wordpress.org/glueckpress"
@@ -19,17 +27,9 @@ msgstr "https://profiles.wordpress.org/glueckpress"
 msgid "Caspar Hübinger"
 msgstr "Caspar Hübinger"
 
-#. Description of the plugin/theme
-msgid "Gender-sensitive language for WordPress in German"
-msgstr "Gender-sensitive Sprache für WordPress in Deutsch"
-
 #. Plugin Name of the plugin/theme
 msgid "Stringintelligenz"
 msgstr "Stringintelligenz"
-
-#: templates/admin-notice-locale-not-supported.php:5
-msgid "Switch to <strong>“Deutsch”</strong> in <a href=\"%s\">Settings→General→Site&#160;Language</a> in order to enable gender-sensitive German in your WordPress admin interface.<br><em>(Quick check: As an administrator you should see the word “Profile” instead of “Benutzer” in your admin menu after you have activated Deutsch.)</em>"
-msgstr "Wechsle zu <strong>“Deutsch”</strong> unter <a href=\"%s\">Einstellungen\tAllgemein\tSprache&#160;der&#160;Website</a>, um gender-sensitives Deutsch in deinem WordPress zu aktivieren.<br><em>(Schnelltest: Sofern du Administrationsrechte hast, solltest du den Menü-Eintrag “Profile” anstelle von “Benutzer” in deinem Admin-Menü sehen, sobald du zur deutschen Du-Version gewechselt hast.)</em>"
 
 #: templates/admin-notice-locale-not-supported.php:1
 msgid "🙅✋👁📢&#160;Achtung! Stringintelligenz only supports default (<dfn title=\"That’s de_DE as a locale.\">informal</dfn>) German for now."
