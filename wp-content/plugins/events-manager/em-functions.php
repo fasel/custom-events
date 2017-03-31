@@ -817,4 +817,109 @@ if( !function_exists( 'is_main_query' ) ){
 function em_get_date_format(){
 	return get_option('dbem_date_format');
 }
+
+/**
+* add some conditional output conditions for Events Manager
+* @param string $replacement
+* @param string $condition
+* @param string $match
+* @param object $EM_Event
+* @return string
+*/
+function filterEventOutputCondition($replacement, $condition, $match, $EM_Event){
+if (is_object($EM_Event)) {
+
+        switch ($condition) {
+        // Events
+        // #_ATT{Raum}
+        case 'has_att_raum':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Raum']))
+                        $replacement = preg_replace('/\{\/?has_att_raum\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        // #_ATT{Rollstuhlgerechter Raum}
+        case 'has_att_rg_raum':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Rollstuhlgerechter Raum']))
+                        $replacement = preg_replace('/\{\/?has_att_rg_raum\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        // #_ATT{Weblink}
+        case 'has_att_weblink':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Weblink'])) {
+                        $replacement = preg_replace('/\{\/?has_att_weblink\}/', '', $match);
+                        $replacement = preg_replace( "/\r|\n/", "", $replacement );
+                        $replacement = parse_url($replacement, PHP_URL_SCHEME) === null ? "http://" . $replacement : $replacement;
+                        $replacement = esc_url($replacement);
+                        $replacement = '<p><b>Link zur Veranstaltung:</b> <a href="' . $replacement . '" target="_blank">' . $replacement . '</a></p>';
+                } else {
+                        $replacement = '';
+                }
+                break;
+        // #_ATT{Sprache des Events}
+        case 'has_att_lang':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Sprache des Events']))
+                        $replacement = preg_replace('/\{\/?has_att_lang\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        // #_ATT{Eintritt}
+        case 'has_att_eintritt':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Eintritt']))
+                        $replacement = preg_replace('/\{\/?has_att_eintritt\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        // #_ATT{Zielgruppe}
+        case 'has_att_zielgruppe':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['Zielgruppe']))
+                        $replacement = preg_replace('/\{\/?has_att_zielgruppe\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        }
+
+}
+
+return $replacement;
+}
+
+add_filter('em_event_output_condition', 'filterEventOutputCondition', 10, 4);
+
+/**
+* add some conditional output conditions for Events Manager
+* @param string $replacement
+* @param string $condition
+* @param string $match
+* @param object $EM_Location
+* @return string
+*/
+function filterLocationOutputCondition($replacement, $condition, $match, $EM_Location){
+if (is_object($EM_Location)) {
+
+        switch ($condition) {
+        // #_LATT{Link zum Veranstaltungsort}
+        case 'has_att_loclink':
+                if (is_array($EM_Location->location_attributes) && !empty($EM_Location->location_attributes['Link zum Veranstaltungsort']))
+                        $replacement = preg_replace('/\{\/?has_att_loclink\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+
+        // #_LATT{Rollstuhlgerecht}
+        case 'has_att_rollstuhlgerecht':
+                if (is_array($EM_Location->location_attributes) && !empty($EM_Location->location_attributes['Rollstuhlgerecht']))
+                        $replacement = preg_replace('/\{\/?has_att_rollstuhlgerecht\}/', '', $match);
+                else
+                        $replacement = '';
+                break;
+        }
+
+}
+
+return $replacement;
+}
+
+add_filter('em_location_output_condition', 'filterLocationOutputCondition', 10, 4);
 ?>

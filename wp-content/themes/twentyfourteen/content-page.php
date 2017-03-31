@@ -10,6 +10,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
+		// Page thumbnail and title.
+		twentyfourteen_post_thumbnail();
                 if ( !is_page( 'Terminkalender' ) ) {
                         // Page thumbnail and title.
                         twentyfourteen_post_thumbnail();
