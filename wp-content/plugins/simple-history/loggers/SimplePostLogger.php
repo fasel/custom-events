@@ -288,12 +288,31 @@ class SimplePostLogger extends SimpleLogger
 			return;
 		}
 
+		/*
+		Posts that have been in the trash for 30 days (default)
+		are deleted using a cron job that is called with action hook "wp_scheduled_delete".
+		We skip logging these because users are confused and think that the real post has been
+		deleted.
+		We detect this by checking $wp_current_filter for 'wp_scheduled_delete'
+		[
+			"wp_scheduled_delete",
+			"delete_post",
+			"simple_history\/log_argument\/context"
+		]
+		*/
+		global $wp_current_filter;
+		if ( isset( $wp_current_filter ) && is_array( $wp_current_filter ) ) {
+			if ( in_array( 'wp_scheduled_delete', $wp_current_filter, true ) ) {
+				return;
+			}
+		}
+
 		$this->infoMessage(
-			"post_deleted",
+			'post_deleted',
 			array(
-				"post_id" => $post_id,
-				"post_type" => get_post_type($post),
-				"post_title" => get_the_title($post)
+				'post_id' => $post_id,
+				'post_type' => get_post_type( $post ),
+				'post_title' => get_the_title( $post ),
 			)
 		);
 
@@ -302,7 +321,7 @@ class SimplePostLogger extends SimpleLogger
 
 	/**
 	  * Fired when a post has changed status
-	  * Only run in certain cases, 
+	  * Only run in certain cases,
 	  * because when always enabled it catches a lots of edits made by plugins during cron jobs etc,
 	  * which by definition is not wrong, but perhaps not wanted/annoying
 	  */
@@ -660,7 +679,7 @@ class SimplePostLogger extends SimpleLogger
 	}
 
 	/**
-	 * Modify plain output to inlcude link to post
+	 * Modify plain output to include link to post
 	 */
 	public function getLogRowPlainTextOutput($row) {
 
@@ -671,7 +690,7 @@ class SimplePostLogger extends SimpleLogger
 		$message = $row->message;
 
 		// Check if post still is available
-		// It wil return a WP_Post Object if post still is in system
+		// It will return a WP_Post Object if post still is in system
 		// If post is deleted from trash (not just moved there), then null is returned
 		$post = get_post( $post_id );
 		$post_is_available = is_a($post, "WP_Post");

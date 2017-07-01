@@ -1,14 +1,27 @@
 <?php
 
-defined( 'ABSPATH' ) or die();
+defined( 'ABSPATH' ) || die();
 
 /**
  * Logs plugin installs, updates, and deletions
  */
 class SimplePluginLogger extends SimpleLogger {
 
-	// The logger slug. Defaulting to the class name is nice and logical I think
+	/**
+	 * The logger slug. Defaulting to the class name is nice and logical I think
+	 *
+	 * @var string $slug
+	 */
 	public $slug = __CLASS__;
+
+	/**
+	 * This variable is set if a plugins has been disabled due to an error,
+	 * like when the plugin file does not exist. We need to store this in this
+	 * weird way because there is no other way for us to get the reason.
+	 *
+	 * @var string $latest_plugin_deactivation_because_of_error_reason
+	 */
+	public $latest_plugin_deactivation_because_of_error_reason = array();
 
 	/**
 	 * Get array with information about this logger
@@ -18,10 +31,10 @@ class SimplePluginLogger extends SimpleLogger {
 	function getInfo() {
 
 		$arr_info = array(
-			"name" => "Plugin Logger",
-			"description" => "Logs plugin installs, uninstalls and updates",
-			"capability" => "activate_plugins", // install_plugins, activate_plugins,
-			"messages" => array(
+			'name' => 'Plugin Logger',
+			'description' => 'Logs plugin installs, uninstalls and updates',
+			'capability' => 'activate_plugins',
+			'messages' => array(
 
 				'plugin_activated' => _x(
 					'Activated plugin "{plugin_name}"',
@@ -59,80 +72,74 @@ class SimplePluginLogger extends SimpleLogger {
 					'simple-history'
 				),
 
-				'plugin_file_edited' => _x(
-					'Edited plugin file "{plugin_edited_file}"',
-					'Plugin file edited',
-					'simple-history'
-				),
-
 				'plugin_deleted' => _x(
 					'Deleted plugin "{plugin_name}"',
 					'Plugin files was deleted',
 					'simple-history'
 				),
 
-				// bulk versions
+				// Bulk versions.
 				'plugin_bulk_updated' => _x(
 					'Updated plugin "{plugin_name}" to {plugin_version} from {plugin_prev_version}',
 					'Plugin was updated in bulk',
 					'simple-history'
 				),
 
-				// plugin disabled due to some error
+				// Plugin disabled due to some error.
 				'plugin_disabled_because_error' => _x(
-					'Deactivated a plugin because of an error: {error_message}',
+					'Deactivated plugin "{plugin_slug}" because of an error ("{deactivation_reason}").',
 					'Plugin was disabled because of an error',
 					'simple-history'
 				),
 
-			), // messages
-			"labels" => array(
-				"search" => array(
-					"label" => _x("Plugins", "Plugin logger: search", "simple-history"),
-					"label_all" => _x("All plugin activity", "Plugin logger: search", "simple-history"),
-					"options" => array(
-						_x("Activated plugins", "Plugin logger: search", "simple-history") => array(
+			), // Messages.
+			'labels' => array(
+				'search' => array(
+					'label' => _x( 'Plugins', 'Plugin logger: search', 'simple-history' ),
+					'label_all' => _x( 'All plugin activity', 'Plugin logger: search', 'simple-history' ),
+					'options' => array(
+						_x( 'Activated plugins', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_activated'
 						),
-						_x("Deactivated plugins", "Plugin logger: search", "simple-history") => array(
+						_x( 'Deactivated plugins', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_deactivated',
-							'plugin_disabled_because_error'
+							'plugin_disabled_because_error',
 						),
-						_x("Installed plugins", "Plugin logger: search", "simple-history") => array(
+						_x( 'Installed plugins', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_installed'
 						),
-						_x("Failed plugin installs", "Plugin logger: search", "simple-history") => array(
+						_x( 'Failed plugin installs', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_installed_failed'
 						),
-						_x("Updated plugins", "Plugin logger: search", "simple-history") => array(
+						_x( 'Updated plugins', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_updated',
-							'plugin_bulk_updated'
+							'plugin_bulk_updated',
 						),
-						_x("Failed plugin updates", "Plugin logger: search", "simple-history") => array(
+						_x( 'Failed plugin updates', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_update_failed'
 						),
-						_x("Edited plugin files", "Plugin logger: search", "simple-history") => array(
-							'plugin_file_edited'
-						),
-						_x("Deleted plugins", "Plugin logger: search", "simple-history") => array(
+						_x( 'Deleted plugins', 'Plugin logger: search', 'simple-history' ) => array(
 							'plugin_deleted'
 						),
-					)
-				) // search array
-			) // labels
+					),
+				), // search array.
+			), // labels.
 		);
 
 		return $arr_info;
 
 	}
 
+	/**
+	 * Plugin loaded
+	 */
 	public function loaded() {
 
 		/**
 		 * At least the plugin bulk upgrades fires this action before upgrade
 		 * We use it to fetch the current version of all plugins, before they are upgraded
 		 */
-		add_filter( 'upgrader_pre_install', array( $this, "save_versions_before_update"), 10, 2);
+		add_filter( 'upgrader_pre_install', array( $this, "save_versions_before_update" ), 10, 2 );
 
 		// Clear our transient after an update is done
 		// Removed because something probably changed in core and this was fired earlier than it used to be
@@ -152,44 +159,94 @@ class SimplePluginLogger extends SimpleLogger {
 		// Check hook extra for upgrader initiator
 		add_action( 'upgrader_process_complete', array( $this, "on_upgrader_process_complete" ), 10, 2 );
 
-		// Dirty check for things that we can't catch using filters or actions
-		add_action( 'admin_init', array( $this, "check_filterless_things" ) );
-
 		// Detect files removed
 		add_action( 'setted_transient', array( $this, 'on_setted_transient_for_remove_files' ), 10, 2 );
 
-		add_action("admin_action_delete-selected", array($this, "on_action_delete_selected"), 10, 1);
+		add_action("admin_action_delete-selected", array($this, "on_action_delete_selected" ), 10, 1);
 
 		// Ajax function to get info from GitHub repo. Used by "View plugin info"-link for plugin installs
 		add_action("wp_ajax_SimplePluginLogger_GetGitHubPluginInfo", array($this, "ajax_GetGitHubPluginInfo"));
 
 		// If the Github Update plugin is not installed we need to get extra fields used by it.
 		// So need to hook filter "extra_plugin_headers" ourself.
-		add_filter( "extra_plugin_headers", function($arr_headers) {
+		add_filter( "extra_plugin_headers", function( $arr_headers ) {
 			$arr_headers[] = "GitHub Plugin URI";
 			return $arr_headers;
 		} );
 
-		// There is no way to ue a filter and detect a plugin that is disabled because it can't be found or similar error.
+		// There is no way to use a filter and detect a plugin that is disabled because it can't be found or similar error.
 		// So we hook into gettext and look for the usage of the error that is returned when this happens.
-		add_filter( 'gettext', array( $this, "on_gettext" ), 10, 3 );
+		add_filter( 'gettext', array( $this, 'on_gettext_detect_plugin_error_deactivation_reason' ), 10, 3 );
+		add_filter( 'gettext', array( $this, 'on_gettext' ), 10, 3 );
 
 	}
 
 	/**
-	 * There is no way to ue a filter and detect a plugin that is disabled because it can't be found or similar error.
-	 * we hook into gettext and look for the usage of the error that is returned when this happens.
+	 * Things
+	 *
+	 * @param string $translation Translation.
+	 * @param string $text Text.
+	 * @param string $domain Domin.
 	 */
-	function on_gettext( $translation, $text, $domain ) {
-
-		// The errors we can get is:
-		// return new WP_Error('plugin_invalid', __('Invalid plugin path.'));
-		// return new WP_Error('plugin_not_found', __('Plugin file does not exist.'));
-		// return new WP_Error('no_plugin_header', __('The plugin does not have a valid header.'));
+	function on_gettext_detect_plugin_error_deactivation_reason( $translation, $text, $domain ) {
 
 		global $pagenow;
 
-		// We only act on page plugins.php
+		// We only act on page plugins.php.
+		if ( ! isset( $pagenow ) || 'plugins.php' !== $pagenow ) {
+			return $translation;
+		}
+
+		// We only act if the untranslated text is among the following ones
+		// (Literally these, no translation).
+		$untranslated_texts = array(
+			'Plugin file does not exist.',
+			'Invalid plugin path.',
+			'The plugin does not have a valid header.',
+		);
+
+		if ( ! in_array( $text, $untranslated_texts, true ) ) {
+			return $translation;
+		}
+
+		// Text was among our wanted texts.
+		switch ( $text ) {
+			case 'Plugin file does not exist.':
+				$this->latest_plugin_deactivation_because_of_error_reason[] = 'file_does_not_exist';
+				break;
+			case 'Invalid plugin path.':
+				$this->latest_plugin_deactivation_because_of_error_reason[] = 'invalid_path';
+				break;
+			case 'The plugin does not have a valid header.':
+				$this->latest_plugin_deactivation_because_of_error_reason[] = 'no_valid_header';
+				break;
+		}
+
+		return $translation;
+	}
+
+	/**
+	 * There is no way to use a filter and detect a plugin that is disabled because it can't be found or similar error.
+	 * we hook into gettext and look for the usage of the error that is returned when this happens.
+	 *
+	 * A plugin gets deactivated when plugins.php is visited function validate_active_plugins()
+	 * 		return new WP_Error('plugin_not_found', __('Plugin file does not exist.'));
+	 * and if invalid plugin is found then this is outputed
+	 *  printf(
+	 *  /* translators: 1: plugin file 2: error message
+	 *  __( 'The plugin %1$s has been <strong>deactivated</strong> due to an error: %2$s' ),
+	 *  '<code>' . esc_html( $plugin_file ) . '</code>',
+	 *  $error->get_error_message() );
+	 *
+	 * @param string $translation Translation.
+	 * @param string $text Text.
+	 * @param string $domain Domin.
+	 */
+	function on_gettext( $translation, $text, $domain ) {
+
+		global $pagenow;
+
+		// We only act on page plugins.php.
 		if ( ! isset( $pagenow ) || $pagenow !== "plugins.php" ) {
 			return $translation;
 		}
@@ -197,29 +254,46 @@ class SimplePluginLogger extends SimpleLogger {
 		// We only act if the untranslated text is among the following ones
 		// (Literally these, no translation)
 		$untranslated_texts = array(
-			"Plugin file does not exist.",
-			"Invalid plugin path.",
-			"The plugin does not have a valid header."
+			// This string is called later than the above
+			'The plugin %1$s has been <strong>deactivated</strong> due to an error: %2$s'
 		);
 
-		if ( ! in_array( $text, $untranslated_texts )) {
+		if ( ! in_array( $text, $untranslated_texts ) ) {
 			return $translation;
 		}
 
-		// We don't know what plugin that was that got this error and currently there does not seem to be a way to determine that
-		// So that's why we use such generic log messages
-		$this->warningMessage(
-			"plugin_disabled_because_error",
-			array(
-				"_initiator" => SimpleLoggerLogInitiators::WORDPRESS,
-				"error_message" => $text
-			)
-		);
+		// Directly after the string is translated 'esc_html' is called with the plugin name.
+		// This is one of the few ways we can get the name of the plugin.
+		// The esc_html filter is used pretty much but we make sure we only do our.
+		// stuff the first time it's called (directly after the gettet for the plugin disabled-error..).
+		$logger_instance = $this;
+
+		add_filter( 'esc_html', function( $safe_text, $text ) use ( $logger_instance ) {
+			static $is_called = false;
+
+			if ( false === $is_called ) {
+				$is_called = true;
+
+				$deactivation_reason = array_shift( $logger_instance->latest_plugin_deactivation_because_of_error_reason );
+
+				// We don't know what plugin that was that got this error and currently there does not seem to be a way to determine that.
+				// So that's why we use such generic log messages.
+				$logger_instance->warningMessage(
+					'plugin_disabled_because_error',
+					array(
+						'_initiator' => SimpleLoggerLogInitiators::WORDPRESS,
+						'plugin_slug' => $text,
+						'deactivation_reason' => $deactivation_reason,
+					)
+				);
+			}
+
+			return $safe_text;
+		}, 10, 2 );
 
 		return $translation;
 
 	} // on_gettext
-
 
 	/**
 	 * Show readme from github in a modal win
@@ -476,64 +550,6 @@ class SimplePluginLogger extends SimpleLogger {
 	public function remove_saved_versions() {
 
 		delete_option( $this->slug . "_plugin_info_before_update" );
-
-	}
-
-	function check_filterless_things() {
-
-		// Var is string with length 113: /wp-admin/plugin-editor.php?file=my-plugin%2Fviews%2Fplugin-file.php
-		$referer = wp_get_referer();
-
-		// contains key "path" with value like "/wp-admin/plugin-editor.php"
-		$referer_info = parse_url($referer);
-
-		if ( "/wp-admin/plugin-editor.php" === $referer_info["path"] ) {
-
-			// We are in plugin editor
-			// Check for plugin edit saved
-			if ( isset( $_POST["newcontent"] ) && isset( $_POST["action"] ) && "update" == $_POST["action"] && isset( $_POST["file"] ) && ! empty( $_POST["file"] ) ) {
-
-				// A file was edited
-				$file = $_POST["file"];
-
-				// $plugins = get_plugins();
-				// http://codex.wordpress.org/Function_Reference/wp_text_diff
-
-				// Generate a diff of changes
-				if ( ! class_exists( 'WP_Text_Diff_Renderer_Table' ) ) {
-					require_once( ABSPATH . WPINC . '/wp-diff.php' );
-				}
-
-				$original_file_contents = file_get_contents( WP_PLUGIN_DIR . "/" . $file );
-				$new_file_contents = wp_unslash( $_POST["newcontent"] );
-
-				$left_lines  = explode("\n", $original_file_contents);
-				$right_lines = explode("\n", $new_file_contents);
-				$text_diff = new Text_Diff($left_lines, $right_lines);
-
-				$num_added_lines = $text_diff->countAddedLines();
-				$num_removed_lines = $text_diff->countDeletedLines();
-
-				// Generate a diff in classic diff format
-				$renderer  = new Text_Diff_Renderer();
-				$diff = $renderer->render($text_diff);
-
-				$this->infoMessage(
-					'plugin_file_edited',
-					array(
-						"plugin_edited_file" => $file,
-						"plugin_edit_diff" => $diff,
-						"plugin_edit_num_added_lines" => $num_added_lines,
-						"plugin_edit_num_removed_lines" => $num_removed_lines,
-					)
-				);
-
-				$did_log = true;
-
-			}
-
-		}
-
 
 	}
 
@@ -1184,7 +1200,7 @@ class SimplePluginLogger extends SimpleLogger {
 				if ( "plugin_updated" == $message_key || "plugin_bulk_updated" == $message_key ) {
 
 					$link_title = esc_html_x("View changelog", "plugin logger: plugin info thickbox title", "simple-history");
-					
+
 					if ( is_multisite() ) {
 						$url = network_admin_url( "plugin-install.php?tab=plugin-information&amp;plugin={$plugin_slug}&amp;section=changelog&amp;TB_iframe=true&amp;width=772&amp;height=550" );
 					} else {
