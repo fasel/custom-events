@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Simple History - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-03-23 14:31:35+0000\n"
+"PO-Revision-Date: 2017-07-24 11:16:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,96 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: Plugins - Simple History - Stable (latest release)\n"
 
-#: inc/SimpleHistory.php:1905
+#: loggers/SimpleUserLogger.php:863
+msgctxt "User logger"
+msgid "Locale"
+msgstr "Sprache (Locale)"
+
+#: loggers/SimplePluginLogger.php:89
+msgctxt "Plugin was disabled because of an error"
+msgid "Deactivated plugin \"{plugin_slug}\" because of an error (\"{deactivation_reason}\")."
+msgstr "Das Plugin „{plugin_slug}“ wurde aufgrund eines Fehler deaktiviert („{deactivation_reason}“)."
+
+#: inc/SimpleHistory.php:3450
+msgid "The slug for a logger in Simple History can be max 30 chars long."
+msgstr "Die Titelform eines Loggers in Simple History kann maximal 30 Zeichen lang sein."
+
+#. translators: 1: URL to settings page
+#: dropins/SimpleHistorySidebarSettings.php:72
+msgid "<a href=\"%1$s\">Visit the settings page</a> to change things like the number of events to show and to get access to the RSS feed with all events, and more."
+msgstr "<a href=\"%1$s\">Gehe zur Seite „Einstellungen“</a>, um Dinge wie die Anzahl der anzuzeigenden Ereignisse zu ändern, Zugriff auf den RSS-Feed mit allen Ereignissen zu erhalten oder andere Einstellungen vorzunehmen."
+
+#: loggers/FileEditsLogger.php:247
+msgid "File contents"
+msgstr "Datei-Inhalte"
+
+#: loggers/FileEditsLogger.php:25
+msgctxt "Plugin logger: file edits"
+msgid "Edited theme files"
+msgstr "Hat Theme-Dateien bearbeitet"
+
+#: loggers/FileEditsLogger.php:23
+msgctxt "Plugin logger: file edits"
+msgid "All file edits"
+msgstr "Alle Datei-Bearbeitungen"
+
+#: loggers/FileEditsLogger.php:22
+msgctxt "Plugin logger: file edits"
+msgid "Edited theme and plugin files"
+msgstr "Hat Theme- und Plugin-Dateien bearbeitet"
+
+#: loggers/FileEditsLogger.php:18
+msgid "Edited file \"{file_name}\" in plugin \"{plugin_name}\""
+msgstr "Hat die Datei „{file_name}“ im Plugin „{plugin_name}“ bearbeitet"
+
+#: loggers/FileEditsLogger.php:17
+msgid "Edited file \"{file_name}\" in theme \"{theme_name}\""
+msgstr "Hat die Datei „{file_name}“ im Theme „{theme_name}“ bearbeitet"
+
+#: dropins/SimpleHistoryWPCLIDropin.php:114
+msgid "Error: parameter \"count\" must be a number"
+msgstr "Fehler: Parameter „count“ muss eine Zahl sein"
+
+#: templates/template-settings-tab-debug.php:283
+msgctxt "debug dropin"
+msgid "Active"
+msgstr "Aktiv"
+
+#: templates/template-settings-tab-debug.php:282
+msgctxt "debug dropin"
+msgid "Plugin file path"
+msgstr "Plugin-Dateipfad"
+
+#: templates/template-settings-tab-debug.php:281
+msgctxt "debug dropin"
+msgid "Plugin name"
+msgstr "Plugin-Name"
+
+#: loggers/Plugin_DuplicatePost.php:114
+msgctxt "Logger: Plugin Duplicate Post"
+msgid "Cloned {duplicated_post_post_type_singular_name} <a href=\"{duplicated_post_edit_link}\">\"{duplicated_post_title}\"</a> to <a href=\"{new_post_edit_link}\">a new {duplicated_post_post_type_singular_name}</a>"
+msgstr "Hat {duplicated_post_post_type_singular_name} <a href=\"{duplicated_post_edit_link}\">„{duplicated_post_title}“</a> als <a href=\"{new_post_edit_link}\">{duplicated_post_post_type_singular_name}</a> dupliziert"
+
+#: loggers/Plugin_DuplicatePost.php:26
+msgctxt "Logger: Plugin Duplicate Post"
+msgid "Cloned \"{duplicated_post_title}\" to a new post"
+msgstr "Hat „{duplicated_post_title}“ als neuen Beitrag dupliziert"
+
+#: loggers/Plugin_DuplicatePost.php:23
+msgctxt "Logger: Plugin Duplicate Post"
+msgid "Using plugin Duplicate Posts"
+msgstr "hat das Plugin „Duplicate Posts“ benutzt"
+
+#: loggers/Plugin_DuplicatePost.php:22
+msgctxt "Logger: Plugin Duplicate Post"
+msgid "Logs posts and pages cloned using plugin Duplicate Post"
+msgstr "Protokolliert das Duplizieren von Beiträgen und Seiten mit „Duplicate Post“"
+
+#: inc/SimpleHistory.php:2004
 msgid "Number of items per page on the dashboard"
 msgstr "Anzahl der Einträge pro Seite auf dem Dashboard"
 
-#: inc/SimpleHistory.php:1892
+#: inc/SimpleHistory.php:1991
 msgid "Number of items per page on the log page"
 msgstr "Anzahl der Einträge pro Seite im Protokoll"
 
@@ -74,15 +159,15 @@ msgctxt "Logger: Redirection"
 msgid "Text"
 msgstr "Text"
 
-#: loggers/AvailableUpdatesLogger.php:265
+#: loggers/AvailableUpdatesLogger.php:266
 msgid "View all updates"
 msgstr "Alle Updates ansehen"
 
-#: loggers/AvailableUpdatesLogger.php:258
+#: loggers/AvailableUpdatesLogger.php:259
 msgid "Installed version"
 msgstr "Installierte Version"
 
-#: loggers/AvailableUpdatesLogger.php:254
+#: loggers/AvailableUpdatesLogger.php:255
 msgid "Available version"
 msgstr "Verfügbare Version"
 
@@ -188,31 +273,31 @@ msgstr "Theme mit der Titelform „{theme_slug}“ gelöscht"
 msgid "Installed theme \"{theme_name}\""
 msgstr "hat das Theme „{theme_name}“ installiert"
 
-#: loggers/SimplePluginLogger.php:56
+#: loggers/SimplePluginLogger.php:69
 msgctxt "Plugin update failed"
 msgid "Failed to update plugin \"{plugin_name}\""
 msgstr "Update des Plugins „{plugin_name}“ fehlgeschlagen"
 
-#: loggers/Plugin_LimitLoginAttempts.php:220
+#: loggers/Plugin_LimitLoginAttempts.php:232
 msgctxt "Logger: Plugin Limit Login Attempts"
 msgid "IP was blocked for %1$s"
 msgstr "IP wurde für %1$s geblockt"
 
-#: loggers/Plugin_LimitLoginAttempts.php:215
+#: loggers/Plugin_LimitLoginAttempts.php:227
 msgctxt "Logger: Plugin Limit Login Attempts"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d Minute"
 msgstr[1] "%d Minuten"
 
-#: loggers/Plugin_LimitLoginAttempts.php:211
+#: loggers/Plugin_LimitLoginAttempts.php:223
 msgctxt "Logger: Plugin Limit Login Attempts"
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d Stunde"
 msgstr[1] "%d Stunden"
 
-#: loggers/Plugin_LimitLoginAttempts.php:203
+#: loggers/Plugin_LimitLoginAttempts.php:215
 msgctxt "Logger: Plugin Limit Login Attempts"
 msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%1$d fehlgeschlagene(r) Login-Versuch(e) (%2$d Aussperrung(en)) von IP %3$s"
@@ -282,82 +367,77 @@ msgctxt "Filter label"
 msgid "Dates:"
 msgstr "Zeitraum:"
 
-#: loggers/SimplePluginLogger.php:82
-msgctxt "Plugin was disabled because of an error"
-msgid "Deactivated a plugin because of an error: {error_message}"
-msgstr "Plugin auf Grund eines Fehler deaktiviert: {error_message}"
-
-#: templates/template-settings-tab-debug.php:204
+#: templates/template-settings-tab-debug.php:209
 msgctxt "debug dropin"
 msgid "%1$s message strings"
 msgstr "%1$s Nachrichten"
 
-#: templates/template-settings-tab-debug.php:171
+#: templates/template-settings-tab-debug.php:176
 msgctxt "debug dropin"
 msgid "Rows count"
 msgstr "Zeilenzahl"
 
-#: templates/template-settings-tab-debug.php:170
+#: templates/template-settings-tab-debug.php:175
 msgctxt "debug dropin"
 msgid "Capability"
 msgstr "Berechtigung"
 
-#: templates/template-settings-tab-debug.php:169
+#: templates/template-settings-tab-debug.php:174
 msgctxt "debug dropin"
 msgid "Messages"
 msgstr "Nachrichten"
 
-#: templates/template-settings-tab-debug.php:168
+#: templates/template-settings-tab-debug.php:173
 msgctxt "debug dropin"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: templates/template-settings-tab-debug.php:167
+#: templates/template-settings-tab-debug.php:172
 msgctxt "debug dropin"
 msgid "Slug"
 msgstr "Titelform"
 
-#: templates/template-settings-tab-debug.php:166
+#: templates/template-settings-tab-debug.php:171
 msgctxt "debug dropin"
 msgid "Logger name"
 msgstr "Logger-Name"
 
-#: templates/template-settings-tab-debug.php:147
+#: templates/template-settings-tab-debug.php:152
 msgctxt "debug dropin"
 msgid "Listing %1$d loggers, ordered by rows count in database."
 msgstr "Liste von %1$d Loggern, sortiert nach Anzahl der Datenbank-Einträge"
 
-#: templates/template-settings-tab-debug.php:142
+#: templates/template-settings-tab-debug.php:147
 msgctxt "debug dropin"
 msgid "Loggers"
 msgstr "Logger"
 
-#: templates/template-settings-tab-debug.php:96
+#: templates/template-settings-tab-debug.php:101
 msgctxt "debug dropin"
 msgid "Total %s rows, when grouped by occasion id."
 msgstr "Insgesamt %s Zeilen, wenn man nach Ereignis-ID gruppiert."
 
-#: templates/template-settings-tab-debug.php:66
+#: templates/template-settings-tab-debug.php:71
 msgctxt "debug dropin"
 msgid "%s rows"
 msgstr "%s Zeilen"
 
-#: templates/template-settings-tab-debug.php:61
+#: templates/template-settings-tab-debug.php:66
 msgctxt "debug dropin"
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templates/template-settings-tab-debug.php:54
+#: templates/template-settings-tab-debug.php:59
 msgctxt "debug dropin"
 msgid "Rows"
 msgstr "Zeilen"
 
-#: templates/template-settings-tab-debug.php:53
+#: templates/template-settings-tab-debug.php:58
 msgctxt "debug dropin"
 msgid "Size"
 msgstr "Größe"
 
-#: templates/template-settings-tab-debug.php:52
+#: templates/template-settings-tab-debug.php:57
 msgctxt "debug dropin"
 msgid "Table name"
 msgstr "Tabellen-Name"
@@ -378,117 +458,117 @@ msgstr "Deine neuesten Beiträge"
 msgid "Page %1$s"
 msgstr "Seite %1$s"
 
-#: inc/SimpleHistory.php:359
+#: inc/SimpleHistory.php:449
 msgctxt "Admin bar name"
 msgid "Simple History"
 msgstr "Simple History"
 
-#: inc/SimpleHistory.php:294
+#: inc/SimpleHistory.php:384
 msgctxt "Admin bar network name"
 msgid "View History"
 msgstr "Verlauf anzeigen"
 
-#: loggers/SimpleUserLogger.php:971
+#: loggers/SimpleUserLogger.php:942
 msgctxt "User logger"
 msgid "Notification"
 msgstr "Benachrichtigung"
 
-#: loggers/SimpleUserLogger.php:958
+#: loggers/SimpleUserLogger.php:925
 msgctxt "User logger"
 msgid "Yes, email with account details was sent"
 msgstr "Ja, eine E-Mail mit den Kontodetails wurde verschickt"
 
-#: loggers/SimpleUserLogger.php:947
+#: loggers/SimpleUserLogger.php:917
 msgctxt "User logger"
 msgid "User notification email sent"
 msgstr "Benachrichtigunsmail an den Benutzer verschickt"
 
-#: loggers/SimpleUserLogger.php:922
+#: loggers/SimpleUserLogger.php:895
 msgctxt "User logger"
 msgid "Changed"
 msgstr "Geändert"
 
-#: loggers/SimpleUserLogger.php:921
+#: loggers/SimpleUserLogger.php:894
 msgctxt "User logger"
 msgid "Password"
 msgstr "Passwort"
 
-#: loggers/SimpleUserLogger.php:885
+#: loggers/SimpleUserLogger.php:860
 msgctxt "User logger"
 msgid "Role"
 msgstr "Rolle"
 
-#: loggers/SimpleUserLogger.php:881 loggers/SimpleUserLogger.php:944
+#: loggers/SimpleUserLogger.php:857 loggers/SimpleUserLogger.php:914
 msgctxt "User logger"
 msgid "Website"
 msgstr "Website"
 
-#: loggers/SimpleUserLogger.php:878
+#: loggers/SimpleUserLogger.php:854
 msgctxt "User logger"
 msgid "Display name"
 msgstr "Anzeigename"
 
-#: loggers/SimpleUserLogger.php:874
+#: loggers/SimpleUserLogger.php:850
 msgctxt "User logger"
 msgid "Email"
 msgstr "E-Mail-Adresse"
 
-#: loggers/SimpleUserLogger.php:868
+#: loggers/SimpleUserLogger.php:844
 msgctxt "User logger"
-msgid "Jabber / Google Talk\t"
-msgstr "Jabber / Google TalkTab Zeichen\">→\t"
+msgid "Jabber / Google Talk "
+msgstr "Jabber / Google Talk"
 
-#: loggers/SimpleUserLogger.php:865
+#: loggers/SimpleUserLogger.php:841
 msgctxt "User logger"
 msgid "Yahoo IM"
 msgstr "Yahoo IM"
 
-#: loggers/SimpleUserLogger.php:862
+#: loggers/SimpleUserLogger.php:838
 msgctxt "User logger"
 msgid "AIM"
 msgstr "AIM"
 
-#: loggers/SimpleUserLogger.php:859
+#: loggers/SimpleUserLogger.php:835
 msgctxt "User logger"
 msgid "Colour Scheme"
 msgstr "Farbschema"
 
-#: loggers/SimpleUserLogger.php:856
+#: loggers/SimpleUserLogger.php:831
 msgctxt "User logger"
 msgid "Show Toolbar"
 msgstr "Werkzeugleiste anzeigen"
 
-#: loggers/SimpleUserLogger.php:853
+#: loggers/SimpleUserLogger.php:827
 msgctxt "User logger"
 msgid "Keyboard shortcuts"
 msgstr "Tastaturkürzel"
 
-#: loggers/SimpleUserLogger.php:850
+#: loggers/SimpleUserLogger.php:823
 msgctxt "User logger"
 msgid "Visual editor"
 msgstr "Visueller Editor"
 
-#: loggers/SimpleUserLogger.php:847
+#: loggers/SimpleUserLogger.php:819
 msgctxt "User logger"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: loggers/SimpleUserLogger.php:844
+#: loggers/SimpleUserLogger.php:816
 msgctxt "User logger"
 msgid "Nickname"
 msgstr "Spitzname"
 
-#: loggers/SimpleUserLogger.php:841 loggers/SimpleUserLogger.php:941
+#: loggers/SimpleUserLogger.php:813 loggers/SimpleUserLogger.php:911
 msgctxt "User logger"
 msgid "Last name"
 msgstr "Nachname"
 
-#: loggers/SimpleUserLogger.php:838 loggers/SimpleUserLogger.php:938
+#: loggers/SimpleUserLogger.php:810 loggers/SimpleUserLogger.php:908
 msgctxt "User logger"
 msgid "First name"
 msgstr "Vorname"
 
-#: loggers/SimpleUserLogger.php:541
+#: loggers/SimpleUserLogger.php:524
 msgid "Created user <a href=\"{edit_profile_link}\">{created_user_login} ({created_user_email})</a> with role {created_user_role}"
 msgstr "Der Benutzer <a href=\"{edit_profile_link}\">{created_user_login} ({created_user_email})</a> mit der Rolle {created_user_role} wurde erstellt"
 
@@ -503,19 +583,19 @@ msgstr "In den letzten <b>%2$s Tagen</b> wurden <b>%1$s Ereignisse</b> protokoll
 #: loggers/PluginUserSwitchingLogger.php:26
 msgctxt "PluginUserSwitchingLogger"
 msgid "Using plugin User Switching"
-msgstr "benutzt das Plugin „User Switching“"
+msgstr "hat das Plugin „User Switching“ benutzt"
 
 #: loggers/PluginEnableMediaReplaceLogger.php:25
 msgctxt "PluginUserSwitchingLogger"
 msgid "Using plugin Enable Media Replace"
-msgstr "benutzt das Plugin „Enable Media Replace“"
+msgstr "hat das Plugin „Enable Media Replace“ benutzt"
 
-#: inc/SimpleHistory.php:1832
+#: inc/SimpleHistory.php:1931
 msgctxt "Options page menu title"
 msgid "Simple History"
 msgstr "Simple History"
 
-#: inc/SimpleHistory.php:1812
+#: inc/SimpleHistory.php:1911
 msgctxt "dashboard title name"
 msgid "Simple History"
 msgstr "Simple History"
@@ -534,7 +614,7 @@ msgstr "Support"
 msgid "If you find Simple History useful please <a href=\"%1$s\">donate</a>."
 msgstr "Wenn du Simple History nützlich findest, <a href=\"%1$s\">spende</a> bitte."
 
-#: loggers/SimpleUserLogger.php:25
+#: loggers/SimpleUserLogger.php:28
 msgid "Failed to login with username \"{failed_username}\" (username does not exist)"
 msgstr "gescheiterter Anmeldeversuch mit Benutzernamen „{failed_username}“ (Benutzer existiert nicht)"
 
@@ -566,11 +646,11 @@ msgstr "hat „{term_name}“ der Taxonomie „{term_taxonomy}“ hinzugefügt"
 msgid "Categories Logger"
 msgstr "Kategorien-Logger"
 
-#: loggers/SimpleUserLogger.php:33
+#: loggers/SimpleUserLogger.php:45
 msgid "Requested a password reset link for user with login '{user_login}' and email '{user_email}'"
 msgstr "hat für Benutzer „{user_login}“ mit der Mailadresse „{user_email}“ den Passwort-Reset-Link angefordert"
 
-#: loggers/SimpleUserLogger.php:32
+#: loggers/SimpleUserLogger.php:44
 msgid "Reset their password"
 msgstr "hat sein Passwort geändert"
 
@@ -592,11 +672,11 @@ msgctxt "Sidebar box"
 msgid "Add more to the log"
 msgstr "Noch mehr den Logs hinzufügen"
 
-#: dropins/SimpleHistoryRSSDropin.php:147
+#: dropins/SimpleHistoryRSSDropin.php:146
 msgid "Enable RSS feed"
 msgstr "RSS-Feed aktivieren "
 
-#: dropins/SimpleHistoryRSSDropin.php:63
+#: dropins/SimpleHistoryRSSDropin.php:69
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -609,7 +689,7 @@ msgstr "gestern"
 msgid "WordPress database version updated to {new_version} from {prev_version}"
 msgstr "WordPress-Datenbankversion von {prev_version} auf {new_version} aktualisiert"
 
-#: inc/SimpleHistory.php:1342
+#: inc/SimpleHistory.php:1441
 msgid "Hm, the log could not be loaded right now. Perhaps another plugin is giving some errors. Anyway, below is the output I got from the server."
 msgstr "Hm, das Log konnte gerade nicht geladen werden. Möglicherweise erzeugt ein weiteres Plugin Fehler. Jedenfalls folgt hier die Ausgabe, die vom Server kommt."
 
@@ -667,15 +747,15 @@ msgstr "Logbuch-Ebenen"
 msgid "<b>%1$s rows</b> have been logged the last <b>%2$s days</b>"
 msgstr "<b>%1$s Einträge</b> sind in den letzten <b>%2$s Tagen</b> registriert worden"
 
-#: loggers/SimpleUserLogger.php:515
+#: loggers/SimpleUserLogger.php:506
 msgid "Edited the profile for user <a href=\"{edit_profile_link}\">{edited_user_login} ({edited_user_email})</a>"
 msgstr "hat das Profil für den Benutzer <a href=\"{edit_profile_link}\">{edited_user_login} ({edited_user_email})</a> geändert"
 
-#: loggers/SimpleUserLogger.php:504
+#: loggers/SimpleUserLogger.php:499
 msgid "Edited your profile"
 msgstr "hat dein Profil geändert"
 
-#: loggers/SimpleUserLogger.php:495
+#: loggers/SimpleUserLogger.php:493
 msgid "Edited <a href=\"{edit_profile_link}\">their profile</a>"
 msgstr "hat <a href=\"{edit_profile_link}\">deren Profil</a> geändert"
 
@@ -683,77 +763,77 @@ msgstr "hat <a href=\"{edit_profile_link}\">deren Profil</a> geändert"
 msgid "Edited <a href=\"{edit_profile_link}\">your profile</a>"
 msgstr "hat <a href=\"{edit_profile_link}\">dein Profil</a> geändert"
 
-#: loggers/SimpleUserLogger.php:78
+#: loggers/SimpleUserLogger.php:94
 msgctxt "User logger: search"
 msgid "User deletions"
 msgstr "gelöschte Benutzer"
 
-#: loggers/SimpleUserLogger.php:75
+#: loggers/SimpleUserLogger.php:91
 msgctxt "User logger: search"
 msgid "User profile updates"
 msgstr "Benutzerprofil-Aktualisierungen"
 
-#: loggers/SimpleUserLogger.php:72
+#: loggers/SimpleUserLogger.php:88
 msgctxt "User logger: search"
 msgid "Created users"
 msgstr "erstellte Benutzer"
 
-#: loggers/SimpleUserLogger.php:69
+#: loggers/SimpleUserLogger.php:85
 msgctxt "User logger: search"
 msgid "User logouts"
 msgstr "Benutzer-Abmeldungen"
 
-#: loggers/SimpleUserLogger.php:65
+#: loggers/SimpleUserLogger.php:81
 msgctxt "User logger: search"
 msgid "Failed user logins"
 msgstr "fehlgeschlagene Benutzer-Anmeldungen"
 
-#: loggers/SimpleUserLogger.php:61
+#: loggers/SimpleUserLogger.php:77
 msgctxt "User logger: search"
 msgid "Successful user logins"
 msgstr "erfolgreiche Benutzer-Anmeldungen"
 
-#: loggers/SimpleUserLogger.php:59
+#: loggers/SimpleUserLogger.php:75
 msgctxt "User logger: search"
 msgid "All user activity"
 msgstr "Alle Benutzer-Aktivitäten"
 
-#: loggers/SimpleUserLogger.php:58
+#: loggers/SimpleUserLogger.php:74
 msgctxt "User logger: search"
 msgid "Users"
 msgstr "Benutzer"
 
-#: loggers/SimpleUserLogger.php:49
+#: loggers/SimpleUserLogger.php:65
 msgctxt "User destroys all login sessions for a user"
 msgid "Logged out \"{user_display_name}\" from all sessions"
 msgstr "hat den Benutzer „{user_display_name}“ von allen Sitzungen abgemeldet"
 
-#: loggers/SimpleUserLogger.php:40
+#: loggers/SimpleUserLogger.php:56
 msgctxt "User destroys other login sessions for themself"
 msgid "Logged out from all other sessions"
 msgstr "hat sich von allen anderen Sitzungen abgemeldet"
 
-#: loggers/SimpleUserLogger.php:31
+#: loggers/SimpleUserLogger.php:43
 msgid "Deleted user {deleted_user_login} ({deleted_user_email})"
 msgstr "hat den Benutzer {deleted_user_login} ({deleted_user_email}) gelöscht"
 
-#: loggers/SimpleUserLogger.php:30
+#: loggers/SimpleUserLogger.php:39
 msgid "Created user {created_user_login} ({created_user_email}) with role {created_user_role}"
 msgstr "hat den Benutzer „{created_user_login}“ ({created_user_email}) mit der Rolle „{created_user_role}“ erstellt"
 
-#: loggers/SimpleUserLogger.php:29
+#: loggers/SimpleUserLogger.php:35
 msgid "Edited the profile for user {edited_user_login} ({edited_user_email})"
 msgstr "hat das Profil des Benutzers {edited_user_login} ({edited_user_email}) geändert"
 
-#: loggers/SimpleUserLogger.php:28
+#: loggers/SimpleUserLogger.php:34
 msgid "Logged out"
 msgstr "hat sich abgemeldet"
 
-#: loggers/SimpleUserLogger.php:27
+#: loggers/SimpleUserLogger.php:33
 msgid "Unknown user logged in"
 msgstr "Unbekannter Benutzer hat sich angemeldet"
 
-#: loggers/SimpleUserLogger.php:26
+#: loggers/SimpleUserLogger.php:32
 msgid "Logged in"
 msgstr "hat sich angemeldet"
 
@@ -834,63 +914,63 @@ msgstr "hat das Theme-Erscheinungsbild „{setting_id}“ individualisiert"
 msgid "Switched theme to \"{theme_name}\" from \"{prev_theme_name}\""
 msgstr "wechselte das Theme von „{prev_theme_name}“ zu „{theme_name}“"
 
-#: loggers/SimplePostLogger.php:952
+#: loggers/SimplePostLogger.php:971
 msgid "Custom fields"
 msgstr "Benutzerdefinierte Felder"
 
-#: loggers/SimplePostLogger.php:908
+#: loggers/SimplePostLogger.php:927
 msgid "Template"
 msgstr "Template"
 
-#: loggers/SimplePostLogger.php:900
+#: loggers/SimplePostLogger.php:919
 msgid "Changed from \"{prev_page_template_name}\" to \"{new_page_template_name}\""
 msgstr "Geändert von „{prev_page_template_name}“ in „{new_page_template_name}“"
 
-#: loggers/SimplePostLogger.php:898
+#: loggers/SimplePostLogger.php:917
 msgid "Changed from {prev_page_template} to {new_page_template}"
 msgstr "Geändert von {prev_page_template} in {new_page_template}"
 
-#: loggers/SimplePostLogger.php:864
+#: loggers/SimplePostLogger.php:883
 msgid "Changed from {prev_user_display_name} ({prev_user_email}) to {new_user_display_name} ({new_user_email})"
 msgstr "{prev_user_display_name} ({prev_user_email}) in {new_user_display_name} ({new_user_email}) geändert"
 
-#: loggers/SimplePostLogger.php:862
+#: loggers/SimplePostLogger.php:881
 msgid "Author"
 msgstr "Autor"
 
-#: loggers/SimplePostLogger.php:839
+#: loggers/SimplePostLogger.php:858
 msgid "Comment status"
 msgstr "Kommentar-Status"
 
-#: loggers/SimplePostLogger.php:825
+#: loggers/SimplePostLogger.php:844
 msgid "Permalink"
 msgstr "Permalink"
 
-#: loggers/SimplePostLogger.php:810
+#: loggers/SimplePostLogger.php:829
 msgid "Publish date"
 msgstr "Veröffentlichungs-Datum"
 
-#: loggers/SimplePostLogger.php:795
+#: loggers/SimplePostLogger.php:814
 msgid "Status"
 msgstr "Status"
 
-#: loggers/SimplePostLogger.php:781
+#: loggers/SimplePostLogger.php:800
 msgid "Content"
 msgstr "Inhalt"
 
-#: loggers/SimplePostLogger.php:767
+#: loggers/SimplePostLogger.php:786
 msgid "Title"
 msgstr "Titel"
 
-#: loggers/SimplePostLogger.php:716
+#: loggers/SimplePostLogger.php:735
 msgid "Moved {post_type} <a href=\"{edit_link}\">\"{post_title}\"</a> to the trash"
 msgstr "hat {post_type} <a href=\"{edit_link}\">„{post_title}“</a> in den Papierkorb verschoben"
 
-#: loggers/SimplePostLogger.php:711
+#: loggers/SimplePostLogger.php:730
 msgid "Created {post_type} <a href=\"{edit_link}\">\"{post_title}\"</a>"
 msgstr "hat {post_type} <a href=\"{edit_link}\">„{post_title}“</a> erstellt"
 
-#: loggers/SimplePostLogger.php:703
+#: loggers/SimplePostLogger.php:722
 msgid "Updated {post_type} <a href=\"{edit_link}\">\"{post_title}\"</a>"
 msgstr "hat {post_type} <a href=\"{edit_link}\">„{post_title}“</a> aktualisiert"
 
@@ -933,7 +1013,7 @@ msgstr "Beiträge & Seiten"
 msgid "Moved {post_type} \"{post_title}\" to the trash"
 msgstr "hat {post_type} „{post_title}“ in den Papierkorb verschoben"
 
-#: loggers/SimplePostLogger.php:125 loggers/SimplePostLogger.php:707
+#: loggers/SimplePostLogger.php:125 loggers/SimplePostLogger.php:726
 msgid "Deleted {post_type} \"{post_title}\""
 msgstr "hat {post_type} „{post_title}“ gelöscht"
 
@@ -949,162 +1029,157 @@ msgstr "hat {post_type} „{post_title}“ aktualisiert"
 msgid "Created {post_type} \"{post_title}\""
 msgstr "hat {post_type} „{post_title}“ erstellt"
 
-#: loggers/SimplePluginLogger.php:1186
+#: loggers/SimplePluginLogger.php:1202
 msgctxt "plugin logger: plugin info thickbox title"
 msgid "View changelog"
 msgstr "Changelog anzeigen"
 
-#: loggers/SimplePluginLogger.php:1181
+#: loggers/SimplePluginLogger.php:1197
 msgctxt "plugin logger: plugin info thickbox title"
 msgid "View plugin info"
 msgstr "Zeige Plugin-Info"
 
-#: loggers/SimplePluginLogger.php:1147 loggers/SimplePluginLogger.php:1166
-#: loggers/SimplePluginLogger.php:1212
+#: loggers/SimplePluginLogger.php:1163 loggers/SimplePluginLogger.php:1182
+#: loggers/SimplePluginLogger.php:1228
 msgctxt "plugin logger: plugin info thickbox title view all info"
 msgid "View plugin info"
 msgstr "Zeige Plugin-Info"
 
-#: loggers/SimplePluginLogger.php:1085
+#: loggers/SimplePluginLogger.php:1101
 msgid "Uploaded ZIP archive"
 msgstr "ZIP-Archiv hochgeladen"
 
-#: loggers/SimplePluginLogger.php:1082
+#: loggers/SimplePluginLogger.php:1098
 msgid "WordPress Plugin Repository"
 msgstr "WordPress-Plugin-Verzeichnis"
 
-#: loggers/SimplePluginLogger.php:1039
+#: loggers/SimplePluginLogger.php:1055
 msgctxt "plugin logger - detailed output url"
 msgid "URL"
 msgstr "URL"
 
-#: loggers/SimplePluginLogger.php:1038
+#: loggers/SimplePluginLogger.php:1054
 msgctxt "plugin logger - detailed output author"
 msgid "Author"
 msgstr "Autor"
 
-#: loggers/SimplePluginLogger.php:1037
+#: loggers/SimplePluginLogger.php:1053
 msgctxt "plugin logger - detailed output version"
 msgid "Version"
 msgstr "Version"
 
-#: loggers/SimplePluginLogger.php:1036
+#: loggers/SimplePluginLogger.php:1052
 msgctxt "plugin logger - detailed output install source"
 msgid "Source file name"
 msgstr "Name der Quelldatei"
 
-#: loggers/SimplePluginLogger.php:1035
+#: loggers/SimplePluginLogger.php:1051
 msgctxt "plugin logger - detailed output install source"
 msgid "Source"
 msgstr "Quelle"
 
-#: loggers/SimplePluginLogger.php:1034
+#: loggers/SimplePluginLogger.php:1050
 msgctxt "plugin logger - detailed output"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: loggers/SimplePluginLogger.php:326
+#: loggers/SimplePluginLogger.php:400
 msgid "You do not have sufficient permissions to delete plugins for this site."
 msgstr "Du hast keine ausreichenden Rechte, um Plugins von dieser Website zu löschen."
 
-#: loggers/SimplePluginLogger.php:261
+#: loggers/SimplePluginLogger.php:335
 msgid "<p>Viewing <code>readme</code> from repository <code><a target=\"_blank\" href=\"%1$s\">%2$s</a></code>.</p>"
 msgstr "<p>Schaue <code>Readme</code> aus dem Repository an <code><a target=\"_blank\" href=\"%1$s\">%2$s</a></code>.</p>"
 
-#: loggers/SimplePluginLogger.php:236 loggers/SimplePluginLogger.php:241
+#: loggers/SimplePluginLogger.php:310 loggers/SimplePluginLogger.php:315
 msgid "Could not find GitHub repository."
 msgstr "Konnte das GitHub-Repository nicht finden."
 
-#: loggers/SimplePluginLogger.php:230
+#: loggers/SimplePluginLogger.php:304
 msgid "You don't have access to this page."
 msgstr "Du hast keine Zugangsberechtigung zu dieser Seite."
 
-#: loggers/SimplePluginLogger.php:117
+#: loggers/SimplePluginLogger.php:121
 msgctxt "Plugin logger: search"
 msgid "Deleted plugins"
 msgstr "gelöschte Plugins"
 
-#: loggers/SimplePluginLogger.php:114
-msgctxt "Plugin logger: search"
+#: loggers/FileEditsLogger.php:28
+msgctxt "Plugin logger: file edits"
 msgid "Edited plugin files"
-msgstr "geänderte Plugin-Dateien"
+msgstr "Hat Plugin-Dateien bearbeitet"
 
-#: loggers/SimplePluginLogger.php:111
+#: loggers/SimplePluginLogger.php:118
 msgctxt "Plugin logger: search"
 msgid "Failed plugin updates"
 msgstr "fehlgeschlagene Plugin-Updates"
 
-#: loggers/SimplePluginLogger.php:107
+#: loggers/SimplePluginLogger.php:114
 msgctxt "Plugin logger: search"
 msgid "Updated plugins"
 msgstr "aktualisierte Plugins"
 
-#: loggers/SimplePluginLogger.php:104
+#: loggers/SimplePluginLogger.php:111
 msgctxt "Plugin logger: search"
 msgid "Failed plugin installs"
 msgstr "fehlgeschlagene Plugin-Installationen"
 
-#: loggers/SimplePluginLogger.php:101
+#: loggers/SimplePluginLogger.php:108
 msgctxt "Plugin logger: search"
 msgid "Installed plugins"
 msgstr "installierte Plugins"
 
-#: loggers/SimplePluginLogger.php:97
+#: loggers/SimplePluginLogger.php:104
 msgctxt "Plugin logger: search"
 msgid "Deactivated plugins"
 msgstr "deaktivierte Plugins"
 
-#: loggers/SimplePluginLogger.php:94
+#: loggers/SimplePluginLogger.php:101
 msgctxt "Plugin logger: search"
 msgid "Activated plugins"
 msgstr "aktivierte Plugins"
 
-#: loggers/SimplePluginLogger.php:92
+#: loggers/SimplePluginLogger.php:99
 msgctxt "Plugin logger: search"
 msgid "All plugin activity"
 msgstr "Alle Plugin-Aktivitäten"
 
-#: loggers/SimplePluginLogger.php:91
+#: loggers/SimplePluginLogger.php:98
 msgctxt "Plugin logger: search"
 msgid "Plugins"
 msgstr "Plugins"
 
-#: loggers/SimplePluginLogger.php:75
+#: loggers/SimplePluginLogger.php:82
 msgctxt "Plugin was updated in bulk"
 msgid "Updated plugin \"{plugin_name}\" to {plugin_version} from {plugin_prev_version}"
 msgstr "hat das Plugin „{plugin_name}“ von Version {plugin_prev_version} auf {plugin_version} aktualisiert"
 
-#: loggers/SimplePluginLogger.php:68
+#: loggers/SimplePluginLogger.php:75
 msgctxt "Plugin files was deleted"
 msgid "Deleted plugin \"{plugin_name}\""
 msgstr "hat das Plugin „{plugin_name}“ gelöscht"
 
-#: loggers/SimplePluginLogger.php:62
-msgctxt "Plugin file edited"
-msgid "Edited plugin file \"{plugin_edited_file}\""
-msgstr "hat die Plugin-Datei „{plugin_edited_file}“ bearbeitet"
-
-#: loggers/SimplePluginLogger.php:50
+#: loggers/SimplePluginLogger.php:63
 msgctxt "Plugin was updated"
 msgid "Updated plugin \"{plugin_name}\" to version {plugin_version} from {plugin_prev_version}"
 msgstr "hat das Plugin „{plugin_name}“ von Version {plugin_prev_version} auf {plugin_version} aktualisiert"
 
-#: loggers/SimplePluginLogger.php:44
+#: loggers/SimplePluginLogger.php:57
 msgctxt "Plugin failed to install"
 msgid "Failed to install plugin \"{plugin_name}\""
 msgstr "hat vergeblich versucht, das Plugin „{plugin_name}“ zu installieren"
 
-#: loggers/SimplePluginLogger.php:38
+#: loggers/SimplePluginLogger.php:51
 msgctxt "Plugin was installed"
 msgid "Installed plugin \"{plugin_name}\""
 msgstr "hat das Plugin „{plugin_name}“ installiert"
 
-#: loggers/SimplePluginLogger.php:32
+#: loggers/SimplePluginLogger.php:45
 msgctxt "Plugin was non-silently deactivated by a user"
 msgid "Deactivated plugin \"{plugin_name}\""
 msgstr "hat das Plugin „{plugin_name}“ deaktiviert"
 
-#: loggers/SimplePluginLogger.php:26
+#: loggers/SimplePluginLogger.php:39
 msgctxt "Plugin was non-silently activated by a user"
 msgid "Activated plugin \"{plugin_name}\""
 msgstr "hat das Plugin „{plugin_name}“ aktiviert"
@@ -1198,19 +1273,19 @@ msgstr "hat Menü „{menu_name}“ bearbeitet"
 msgid "Created menu \"{menu_name}\""
 msgstr "hat Menü „{menu_name}“ erstellt"
 
-#: loggers/SimpleMediaLogger.php:255
+#: loggers/SimpleMediaLogger.php:260
 msgid "{full_image_width} × {full_image_height}"
 msgstr "{full_image_width} × {full_image_height}"
 
-#: loggers/SimpleMediaLogger.php:251
+#: loggers/SimpleMediaLogger.php:256
 msgid "{attachment_filetype_extension}"
 msgstr "{attachment_filetype_extension}"
 
-#: loggers/SimpleMediaLogger.php:250
+#: loggers/SimpleMediaLogger.php:255
 msgid "{attachment_size_format}"
 msgstr "{attachment_size_format}"
 
-#: loggers/SimpleMediaLogger.php:241
+#: loggers/SimpleMediaLogger.php:246
 msgid "{attachment_thumb}"
 msgstr "{attachment_thumb}"
 
@@ -1269,7 +1344,7 @@ msgstr "vor %1$s"
 msgid "M j, Y \\a\\t G:i"
 msgstr "j. M. Y \\u\\m G:i  \\U\\h\\r"
 
-#: loggers/SimpleLogger.php:364
+#: dropins/SimpleHistoryWPCLIDropin.php:99 loggers/SimpleLogger.php:364
 msgctxt "Event header output, when initiator is unknown"
 msgid "Other"
 msgstr "Anderer"
@@ -1278,11 +1353,11 @@ msgstr "Anderer"
 msgid "Anonymous user from %1$s"
 msgstr "Anonymer Benutzer von %1$s"
 
-#: loggers/SimpleLogger.php:313
+#: dropins/SimpleHistoryWPCLIDropin.php:96 loggers/SimpleLogger.php:313
 msgid "Anonymous web user"
 msgstr "Anonymer Web-Nutzer"
 
-#: loggers/SimpleLogger.php:287
+#: dropins/SimpleHistoryWPCLIDropin.php:88 loggers/SimpleLogger.php:287
 msgid "Deleted user (had id %1$s, email %2$s, login %3$s)"
 msgstr "gelöschter Benutzer (hatte ID %1$s, E-Mail %2$s, Login %3$s)"
 
@@ -1645,266 +1720,267 @@ msgstr "„Enable Media Replace“-Logger"
 msgid "Simple History is a great plugin, but to use it your server must have at least PHP 5.3 installed (you have version %s)."
 msgstr "Simple History ist ein großartiges Plugin, aber zu seiner Nutzung muss dein Server mindestens PHP 5.3 installiert haben (du hast Version %s)."
 
-#: inc/SimpleHistory.php:3177
+#: inc/SimpleHistory.php:3276
 msgid "%1$s events today from %2$d users and %3$d other sources."
 msgstr "Heute %1$s Ereignisse von %2$d Benutzern und %3$d anderen Quellen."
 
-#: inc/SimpleHistory.php:3171
+#: inc/SimpleHistory.php:3270
 msgid "%1$d events today from one user and %3$d other sources."
 msgstr "Heute %1$d Ereignisse von 1 Benutzer und %3$d anderen Quellen."
 
-#: inc/SimpleHistory.php:3159 inc/SimpleHistory.php:3165
+#: inc/SimpleHistory.php:3258 inc/SimpleHistory.php:3264
 msgid "%1$d events today from one user and one other source."
 msgstr "Heute %1$d Ereignisse von 1 Benutzer und 1 anderen Quelle."
 
-#: inc/SimpleHistory.php:3153
+#: inc/SimpleHistory.php:3252
 msgid "%1$d events today from %2$d users."
 msgstr "Heute %1$d Ereignisse von %2$d Benutzern."
 
-#: inc/SimpleHistory.php:3147
+#: inc/SimpleHistory.php:3246
 msgid "%1$d events today from one user."
 msgstr "Heute %1$d Ereignisse von 1 Benutzer."
 
-#: inc/SimpleHistory.php:3141
+#: inc/SimpleHistory.php:3240
 msgid "One event today from one source."
 msgstr "Heute 1 Ereignis aus 1 Quelle."
 
-#: inc/SimpleHistory.php:3135
+#: inc/SimpleHistory.php:3234
 msgid "One event today from one user."
 msgstr "Heute 1 Ereignis von 1 Benutzer."
 
-#: inc/SimpleHistory.php:3116
+#: inc/SimpleHistory.php:3215
 msgid "No events today so far."
 msgstr "Heute sind noch keine Ereignisse aufgetreten."
 
-#: inc/SimpleHistory.php:2776
+#: inc/SimpleHistory.php:2875
 msgctxt "Log level in gui"
 msgid "Debug"
 msgstr "Fehlersuche"
 
-#: inc/SimpleHistory.php:2772
+#: inc/SimpleHistory.php:2871
 msgctxt "Log level in gui"
 msgid "Info"
 msgstr "Information"
 
-#: inc/SimpleHistory.php:2768
+#: inc/SimpleHistory.php:2867
 msgctxt "Log level in gui"
 msgid "Notice"
 msgstr "Hinweis"
 
-#: inc/SimpleHistory.php:2764
+#: inc/SimpleHistory.php:2863
 msgctxt "Log level in gui"
 msgid "Warning"
 msgstr "Warnung"
 
-#: inc/SimpleHistory.php:2760
+#: inc/SimpleHistory.php:2859
 msgctxt "Log level in gui"
 msgid "Error"
 msgstr "Fehler"
 
-#: inc/SimpleHistory.php:2756
+#: inc/SimpleHistory.php:2855
 msgctxt "Log level in gui"
 msgid "Critical"
 msgstr "Kritisch"
 
-#: inc/SimpleHistory.php:2752
+#: inc/SimpleHistory.php:2851
 msgctxt "Log level in gui"
 msgid "Alert"
 msgstr "Alarm"
 
-#: inc/SimpleHistory.php:2748
+#: inc/SimpleHistory.php:2847
 msgctxt "Log level in gui"
 msgid "Emergency"
 msgstr "Notfall"
 
-#: inc/SimpleHistory.php:2743
+#: inc/SimpleHistory.php:2842
 msgctxt "Log level in gui"
 msgid "debug"
 msgstr "Fehlersuche"
 
-#: inc/SimpleHistory.php:2739
+#: inc/SimpleHistory.php:2838
 msgctxt "Log level in gui"
 msgid "info"
 msgstr "Information"
 
-#: inc/SimpleHistory.php:2735
+#: inc/SimpleHistory.php:2834
 msgctxt "Log level in gui"
 msgid "notice"
 msgstr "Hinweis"
 
-#: inc/SimpleHistory.php:2731
+#: inc/SimpleHistory.php:2830
 msgctxt "Log level in gui"
 msgid "warning"
 msgstr "Warnung"
 
-#: inc/SimpleHistory.php:2727
+#: inc/SimpleHistory.php:2826
 msgctxt "Log level in gui"
 msgid "error"
 msgstr "Fehler"
 
-#: inc/SimpleHistory.php:2723
+#: inc/SimpleHistory.php:2822
 msgctxt "Log level in gui"
 msgid "critical"
 msgstr "Kritisch"
 
-#: inc/SimpleHistory.php:2719
+#: inc/SimpleHistory.php:2818
 msgctxt "Log level in gui"
 msgid "alert"
 msgstr "Alarm"
 
-#: inc/SimpleHistory.php:2715
+#: inc/SimpleHistory.php:2814
 msgctxt "Log level in gui"
 msgid "emergency"
 msgstr "Notfall"
 
-#: inc/SimpleHistory.php:2483
+#: inc/SimpleHistory.php:2582
 msgid "This is potentially useful meta data that a logger has saved."
 msgstr "Dies sind potenziell nützliche Meta-Daten, die ein Logger abgespeichert hat."
 
-#: inc/SimpleHistory.php:2482
+#: inc/SimpleHistory.php:2581
 msgid "Context data"
 msgstr "Kontext-Daten"
 
-#: inc/SimpleHistory.php:2443
+#: inc/SimpleHistory.php:2542
 msgid "Showing %1$s more"
 msgstr "Zeige %1$s mehr"
 
-#: inc/SimpleHistory.php:2436
+#: inc/SimpleHistory.php:2535
 msgid "Loading…"
 msgstr "Lade …"
 
-#: inc/SimpleHistory.php:2429
+#: inc/SimpleHistory.php:2528
 msgid "+%1$s similar event"
 msgid_plural "+%1$s similar events"
 msgstr[0] "+%1$s gleichartiges Ereignis"
 msgstr[1] "+%1$s gleichartige Ereignisse"
 
-#: inc/SimpleHistory.php:2253
+#: inc/SimpleHistory.php:2352
 msgctxt "simple-history"
 msgid "Simple History removed one event that were older than {days} days"
 msgid_plural "Simple History removed {num_rows} events that were older than {days} days"
 msgstr[0] "Simple History hat 1 Ereignis entfernt, das älter als {days} Tage war"
 msgstr[1] "Simple History hat {num_rows} Ereignisse entfernt, die älter als {days} Tage waren"
 
-#: inc/SimpleHistory.php:2162
+#: inc/SimpleHistory.php:2261
 msgid "The log for Simple History was cleared ({num_rows} rows were removed)."
 msgstr "Das Log von Simple History wurde geleert ({num_rows} Zeilen wurden entfernt)."
 
-#: inc/SimpleHistory.php:2110
+#: inc/SimpleHistory.php:2209
 msgid "Clear log now"
 msgstr "Log jetzt leeren"
 
-#: inc/SimpleHistory.php:2106
+#: inc/SimpleHistory.php:2205
 msgid "Items in the database are kept forever."
 msgstr "Einträge in der Datenbank werden auf ewig behalten."
 
-#: inc/SimpleHistory.php:2104
+#: inc/SimpleHistory.php:2203
 msgid "Items in the database are automatically removed after %1$s days."
 msgstr "Einträge in der Datenbank werden nach %1$s Tagen automatisch entfernt."
 
-#: inc/SimpleHistory.php:2088
+#: inc/SimpleHistory.php:2187
 msgid "as a page under the dashboard menu"
 msgstr "als Eintrag im Menü „Dashboard“"
 
-#: inc/SimpleHistory.php:2083
+#: inc/SimpleHistory.php:2182
 msgid "on the dashboard"
 msgstr "auf dem Dashboard"
 
-#: inc/SimpleHistory.php:1954
+#: inc/SimpleHistory.php:2053
 msgctxt "history page headline"
 msgid "Simple History"
 msgstr "Simple History"
 
-#: inc/SimpleHistory.php:1918
+#: inc/SimpleHistory.php:2017
 msgid "Clear log"
 msgstr "Log leeren"
 
-#: inc/SimpleHistory.php:1879
+#: inc/SimpleHistory.php:1978
 msgid "Show history"
 msgstr "Zeige Log"
 
-#: inc/SimpleHistory.php:1852
+#: inc/SimpleHistory.php:1951
 msgid "Cleared database"
 msgstr "Datenbank geleert"
 
-#: inc/SimpleHistory.php:1813
+#: inc/SimpleHistory.php:1912
 msgctxt "dashboard menu name"
 msgid "Simple History"
 msgstr "Simple History"
 
-#: inc/SimpleHistory.php:1750
+#: inc/SimpleHistory.php:1849
 msgid "No valid callback found"
 msgstr "Kein valider <em>callback</em> gefunden"
 
-#: inc/SimpleHistory.php:1716 inc/SimpleHistory.php:1831
+#: inc/SimpleHistory.php:1815 inc/SimpleHistory.php:1930
 msgid "Simple History Settings"
 msgstr "Simple-History-Einstellungen"
 
-#: inc/SimpleHistory.php:1343
+#: inc/SimpleHistory.php:1442
 msgid "Your search did not match any history events."
 msgstr "Deine Suche erbrachte keine Übereinstimmungen mit Ereignissen."
 
-#: inc/SimpleHistory.php:1341
+#: inc/SimpleHistory.php:1440
 msgid "Oups, the log could not be loaded right now."
 msgstr "Hoppla, das Log konnte eben nicht geladen werden."
 
-#: inc/SimpleHistory.php:1339
+#: inc/SimpleHistory.php:1438
 msgid "Current page"
 msgstr "Aktuelle Seite"
 
-#: inc/SimpleHistory.php:1338
+#: inc/SimpleHistory.php:1437
 msgid "Go to the last page"
 msgstr "Gehe zur letzten Seite"
 
-#: inc/SimpleHistory.php:1337
+#: inc/SimpleHistory.php:1436
 msgid "Go to the next page"
 msgstr "Gehe zur nächsten Seite"
 
-#: inc/SimpleHistory.php:1336
+#: inc/SimpleHistory.php:1435
 msgid "Go to the previous page"
 msgstr "Gehe zur vorherigen Seite"
 
-#: inc/SimpleHistory.php:1335
+#: inc/SimpleHistory.php:1434
 msgid "Go to the first page"
 msgstr "Gehe zur ersten Seite"
 
-#: inc/SimpleHistory.php:1333
+#: inc/SimpleHistory.php:1432
 msgid "Remove all log items?"
 msgstr "Alle Einträge im Log entfernen?"
 
-#. #-#-#-#-#  tmp-simple-history.pot (Simple History 2.13)  #-#-#-#-#
+#. #-#-#-#-#  simple-history-code.pot (Simple History 2.17)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: inc/SimpleHistory.php:1257
+#: inc/SimpleHistory.php:1356
 msgid "Simple History"
 msgstr "Simple History"
 
-#: inc/SimpleHistory.php:821
+#: inc/SimpleHistory.php:911
 msgid "Styles example (debug)"
 msgstr "Stil-Beispiel (Fehlersuche)"
 
-#: inc/SimpleHistory.php:816
+#: inc/SimpleHistory.php:906
 msgid "Log (debug)"
 msgstr "Log (Fehlersuche)"
 
-#: inc/SimpleHistory.php:805 inc/SimpleHistory.php:1232
+#: dropins/SimpleHistorySidebarSettings.php:53 inc/SimpleHistory.php:895
+#: inc/SimpleHistory.php:1331
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: inc/SimpleHistory.php:626
+#: inc/SimpleHistory.php:716
 msgctxt "API: not enought arguments passed"
 msgid "Not enough args specified"
 msgstr "Nicht genügend Argumente angegeben"
 
-#: inc/SimpleHistory.php:574
+#: inc/SimpleHistory.php:664
 msgid "Sorry, but there are too many similar events to show."
 msgstr "Entschuldigung, aber hiervon gibt es zu viele gleichartige Ereignisse, um sie anzeigen zu können."
 
-#: inc/SimpleHistory.php:531
+#: inc/SimpleHistory.php:621
 msgctxt "page n of n"
 msgid "of"
 msgstr "von"
 
-#: inc/SimpleHistory.php:494
+#: inc/SimpleHistory.php:584
 msgctxt "Message visible while waiting for log to load from server the first time"
 msgid "Loading history..."
 msgstr "Lade Verlauf …"
@@ -1979,7 +2055,7 @@ msgstr "Plugin"
 msgid "Test data (debug)"
 msgstr "Testdaten (Fehlersuche)"
 
-#: dropins/SimpleHistoryRSSDropin.php:439
+#: dropins/SimpleHistoryRSSDropin.php:442
 msgid "Simple History has a RSS feed which you can subscribe to and receive log updates. Make sure you only share the feed with people you trust, since it can contain sensitive or confidential information."
 msgstr "Simple History hat einen RSS-Feed, den du abonnieren kannst, um Updates in der Logdatei zu empfangen. Stelle sicher, dass du den Feed nur Menschen deines Vertrauens zugänglich machst, denn er kann sensible und vertrauliche Informationen enthalten."
 
@@ -1987,51 +2063,51 @@ msgstr "Simple History hat einen RSS-Feed, den du abonnieren kannst, um Updates 
 msgid "Generate new address"
 msgstr "Neue Adresse erzeugen"
 
-#: dropins/SimpleHistoryRSSDropin.php:406
+#: dropins/SimpleHistoryRSSDropin.php:402
 msgid "You can generate a new address for the RSS feed. This is useful if you think that the address has fallen into the wrong hands."
 msgstr "Du kannst eine neue Adresse für den RSS-Feed erzeugen. Dies ist hilfreich, falls Du denkst, dass die Adresse in die falschen Hände geraten sein könnte."
 
-#: dropins/SimpleHistoryRSSDropin.php:355
+#: dropins/SimpleHistoryRSSDropin.php:352
 msgid "Your RSS secret for Simple History RSS feed is wrong. Please see WordPress settings for current link to the RSS feed."
 msgstr "Deine RSS-Geheimadresse für den Simple-History-RSS-Feed ist falsch. Bitte schaue in den WordPress-Einstellungen die aktuelle Adresse des RSS-Feeds nach."
 
-#: dropins/SimpleHistoryRSSDropin.php:354
+#: dropins/SimpleHistoryRSSDropin.php:351
 msgid "Wrong RSS secret"
 msgstr "Falsche RSS-Geheimadresse"
 
-#: dropins/SimpleHistoryRSSDropin.php:287
+#: dropins/SimpleHistoryRSSDropin.php:284
 msgid "+%1$s occasion"
 msgid_plural "+%1$s occasions"
 msgstr[0] "+%1$s Vorkommnis"
 msgstr[1] "+%1$s Vorkommnisse"
 
-#: dropins/SimpleHistoryRSSDropin.php:274
+#: dropins/SimpleHistoryRSSDropin.php:270
 msgid "Severity level: %1$s"
 msgstr "Schweregrad: %1$s"
 
-#: dropins/SimpleHistoryRSSDropin.php:222
-#: dropins/SimpleHistoryRSSDropin.php:351
+#: dropins/SimpleHistoryRSSDropin.php:215
+#: dropins/SimpleHistoryRSSDropin.php:348
 msgid "WordPress History for %s"
 msgstr "WordPress-Verlauf für %s"
 
-#: dropins/SimpleHistoryRSSDropin.php:221
-#: dropins/SimpleHistoryRSSDropin.php:350
+#: dropins/SimpleHistoryRSSDropin.php:214
+#: dropins/SimpleHistoryRSSDropin.php:347
 msgid "History for %s"
 msgstr "Verlauf für %s"
 
-#: dropins/SimpleHistoryRSSDropin.php:103
+#: dropins/SimpleHistoryRSSDropin.php:107
 msgid "Created new secret RSS address"
 msgstr "Neue RSS-Geheim-Adresse erzeugt"
 
-#: dropins/SimpleHistoryRSSDropin.php:84
+#: dropins/SimpleHistoryRSSDropin.php:89
 msgid "Regenerate"
 msgstr "Wiederherstellen"
 
-#: dropins/SimpleHistoryRSSDropin.php:75
+#: dropins/SimpleHistoryRSSDropin.php:80
 msgid "Address"
 msgstr "Adresse"
 
-#: dropins/SimpleHistoryRSSDropin.php:55
+#: dropins/SimpleHistoryRSSDropin.php:61
 msgctxt "rss settings headline"
 msgid "RSS feed"
 msgstr "RSS-Feed"
@@ -2047,38 +2123,38 @@ msgctxt "New rows notifier: error while checking for new rows"
 msgid "An error occured while checking for new events"
 msgstr "Während der Suche nach neuen Ereignissen ist ein Fehler aufgetreten"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:164
+#: dropins/SimpleHistoryIpInfoDropin.php:166
 msgctxt "IP Info Dropin"
 msgid "IP info provided by %1$s ipinfo.io %2$s"
 msgstr "IP-Info bereitgestellt durch %1$s ipinfo.io %2$s"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:153
+#: dropins/SimpleHistoryIpInfoDropin.php:155
 msgctxt "IP Info Dropin"
 msgid "Country"
 msgstr "Land"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:142
+#: dropins/SimpleHistoryIpInfoDropin.php:144
 msgctxt "IP Info Dropin"
 msgid "Region"
 msgstr "Region"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:131
+#: dropins/SimpleHistoryIpInfoDropin.php:133
 msgctxt "IP Info Dropin"
 msgid "City"
 msgstr "Stadt"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:109
-#: dropins/SimpleHistoryIpInfoDropin.php:120
+#: dropins/SimpleHistoryIpInfoDropin.php:111
+#: dropins/SimpleHistoryIpInfoDropin.php:122
 msgctxt "IP Info Dropin"
 msgid "Network"
 msgstr "Netzwerk"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:98
+#: dropins/SimpleHistoryIpInfoDropin.php:100
 msgctxt "IP Info Dropin"
 msgid "Hostname"
 msgstr "Hostname"
 
-#: dropins/SimpleHistoryIpInfoDropin.php:87
+#: dropins/SimpleHistoryIpInfoDropin.php:89
 msgctxt "IP Info Dropin"
 msgid "IP address"
 msgstr "IP-Adresse"

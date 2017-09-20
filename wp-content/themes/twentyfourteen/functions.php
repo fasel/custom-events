@@ -546,6 +546,20 @@ if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow
 	require get_template_directory() . '/inc/featured-content.php';
 }
 
+/**
+ * Add an `is_customize_preview` function if it is missing.
+ *
+ * Enables installing Twenty Fourteen in WordPress versions before 4.0.0 when the
+ * `is_customize_preview` function was introduced.
+ */
+if ( ! function_exists( 'is_customize_preview' ) ) :
+function is_customize_preview() {
+	global $wp_customize;
+
+	return ( $wp_customize instanceof WP_Customize_Manager ) && $wp_customize->is_preview();
+}
+endif;
+
 // custom
 remove_action( 'wp_head', 'feed_links', 2 );
 add_action('wp_head', 'addBackPostFeed');
